@@ -1,0 +1,56 @@
+@import '../../theme/variables';
+
+.buttongroup {
+  display: flex;
+  width: auto;
+  font-weight: 700;
+  font-size: .875rem;
+  flex: 0 1 auto;
+
+  label {
+    display: block;
+    flex: 0 1 auto;
+    text-align: center;
+    padding: .5em;
+    color: transparentize($info, .55);
+  }
+  
+  input {
+    position: absolute;
+    left: -999px;
+  }
+
+  input:checked + label {
+    color: $black;
+  }
+
+  .icon {
+    display: block;
+    margin: .5em auto;
+    font-size: 1.75em;
+  }
+}
+
+.unit {
+  display: block;
+  margin-bottom: spacer(.5);
+
+  .plural &:after {
+    content: 's'
+  }
+}
+
+.conversion {
+  margin-top: .5em;
+  display: block;  
+  
+  &:before {
+    content: "{";
+    margin-right: .1em;
+  } 
+
+  &:after {
+    content: "}";
+    margin-left: .1em;
+  }   
+}

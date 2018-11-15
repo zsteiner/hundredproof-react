@@ -1,0 +1,83 @@
+@import '../../theme/variables';
+
+.inputgroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: spacer(2);
+  
+  &:first-of-type {
+    margin-bottom: spacer(1);
+  }
+  
+  @include respond-to(large) {
+    justify-content: flex-start;
+  }
+}
+
+.input {
+  margin: 0 spacer(1);
+  font-size: 2em;
+}
+
+.measureHeader {
+  padding: spacer(2) 0;
+  
+  @include respond-to(large) {
+    display: flex;
+    justify-content: space-around;    
+  }
+}
+
+.measureButtons {
+  width: 100%;
+  max-width: 30rem;
+  margin: auto;
+}
+
+.results {            
+  font-size: 1.25rem;
+  
+  &Group, 
+  &Divider {
+    margin-bottom: 1em;
+  }
+  
+  &Text {
+    margin: .5em 0;
+  }
+  
+  &Group {
+    font-size: 1.25rem;
+    
+    .unit {
+      font-weight: 700;
+    }
+  }
+  
+  &Number {
+    font-weight: 700;
+  }
+  
+  &Divider {
+    text-transform: uppercase;
+    font-size: .75em;
+
+    &:before, 
+    &:after {
+        content: " - ";
+    }
+  }
+}
+
+.plural::after {
+  content: 's';
+}
+
+.submitButton {
+  display: block;
+  width: 100%;
+  max-width: 15rem;
+  margin: spacer(2) auto spacer(1);
+  font-size: 1.125em;
+}

@@ -1,0 +1,14 @@
+@import '../../theme/variables';
+
+.picker {
+  font-size: 2em;
+  display: flex;
+  justify-content: space-between;
+  max-width: $large-width;
+  margin: spacer(3) auto;
+  
+  &Item {
+    text-decoration: none;
+    color: $default;
+  }
+}

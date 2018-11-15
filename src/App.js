@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route } from 'react-router-dom';
+
+import Dilute from './pages/Dilute/Dilute';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import IconSet from './components/IconSet/IconSet';
+import Picker from './pages/Picker/Picker';
+import Scale from './pages/Scale/Scale';
+
+import styles from './App.module.scss';
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    return [
+      <IconSet key='0' />,
+      <div className={styles.pagewrap} key='1'>
+        <Header />
+        <Route exact path="/" component={Picker} />
+        <Route exact path="/dilute" component={Dilute} />
+        <Route exact path="/scale" component={Scale} />
+      </div>,
+      <Footer key='2' />
+    ];
   }
 }
 

@@ -1,0 +1,13 @@
+@import '../../theme/variables';
+
+.button {
+  border: $border-match-color;
+  background: none;
+  padding: .5em;
+  border-radius: 0;
+  color: $default;
+}
+
+.disabled {
+  opacity: .4;
+}

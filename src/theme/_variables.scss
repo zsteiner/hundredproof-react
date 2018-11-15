@@ -1,0 +1,24 @@
+$spacer-unit: 1rem;
+@import 'functions';
+
+$primary: #F6921E;
+$default: #3E2508;
+$info: #6A664C; 
+$black: #1F1304;
+$white: #FFF1E2;
+
+// Typography
+$font-family-serif: Lora, Georgia, Times, serif;
+$font-family-heading: Raleway, -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-script: Homemade Apple, -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+// Sizes
+$large-width: 58rem;
+$ex-large-width: 70rem;
+$footer-size: 6em;
+
+//Card Borders
+$border-width: .0625rem;
+$border-match-color: $border-width solid currentColor;
+
+@import 'mixins';
