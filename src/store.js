@@ -1,4 +1,4 @@
-import { createStore, compose } from 'redux'
+import { combineReducers, createStore, compose } from 'redux'
 import createHistory from 'history/createBrowserHistory'
 import rootReducer from './modules'
 import hundredProofTools from './reducers'
@@ -20,11 +20,13 @@ const composedEnhancers = compose(
   ...enhancers
 )
 
-const store = createStore(
-  rootReducer,
+const reducers = combineReducers(  rootReducer,
   initialState,
   composedEnhancers,
   hundredProofTools
 )
+
+const store = createStore(
+reducers)
 
 export default store;

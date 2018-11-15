@@ -6,9 +6,9 @@ const ozToCups = 8;
 const ozToJigger = 1.5;
 
 function convert(amount, unit) {
-  if (unit === "cup") {
+  if (unit === 'cup') {
     amount = amount * ozToCups
-  } else if (unit === "jigger") {
+  } else if (unit === 'jigger') {
     amount = amount * ozToJigger
   }
   
