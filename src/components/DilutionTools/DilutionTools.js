@@ -45,6 +45,7 @@ class DilutionTools extends Component {
       startingABV: startingABV,
       showResults: true,
       translatedUnit: defaults.translatedUnit,
+      finalAmountSpiritTranslated: 1.5,
       updateResults: this.updateResults,
       unit: defaults.unit,
       volume: defaults.volume
@@ -80,16 +81,17 @@ class DilutionTools extends Component {
     );
 
     this.setState({
-      resultsOz: dilutionResults.resultsOz,
-      resultsSpirit: dilutionResults.resultsSpirit,
-      resultsTranslated: dilutionResults.resultsTranslated,
-      translatedUnit: dilutionResults.translatedUnit,
       displayResults: dilutionResults.displayResults,
       displayUnits: dilutionResults.displayUnits,
       displayMeasure: desiredABV,
       displayMeasureUnit: measure,
       finalAmountSpirit: dilutionResults.finalAmountSpirit,
-      showResults: true
+      finalAmountSpiritTranslated: dilutionResults.finalAmountSpiritTranslated,
+      resultsOz: dilutionResults.resultsOz,
+      resultsSpirit: dilutionResults.resultsSpirit,
+      resultsTranslated: dilutionResults.resultsTranslated,
+      showResults: true,
+      translatedUnit: dilutionResults.translatedUnit
     });
   };
 

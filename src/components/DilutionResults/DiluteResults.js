@@ -83,20 +83,26 @@ class DiluteResults extends Component {
                     </React.Fragment>
                   ) : null}
                 </div>
-                {!isVolEnd ? (
-                  <React.Fragment>
-                    <p className={styles.resultsDivider}>or about</p>
-                    <div>
-                      <span className={styles.resultsNumber}>
-                        {resultsTranslated}
-                      </span>{' '}
-                      <span className={translatedClasses}>
-                        {translatedUnit}
-                      </span>
-                    </div>
-                    <p className={styles.resultsText}>of water.</p>
-                  </React.Fragment>
-                ) : null}
+                <p className={styles.resultsDivider}>or about</p>
+                <div>
+                  <span className={styles.resultsNumber}>
+                    {resultsTranslated}
+                  </span>{' '}
+                  <span className={translatedClasses}>{translatedUnit}</span>
+                  <span> water</span>
+                  {isVolEnd ? (
+                    <React.Fragment>
+                      <span> to </span>
+                      <p>
+                        <span className={styles.resultsNumber}>
+                          {context.finalAmountSpiritTranslated}{' '}
+                        </span>
+                        <span className={spiritClasses}>{translatedUnit}</span>{' '}
+                        of spirits
+                      </p>
+                    </React.Fragment>
+                  ) : null}
+                </div>
               </div>
             </div>
             <h3 className="hp-heading">To Make</h3>

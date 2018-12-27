@@ -27,6 +27,14 @@ function endDilute(amount, desiredABV, startingABV) {
   return amount - amount * (desiredABV / startingABV);
 }
 
+function convertCups(amount) {
+  return round(amount / ozToCups, 2);
+}
+
+function convertTeaspoons(amount) {
+  return round(amount / ozToTeaspoons, 2);
+}
+
 export function dilute(amount, desiredABV, startingABV, unit, volume) {
   amount = setZero(Number(amount));
   desiredABV = setZero(Number(desiredABV));
@@ -42,24 +50,27 @@ export function dilute(amount, desiredABV, startingABV, unit, volume) {
     amountWaterOz = startDilute(amount, desiredABV, startingABV);
   }
 
-  const amountWaterTeaspoon = round(amountWaterOz / ozToTeaspoons, 2);
-  const amountWaterCups = round(amountWaterOz / ozToCups, 2);
-
   const useCups = amountWaterOz >= 2;
 
   const resultsOz = round(amountWaterOz, 2);
-  const resultsTranslated = useCups ? amountWaterCups : amountWaterTeaspoon;
+  const resultsTranslated = useCups
+    ? convertCups(amountWaterOz)
+    : convertTeaspoons(amountWaterOz);
   const translatedUnit = useCups ? 'cup' : 'teaspoon';
 
   const isCups = unit === 'cup';
   const isVolEnd = volume === 'end';
   const finalAmount = isVolEnd ? amount : amount + resultsOz;
   const finalAmountSpirit = amount - resultsOz;
+  const finalAmountSpiritTranslated = useCups
+    ? convertCups(finalAmountSpirit)
+    : convertTeaspoons(finalAmountSpirit);
   const displayUnits = isCups ? 'cup' : 'ounce';
   const displayResults = isCups ? finalAmount / ozToCups : finalAmount;
 
   const results = {
     finalAmountSpirit,
+    finalAmountSpiritTranslated,
     resultsOz,
     displayUnits,
     displayResults,
