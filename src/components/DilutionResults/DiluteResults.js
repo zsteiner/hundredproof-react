@@ -65,7 +65,9 @@ class DiluteResults extends Component {
       <DilutionContext.Consumer>
         {context => (
           <React.Fragment>
-            <h3 className="hp-heading">You Should Add...</h3>
+            <h3 className="hp-heading">
+              You Should {isVolEnd ? 'Combine' : 'Add'} ...
+            </h3>
             <div className={styles.results}>
               <div className={styles.resultsGroup}>
                 <div>
@@ -73,7 +75,7 @@ class DiluteResults extends Component {
                   <span className={ozClasses}>ounce</span> water
                   {isVolEnd ? (
                     <React.Fragment>
-                      <span> to </span>
+                      <span> + </span>
                       <p>
                         <span className={styles.resultsNumber}>
                           {finalAmountSpirit}{' '}
@@ -92,7 +94,7 @@ class DiluteResults extends Component {
                   <span> water</span>
                   {isVolEnd ? (
                     <React.Fragment>
-                      <span> to </span>
+                      <span> + </span>
                       <p>
                         <span className={styles.resultsNumber}>
                           {context.finalAmountSpiritTranslated}{' '}

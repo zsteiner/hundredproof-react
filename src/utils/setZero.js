@@ -1,4 +1,4 @@
-export function setZero(value) {
+export default function setZero(value) {
   if (isNaN(value)) {
     value = 0;
   }

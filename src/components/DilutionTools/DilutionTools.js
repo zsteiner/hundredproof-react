@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
 
-import { convertABV, dilute } from './DilutionFunctions';
+import dilute from '../../utils/dilute';
+import convertABV from '../../utils/convertABV';
 
 import AmountSelector from '../AmountSelector/AmountSelector';
 import DiluteResults from '../DilutionResults/DiluteResults';
