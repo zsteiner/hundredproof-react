@@ -36,16 +36,6 @@ class DiluteResults extends Component {
       volume
     } = this.context;
 
-    const ozClasses = classNames({
-      [styles.unit]: true,
-      [styles.plural]: resultsOz !== 1
-    });
-
-    const translatedClasses = classNames({
-      [styles.unit]: true,
-      [styles.plural]: resultsTranslated !== 1
-    });
-
     const originalClasses = classNames({
       [styles.unit]: true,
       [styles.plural]: displayResults !== 1
