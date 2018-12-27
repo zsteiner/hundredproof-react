@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
 
-import { dilute } from './DilutionFunctions';
+import { convertABV, dilute } from './DilutionFunctions';
 
 import Button from '../Button/Button';
 import DiluteResults from './DiluteResults';
@@ -76,10 +76,6 @@ class DilutionTools extends Component {
     }
   };
 
-  convertABV(measure, value) {
-    return measure === 'proof' ? value * 2 : value / 2;
-  }
-
   checkForError(value, code) {
     if (isNaN(value) || value === '') {
       this.setState({
@@ -112,9 +108,9 @@ class DilutionTools extends Component {
 
     this.setState({
       measure: measure,
-      desiredABV: this.convertABV(measure, desiredABV),
-      startingABV: this.convertABV(measure, startingABV),
-      displayMeasure: this.convertABV(measure, displayMeasure),
+      desiredABV: convertABV(measure, desiredABV),
+      startingABV: convertABV(measure, startingABV),
+      displayMeasure: convertABV(measure, displayMeasure),
       displayMeasureUnit: measure
     });
   };

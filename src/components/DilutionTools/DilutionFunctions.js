@@ -5,6 +5,10 @@ const ozToTeaspoons = 0.1666666666666667;
 const ozToCups = 8;
 const ozToJigger = 1.5;
 
+export function convertABV(measure, value) {
+  return measure === 'proof' ? value * 2 : value / 2;
+}
+
 function convert(amount, unit) {
   if (unit === 'cup') {
     amount = amount * ozToCups;
