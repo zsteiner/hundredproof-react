@@ -1,37 +1,40 @@
-@import '../../theme/variables';
+@import "../../theme/variables";
 
 .input {
   background: none;
-  font-size: 1.25em;
   width: 1.5em;
   border: 0;
   color: $info;
-  border-bottom: .15rem dashed $info;
+  border-bottom: 0.15rem dashed $info;
   text-align: center;
-  line-height: .5;
-  font-family: $font-family-script; 
-  
+  line-height: 0.5;
+  font-family: $font-family-script;
+  margin: 0 spacer(1);
+  padding: 0;
+  font-size: 2em;
+  align-self: center;
+
   &Autosize {
     width: auto;
   }
-  
+
   input {
     border: 0;
     text-align: inherit;
-    
+
     &:focus {
       outline: none;
     }
   }
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  appearance: none; 
-  margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 
-input[type='number'] {
-  -moz-appearance:textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
 }

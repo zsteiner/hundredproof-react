@@ -6,13 +6,10 @@ import { DilutionContext } from '../../contexts/DilutionContext';
 import { convertABV, dilute } from './DilutionFunctions';
 
 import AmountSelector from '../AmountSelector/AmountSelector';
-import Button from '../Button/Button';
-import DiluteResults from './DiluteResults';
+import DiluteResults from '../DilutionResults/DiluteResults';
+import DilutionValues from '../DilutionValues/DilutionValues';
 import Errors from '../Errors/Errors';
-import InputGroup from './InputGroup';
 import MeasureHeader from '../MeasureHeader/MeasureHeader';
-
-import styles from './DilutionTools.module.scss';
 
 class DilutionTools extends Component {
   constructor(props) {
@@ -88,6 +85,10 @@ class DilutionTools extends Component {
       volume: 'start'
     }
   };
+
+  componentDidMount() {
+    this.updateResults();
+  }
 
   checkForError(value, code) {
     if (isNaN(value) || value === '') {
@@ -199,9 +200,7 @@ class DilutionTools extends Component {
   };
 
   render() {
-    const { desiredABV, measure, showResults, startingABV } = this.state;
-
-    const isError = this.state.error ? true : false;
+    const { error, showResults } = this.state;
 
     return (
       <DilutionContext.Provider value={this.state}>
@@ -210,30 +209,11 @@ class DilutionTools extends Component {
           <div className="hp-app__col">
             <h3 className="hp-heading">Starting with ... </h3>
             <AmountSelector />
-            <form onSubmit={this.updateResults}>
-              <InputGroup
-                onChange={this.setStartingABV}
-                measure={measure}
-                text="Starting at"
-                value={startingABV}
-              />
-              <InputGroup
-                onChange={this.setDesiredABV}
-                measure={measure}
-                text="I want to end with"
-                value={desiredABV}
-              />
-              <Button
-                onClick={this.updateResults}
-                text="Update"
-                className={styles.submitButton}
-                disabled={isError}
-              />
-            </form>
+            <DilutionValues />
             <Errors errorCode={this.state.error} />
           </div>
           <div className="hp-app__col">
-            {!isError && showResults ? <DiluteResults /> : null}
+            {!error && showResults ? <DiluteResults /> : null}
           </div>
         </section>
       </DilutionContext.Provider>

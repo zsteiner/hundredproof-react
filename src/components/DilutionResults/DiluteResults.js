@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
 
-import styles from './DilutionTools.module.scss';
+import styles from './DilutionResults.module.scss';
 
 class DiluteResults extends Component {
   static contextType = DilutionContext;
