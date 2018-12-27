@@ -66,37 +66,33 @@ class DiluteResults extends Component {
             </h3>
             <div className={styles.results}>
               <div className={styles.resultsGroup}>
-                <div>
+                <DilutionResultsBlock
+                  amount={resultsOz}
+                  unit="ounce"
+                  liquid="water"
+                />
+                {isVolEnd ? (
                   <DilutionResultsBlock
-                    amount={resultsOz}
+                    amount={finalAmountSpirit}
                     unit="ounce"
-                    liquid="water"
+                    liquid="spirits"
+                    showPlus
                   />
-                  {isVolEnd ? (
-                    <DilutionResultsBlock
-                      amount={finalAmountSpirit}
-                      unit="ounce"
-                      liquid="spirits"
-                      showPlus
-                    />
-                  ) : null}
-                </div>
+                ) : null}
                 <p className={styles.resultsDivider}>or about</p>
-                <div>
+                <DilutionResultsBlock
+                  amount={resultsTranslated}
+                  unit={translatedUnit}
+                  liquid="water"
+                />
+                {isVolEnd ? (
                   <DilutionResultsBlock
-                    amount={resultsTranslated}
+                    amount={context.finalAmountSpiritTranslated}
                     unit={translatedUnit}
-                    liquid="water"
+                    liquid="spirits"
+                    showPlus
                   />
-                  {isVolEnd ? (
-                    <DilutionResultsBlock
-                      amount={context.finalAmountSpiritTranslated}
-                      unit={translatedUnit}
-                      liquid="spirits"
-                      showPlus
-                    />
-                  ) : null}
-                </div>
+                ) : null}
               </div>
             </div>
             <h3 className="hp-heading">To Make</h3>

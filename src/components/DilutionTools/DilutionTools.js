@@ -71,8 +71,6 @@ class DilutionTools extends Component {
       volume
     } = this.state;
 
-    console.log('updateResults volume', volume);
-
     const dilutionResults = dilute(
       amount,
       desiredABV,
