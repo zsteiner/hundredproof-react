@@ -10,10 +10,10 @@ import DiluteResults from './DiluteResults';
 import Errors from '../Errors/Errors';
 import Input from '../Input/Input';
 import InputGroup from './InputGroup';
-import SegmentedButton from '../SegmentedButton/SegmentedButton';
 import UnitSelect from '../UnitSelect/UnitSelect';
 
 import styles from './DilutionTools.module.scss';
+import MeasureHeader from '../MeasureHeader/MeasureHeader';
 
 class DilutionTools extends Component {
   constructor(props) {
@@ -203,102 +203,57 @@ class DilutionTools extends Component {
       startingABV
     } = this.state;
 
-    const measureOptions = [
-      {
-        label: 'ABV',
-        value: 'abv'
-      },
-      {
-        label: 'Proof',
-        value: 'proof',
-        default: true
-      }
-    ];
-
-    const volumeOptions = [
-      {
-        label: 'End Amount',
-        value: 'end'
-      },
-      {
-        label: 'Start Amount',
-        value: 'start',
-        default: true
-      }
-    ];
-
     const isError = this.state.error ? true : false;
 
-    return [
-      <section className={`${styles.measureHeader} hp-section`} key="0">
-        <div>
-          <h4 className="hp-heading">I want to set my:</h4>
-          <SegmentedButton
-            name="volume"
-            options={volumeOptions}
-            onChange={this.setVolume}
-            className={styles.measureButtons}
-          />
-        </div>
-        <div>
-          <h4 className="hp-heading">Working with:</h4>
-          <SegmentedButton
-            name="measure"
-            options={measureOptions}
-            onChange={this.setMeasure}
-            className={styles.measureButtons}
-          />
-        </div>
-      </section>,
-      <section className="hp-section hp-app__row" key="1">
-        <div className="hp-app__col">
-          <h3 className="hp-heading">Starting with ... </h3>
-          <div className={styles.inputgroup}>
-            <p>I have</p>
-            <Input
-              autoFocus
-              autoSize
-              className={styles.input}
-              onChange={this.setAmount}
-              type="number"
-              value={amount}
-            />
-            <UnitSelect
-              amount={amount ? parseInt(amount, 10) : 0}
-              setUnits={this.setUnits}
-            />
+    return (
+      <DilutionContext.Provider value={this.state}>
+        <MeasureHeader />
+        <section className="hp-section hp-app__row">
+          <div className="hp-app__col">
+            <h3 className="hp-heading">Starting with ... </h3>
+            <div className={styles.inputgroup}>
+              <p>I have</p>
+              <Input
+                autoFocus
+                autoSize
+                className={styles.input}
+                onChange={this.setAmount}
+                type="number"
+                value={amount}
+              />
+              <UnitSelect
+                amount={amount ? parseInt(amount, 10) : 0}
+                setUnits={this.setUnits}
+              />
+            </div>
+            <form onSubmit={this.updateResults}>
+              <InputGroup
+                onChange={this.setStartingABV}
+                measure={measure}
+                text="Starting at"
+                value={startingABV}
+              />
+              <InputGroup
+                onChange={this.setDesiredABV}
+                measure={measure}
+                text="I want to end with"
+                value={desiredABV}
+              />
+              <Button
+                onClick={this.updateResults}
+                text="Update"
+                className={styles.submitButton}
+                disabled={isError}
+              />
+              <Errors errorCode={this.state.error} />
+            </form>
           </div>
-          <form onSubmit={this.updateResults}>
-            <InputGroup
-              onChange={this.setStartingABV}
-              measure={measure}
-              text="Starting at"
-              value={startingABV}
-            />
-            <InputGroup
-              onChange={this.setDesiredABV}
-              measure={measure}
-              text="I want to end with"
-              value={desiredABV}
-            />
-            <Button
-              onClick={this.updateResults}
-              text="Update"
-              className={styles.submitButton}
-              disabled={isError}
-            />
-            <Errors errorCode={this.state.error} />
-          </form>
-        </div>
-        <div className="hp-app__col">
-          {!isError && showResults ? (
-            <DilutionContext.Provider value={this.state}>
-              <DiluteResults />
-            </DilutionContext.Provider>
-          ) : null}
-        </div>
-      </section>
-    ];
+          <div className="hp-app__col">
+            {!isError && showResults ? <DiluteResults /> : null}
+          </div>
+        </section>
+      </DilutionContext.Provider>
+    );
   }
 }
 

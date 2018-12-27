@@ -1,0 +1,14 @@
+.measureHeader {
+  padding: spacer(2) 0;
+
+  @include respond-to(large) {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.measureButtons {
+  width: 100%;
+  max-width: 30rem;
+  margin: auto;
+}

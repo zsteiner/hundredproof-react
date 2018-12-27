@@ -1,15 +1,15 @@
-@import '../../theme/variables';
+@import "../../theme/variables";
 
 .inputgroup {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: spacer(2);
-  
+
   &:first-of-type {
     margin-bottom: spacer(1);
   }
-  
+
   @include respond-to(large) {
     justify-content: flex-start;
   }
@@ -20,58 +20,43 @@
   font-size: 2em;
 }
 
-.measureHeader {
-  padding: spacer(2) 0;
-  
-  @include respond-to(large) {
-    display: flex;
-    justify-content: space-around;    
-  }
-}
-
-.measureButtons {
-  width: 100%;
-  max-width: 30rem;
-  margin: auto;
-}
-
-.results {            
+.results {
   font-size: 1.25rem;
-  
-  &Group, 
+
+  &Group,
   &Divider {
     margin-bottom: 1em;
   }
-  
+
   &Text {
-    margin: .5em 0;
+    margin: 0.5em 0;
   }
-  
+
   &Group {
     font-size: 1.25rem;
-    
+
     .unit {
       font-weight: 700;
     }
   }
-  
+
   &Number {
     font-weight: 700;
   }
-  
+
   &Divider {
     text-transform: uppercase;
-    font-size: .75em;
+    font-size: 0.75em;
 
-    &:before, 
+    &:before,
     &:after {
-        content: " - ";
+      content: " - ";
     }
   }
 }
 
 .plural::after {
-  content: 's';
+  content: "s";
 }
 
 .submitButton {
