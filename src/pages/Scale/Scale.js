@@ -3,17 +3,15 @@ import PropTypes from 'prop-types';
 
 import Subheader from '../../components/Header/Subheader';
 
-// import styles from './Scale.module.scss';
-
 class Scale extends Component {
   static propTypes = {
-    prop: PropTypes.string,
+    prop: PropTypes.string
   };
 
   render() {
     return (
       <Subheader>
-        <p>Scaling!</p>
+        <p>Scaling</p>
       </Subheader>
     );
   }
