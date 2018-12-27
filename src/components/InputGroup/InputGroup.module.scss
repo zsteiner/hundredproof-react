@@ -6,10 +6,6 @@
   justify-content: center;
   margin-bottom: spacer(2);
 
-  &:first-of-type {
-    margin-bottom: spacer(1);
-  }
-
   @include respond-to(large) {
     justify-content: flex-start;
   }

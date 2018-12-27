@@ -1,7 +1,7 @@
 @import "../../theme/variables";
 
-.inputgroup {
-  display: flex;
+.amount {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-bottom: spacer(2);
@@ -12,5 +12,9 @@
 
   @include respond-to(large) {
     justify-content: flex-start;
+  }
+
+  &Amount {
+    flex: 1 0 auto;
   }
 }

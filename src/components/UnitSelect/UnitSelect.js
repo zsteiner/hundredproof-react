@@ -8,7 +8,7 @@ import styles from './UnitSelect.module.scss';
 
 const UnitSelect = ({ amount, setUnits }) => {
   const unitClasses = classNames({
-    [styles.units]: true,
+    [styles.unit]: true,
     [styles.plural]: amount !== 1
   });
 
