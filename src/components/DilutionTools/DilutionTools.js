@@ -155,11 +155,13 @@ class DilutionTools extends Component {
     });
   };
 
-  updateResults = () => {
+  updateResults = event => {
+    event.preventDefault();
+
     const {
       amount,
-      measure,
       desiredABV,
+      measure,
       startingABV,
       unit,
       volume
@@ -173,20 +175,13 @@ class DilutionTools extends Component {
       volume
     );
 
-    const resultsSpirit = dilutionResults[1];
-    const resultsOz = dilutionResults[2];
-    const displayUnits = dilutionResults[3];
-    const displayResults = dilutionResults[4];
-    const resultsTranslated = dilutionResults[5];
-    const translatedUnit = dilutionResults[6];
-
     this.setState({
-      resultsOz: resultsOz,
-      resultsSpirit: resultsSpirit,
-      resultsTranslated: resultsTranslated,
-      translatedUnit: translatedUnit,
-      displayResults: displayResults,
-      displayUnits: displayUnits,
+      resultsOz: dilutionResults.resultsOz,
+      resultsSpirit: dilutionResults.resultsSpirit,
+      resultsTranslated: dilutionResults.resultsTranslated,
+      translatedUnit: dilutionResults.translatedUnit,
+      displayResults: dilutionResults.displayResults,
+      displayUnits: dilutionResults.displayUnits,
       displayMeasure: desiredABV,
       displayMeasureUnit: measure,
       showResults: true
@@ -267,25 +262,27 @@ class DilutionTools extends Component {
               setUnits={this.setUnits}
             />
           </div>
-          <InputGroup
-            onChange={this.setStartingABV}
-            measure={measure}
-            text="Starting at"
-            value={startingABV}
-          />
-          <InputGroup
-            onChange={this.setDesiredABV}
-            measure={measure}
-            text="I want to end with"
-            value={desiredABV}
-          />
-          <Button
-            onClick={this.updateResults}
-            text="Update"
-            className={styles.submitButton}
-            disabled={isError}
-          />
-          <Errors errorCode={this.state.error} />
+          <form onSubmit={this.updateResults}>
+            <InputGroup
+              onChange={this.setStartingABV}
+              measure={measure}
+              text="Starting at"
+              value={startingABV}
+            />
+            <InputGroup
+              onChange={this.setDesiredABV}
+              measure={measure}
+              text="I want to end with"
+              value={desiredABV}
+            />
+            <Button
+              onClick={this.updateResults}
+              text="Update"
+              className={styles.submitButton}
+              disabled={isError}
+            />
+            <Errors errorCode={this.state.error} />
+          </form>
         </div>
         <div className="hp-app__col">
           {!isError && showResults ? (
