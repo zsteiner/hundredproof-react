@@ -1,0 +1,21 @@
+@import "../../theme/variables";
+
+.inputgroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: spacer(2);
+
+  &:first-of-type {
+    margin-bottom: spacer(1);
+  }
+
+  @include respond-to(large) {
+    justify-content: flex-start;
+  }
+}
+
+.input {
+  margin: 0 spacer(1);
+  font-size: 2em;
+}

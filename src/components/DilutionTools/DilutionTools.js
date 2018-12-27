@@ -5,15 +5,14 @@ import { DilutionContext } from '../../contexts/DilutionContext';
 
 import { convertABV, dilute } from './DilutionFunctions';
 
+import AmountSelector from '../AmountSelector/AmountSelector';
 import Button from '../Button/Button';
 import DiluteResults from './DiluteResults';
 import Errors from '../Errors/Errors';
-import Input from '../Input/Input';
 import InputGroup from './InputGroup';
-import UnitSelect from '../UnitSelect/UnitSelect';
+import MeasureHeader from '../MeasureHeader/MeasureHeader';
 
 import styles from './DilutionTools.module.scss';
-import MeasureHeader from '../MeasureHeader/MeasureHeader';
 
 class DilutionTools extends Component {
   constructor(props) {
@@ -140,9 +139,12 @@ class DilutionTools extends Component {
   setUnits = event => {
     const unit = event.target.value;
 
-    this.setState({
-      unit: unit
-    });
+    this.setState(
+      {
+        unit: unit
+      },
+      this.updateResults
+    );
   };
 
   setStartingABV = event => {
@@ -162,7 +164,9 @@ class DilutionTools extends Component {
   };
 
   updateResults = event => {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
 
     const {
       amount,
@@ -195,13 +199,7 @@ class DilutionTools extends Component {
   };
 
   render() {
-    const {
-      amount,
-      desiredABV,
-      measure,
-      showResults,
-      startingABV
-    } = this.state;
+    const { desiredABV, measure, showResults, startingABV } = this.state;
 
     const isError = this.state.error ? true : false;
 
@@ -211,21 +209,7 @@ class DilutionTools extends Component {
         <section className="hp-section hp-app__row">
           <div className="hp-app__col">
             <h3 className="hp-heading">Starting with ... </h3>
-            <div className={styles.inputgroup}>
-              <p>I have</p>
-              <Input
-                autoFocus
-                autoSize
-                className={styles.input}
-                onChange={this.setAmount}
-                type="number"
-                value={amount}
-              />
-              <UnitSelect
-                amount={amount ? parseInt(amount, 10) : 0}
-                setUnits={this.setUnits}
-              />
-            </div>
+            <AmountSelector />
             <form onSubmit={this.updateResults}>
               <InputGroup
                 onChange={this.setStartingABV}
@@ -245,8 +229,8 @@ class DilutionTools extends Component {
                 className={styles.submitButton}
                 disabled={isError}
               />
-              <Errors errorCode={this.state.error} />
             </form>
+            <Errors errorCode={this.state.error} />
           </div>
           <div className="hp-app__col">
             {!isError && showResults ? <DiluteResults /> : null}

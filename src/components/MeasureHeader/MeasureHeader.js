@@ -34,13 +34,13 @@ const MeasureHeader = () => {
   return (
     <DilutionContext.Consumer>
       {context => (
-        <section className={`${styles.measureHeader} hp-section`} key="0">
+        <section className={`${styles.measureHeader} hp-section`}>
           <div>
             <h4 className="hp-heading">I want to set my:</h4>
             <SegmentedButton
               name="volume"
               options={volumeOptions}
-              onChange={this.setVolume}
+              onChange={context.setVolume}
               className={styles.measureButtons}
             />
           </div>
@@ -49,7 +49,7 @@ const MeasureHeader = () => {
             <SegmentedButton
               name="measure"
               options={measureOptions}
-              onChange={this.setMeasure}
+              onChange={context.setMeasure}
               className={styles.measureButtons}
             />
           </div>
