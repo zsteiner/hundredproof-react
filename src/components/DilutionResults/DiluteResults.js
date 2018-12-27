@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { DilutionContext } from '../../contexts/DilutionContext';
 
 import styles from './DilutionResults.module.scss';
+import DilutionResultsBlock from '../DilutionResultsBlock/DilutionResultsBlock';
 
 class DiluteResults extends Component {
   static contextType = DilutionContext;
@@ -40,11 +41,6 @@ class DiluteResults extends Component {
       [styles.plural]: resultsOz !== 1
     });
 
-    const spiritClasses = classNames({
-      [styles.unit]: true,
-      [styles.plural]: finalAmountSpirit !== 1
-    });
-
     const translatedClasses = classNames({
       [styles.unit]: true,
       [styles.plural]: resultsTranslated !== 1
@@ -71,38 +67,34 @@ class DiluteResults extends Component {
             <div className={styles.results}>
               <div className={styles.resultsGroup}>
                 <div>
-                  <span className={styles.resultsNumber}>{resultsOz}</span>{' '}
-                  <span className={ozClasses}>ounce</span> water
+                  <DilutionResultsBlock
+                    amount={resultsOz}
+                    unit="ounce"
+                    liquid="water"
+                  />
                   {isVolEnd ? (
-                    <React.Fragment>
-                      <span> + </span>
-                      <p>
-                        <span className={styles.resultsNumber}>
-                          {finalAmountSpirit}{' '}
-                        </span>
-                        <span className={spiritClasses}>ounce</span> of spirits
-                      </p>
-                    </React.Fragment>
+                    <DilutionResultsBlock
+                      amount={finalAmountSpirit}
+                      unit="ounce"
+                      liquid="spirits"
+                      showPlus
+                    />
                   ) : null}
                 </div>
                 <p className={styles.resultsDivider}>or about</p>
                 <div>
-                  <span className={styles.resultsNumber}>
-                    {resultsTranslated}
-                  </span>{' '}
-                  <span className={translatedClasses}>{translatedUnit}</span>
-                  <span> water</span>
+                  <DilutionResultsBlock
+                    amount={resultsTranslated}
+                    unit={translatedUnit}
+                    liquid="water"
+                  />
                   {isVolEnd ? (
-                    <React.Fragment>
-                      <span> + </span>
-                      <p>
-                        <span className={styles.resultsNumber}>
-                          {context.finalAmountSpiritTranslated}{' '}
-                        </span>
-                        <span className={spiritClasses}>{translatedUnit}</span>{' '}
-                        of spirits
-                      </p>
-                    </React.Fragment>
+                    <DilutionResultsBlock
+                      amount={context.finalAmountSpiritTranslated}
+                      unit={translatedUnit}
+                      liquid="spirits"
+                      showPlus
+                    />
                   ) : null}
                 </div>
               </div>
