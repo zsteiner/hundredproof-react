@@ -19,26 +19,40 @@ class DilutionTools extends Component {
   constructor(props) {
     super(props);
 
-    const measure = this.props.measure;
-    const startingABV = measure === 'abv' ? 50 : 100;
-    const desiredABV = measure === 'abv' ? 40 : 80;
+    const defaults = {
+      displayUnits: 'ounce',
+      measure: 'proof',
+      translatedUnit: 'teaspoon',
+      unit: 'shot',
+      volume: 'start'
+    };
+
+    const startingABV = convertABV(defaults.measure, 50);
+    const desiredABV = convertABV(defaults.measure, 40);
 
     this.state = {
       amount: 1,
       desiredABV: desiredABV,
       displayMeasure: desiredABV,
-      displayMeasureUnit: measure,
+      displayMeasureUnit: defaults.measure,
       displayResults: 1,
-      displayUnits: 'ounce',
-      measure: 'proof',
+      displayUnits: defaults.displayUnits,
+      measure: defaults.measure,
       resultsOz: 0.25,
       resultsSpirit: 0,
       resultsTranslated: 1.5,
+      setVolume: this.setVolume,
+      setMeasure: this.setMeasure,
+      setAmount: this.setAmount,
+      setUnits: this.setUnits,
+      setStartingABV: this.setStartingABV,
+      setDesiredABV: this.setDesiredABV,
       startingABV: startingABV,
       showResults: true,
-      translatedUnit: 'teaspoon',
-      unit: 'shot',
-      volume: 'start'
+      translatedUnit: defaults.translatedUnit,
+      updateResults: this.updateResults,
+      unit: defaults.unit,
+      volume: defaults.volume
     };
   }
 
