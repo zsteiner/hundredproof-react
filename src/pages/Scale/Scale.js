@@ -7,7 +7,7 @@ import Subheader from '../../components/Header/Subheader';
 
 class Scale extends Component {
   static propTypes = {
-    prop: PropTypes.string,
+    prop: PropTypes.string
   };
 
   render() {

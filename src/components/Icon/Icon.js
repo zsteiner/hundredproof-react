@@ -6,12 +6,14 @@ import styles from './Icon.module.scss';
 
 const Icon = ({ className, icon }) => {
   const iconClasses = classNames({
-   [styles.icon]: true,
-   [className]: className
+    [styles.icon]: true,
+    [className]: className
   });
-  
+
   return (
-    <svg className={iconClasses}><use xlinkHref={`#icon-${icon}`}></use></svg>
+    <svg className={iconClasses}>
+      <use xlinkHref={`#icon-${icon}`} />
+    </svg>
   );
 };
 

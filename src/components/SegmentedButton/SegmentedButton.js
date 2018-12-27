@@ -4,9 +4,8 @@ import classNames from 'classnames';
 
 import styles from './SegmentedButton.module.scss';
 
-const SegmentedButton = ({className, name, options, onChange}) => {
-
-  const updateValue = (event) => {
+const SegmentedButton = ({ className, name, options, onChange }) => {
+  const updateValue = event => {
     onChange(event.target.value);
   };
 
@@ -14,20 +13,19 @@ const SegmentedButton = ({className, name, options, onChange}) => {
     return (
       <li key={index} className={styles.segmentedButtonItem}>
         <input
-          id={name+index}
-          type='radio'
+          id={name + index}
+          type="radio"
           name={name}
           value={option.value}
           defaultChecked={!!option.default}
           disabled={!!option.disabled}
           onClick={updateValue}
         />
-          <label
-            htmlFor={name+index}
-          >
-            <span>{option.label}</span>
-          </label>
-      </li>);
+        <label htmlFor={name + index}>
+          <span>{option.label}</span>
+        </label>
+      </li>
+    );
   });
 
   const segmentedButtonClasses = classNames({
@@ -35,11 +33,7 @@ const SegmentedButton = ({className, name, options, onChange}) => {
     [className]: className
   });
 
-  return (
-    <ul className={segmentedButtonClasses}>
-      {optionsContents}
-    </ul>
-  );
+  return <ul className={segmentedButtonClasses}>{optionsContents}</ul>;
 };
 
 SegmentedButton.propTypes = {

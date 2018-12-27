@@ -6,20 +6,15 @@ import classNames from 'classnames';
 import styles from './Button.module.scss';
 
 const Button = ({ className, disabled, onClick, text }) => {
-  
   const buttonClasses = classNames({
     [styles.button]: true,
     [className]: className,
-    [styles.disabled]: disabled,
+    [styles.disabled]: disabled
   });
-  
+
   return (
-    <button 
-      className={buttonClasses}
-      disabled={disabled}
-      onClick={onClick}
-    >
-      { text }
+    <button className={buttonClasses} disabled={disabled} onClick={onClick}>
+      {text}
     </button>
   );
 };
