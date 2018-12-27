@@ -76,10 +76,6 @@ class DilutionTools extends Component {
     }
   };
 
-  componentDidMount() {
-    this.updateResults();
-  }
-
   convertABV(measure, value) {
     return measure === 'proof' ? value * 2 : value / 2;
   }
