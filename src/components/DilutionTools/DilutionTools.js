@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
 
@@ -24,7 +23,7 @@ class DilutionTools extends Component {
     };
 
     const startingABV = convertABV(defaults.measure, 50);
-    const desiredABV = convertABV(defaults.measure, 40);
+    const desiredABV = convertABV(defaults.measure, 25);
 
     this.state = {
       amount: 1,
@@ -52,43 +51,47 @@ class DilutionTools extends Component {
     };
   }
 
-  static propTypes = {
-    diluteData: PropTypes.shape({
-      amount: PropTypes.number,
-      desiredABV: PropTypes.number,
-      displayMeasure: PropTypes.number,
-      displayMeasureUnit: PropTypes.string,
-      displayResults: PropTypes.number,
-      displayUnits: PropTypes.oneOf(['ounce', 'cup']),
-      measure: PropTypes.oneOf(['abv', 'proof']),
-      resultsOz: PropTypes.number,
-      resultsSpirit: PropTypes.number,
-      resultsTranslated: PropTypes.number,
-      startingABV: PropTypes.number,
-      translatedUnit: PropTypes.oneOf(['teaspoon', 'ounce']),
-      unit: PropTypes.oneOf(['shot', 'jigger', 'cup']),
-      volume: PropTypes.oneOf(['start', 'end'])
-    }).isRequired
-  };
-
-  static defaultProps = {
-    diluteData: {
-      amount: 1,
-      displayResults: 1,
-      displayUnits: 'ounce',
-      measure: 'proof',
-      resultsOz: 0.25,
-      resultsSpirit: 0,
-      resultsTranslated: 1.5,
-      translatedUnit: 'teaspoon',
-      unit: 'shot',
-      volume: 'start'
-    }
-  };
-
   componentDidMount() {
     this.updateResults();
   }
+
+  updateResults = event => {
+    if (event) {
+      event.preventDefault();
+    }
+
+    const {
+      amount,
+      desiredABV,
+      measure,
+      startingABV,
+      unit,
+      volume
+    } = this.state;
+
+    console.log('updateResults volume', volume);
+
+    const dilutionResults = dilute(
+      amount,
+      desiredABV,
+      startingABV,
+      unit,
+      volume
+    );
+
+    this.setState({
+      resultsOz: dilutionResults.resultsOz,
+      resultsSpirit: dilutionResults.resultsSpirit,
+      resultsTranslated: dilutionResults.resultsTranslated,
+      translatedUnit: dilutionResults.translatedUnit,
+      displayResults: dilutionResults.displayResults,
+      displayUnits: dilutionResults.displayUnits,
+      displayMeasure: desiredABV,
+      displayMeasureUnit: measure,
+      finalAmountSpirit: dilutionResults.finalAmountSpirit,
+      showResults: true
+    });
+  };
 
   checkForError(value, code) {
     if (isNaN(value) || value === '') {
@@ -112,21 +115,31 @@ class DilutionTools extends Component {
   }
 
   setVolume = volume => {
-    this.setState({
-      volume: volume
-    });
+    this.setState(
+      {
+        volume: volume
+      },
+      () => {
+        this.updateResults();
+      }
+    );
   };
 
   setMeasure = measure => {
     const { desiredABV, startingABV, displayMeasure } = this.state;
 
-    this.setState({
-      measure: measure,
-      desiredABV: convertABV(measure, desiredABV),
-      startingABV: convertABV(measure, startingABV),
-      displayMeasure: convertABV(measure, displayMeasure),
-      displayMeasureUnit: measure
-    });
+    this.setState(
+      {
+        measure: measure,
+        desiredABV: convertABV(measure, desiredABV),
+        startingABV: convertABV(measure, startingABV),
+        displayMeasure: convertABV(measure, displayMeasure),
+        displayMeasureUnit: measure
+      },
+      () => {
+        this.updateResults();
+      }
+    );
   };
 
   setAmount = event => {
@@ -161,41 +174,6 @@ class DilutionTools extends Component {
 
     this.setState({
       desiredABV: desiredABV
-    });
-  };
-
-  updateResults = event => {
-    if (event) {
-      event.preventDefault();
-    }
-
-    const {
-      amount,
-      desiredABV,
-      measure,
-      startingABV,
-      unit,
-      volume
-    } = this.state;
-
-    const dilutionResults = dilute(
-      amount,
-      desiredABV,
-      startingABV,
-      unit,
-      volume
-    );
-
-    this.setState({
-      resultsOz: dilutionResults.resultsOz,
-      resultsSpirit: dilutionResults.resultsSpirit,
-      resultsTranslated: dilutionResults.resultsTranslated,
-      translatedUnit: dilutionResults.translatedUnit,
-      displayResults: dilutionResults.displayResults,
-      displayUnits: dilutionResults.displayUnits,
-      displayMeasure: desiredABV,
-      displayMeasureUnit: measure,
-      showResults: true
     });
   };
 

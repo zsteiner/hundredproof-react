@@ -12,7 +12,9 @@ const AmountSelector = () => {
     <DilutionContext.Consumer>
       {context => (
         <div className={styles.amount}>
-          <p className={styles.amountLabel}>I have</p>
+          <p className={styles.amountLabel}>
+            {context.volume === 'end' ? 'I want' : 'I have'}
+          </p>
           <form className={styles.amount} onSubmit={context.updateResults}>
             <Input
               autoFocus

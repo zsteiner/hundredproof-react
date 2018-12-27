@@ -28,8 +28,8 @@ class DiluteResults extends Component {
       displayMeasureUnit,
       displayResults,
       displayUnits,
+      finalAmountSpirit,
       resultsOz,
-      resultsSpirit,
       resultsTranslated,
       translatedUnit,
       volume
@@ -42,7 +42,7 @@ class DiluteResults extends Component {
 
     const spiritClasses = classNames({
       [styles.unit]: true,
-      [styles.plural]: resultsSpirit !== 1
+      [styles.plural]: finalAmountSpirit !== 1
     });
 
     const translatedClasses = classNames({
@@ -68,32 +68,39 @@ class DiluteResults extends Component {
             <h3 className="hp-heading">You Should Add...</h3>
             <div className={styles.results}>
               <div className={styles.resultsGroup}>
-                <p>
+                <div>
                   <span className={styles.resultsNumber}>{resultsOz}</span>{' '}
-                  <span className={ozClasses}>ounce</span>
+                  <span className={ozClasses}>ounce</span> water
                   {isVolEnd ? (
-                    <span>
-                      {' '}
-                      to{' '}
-                      <span className={styles.resultsNumber}>
-                        {resultsSpirit}
-                      </span>{' '}
-                      <span className={spiritClasses}>ounce</span> of spirits
-                    </span>
+                    <React.Fragment>
+                      <span> to </span>
+                      <p>
+                        <span className={styles.resultsNumber}>
+                          {finalAmountSpirit}{' '}
+                        </span>
+                        <span className={spiritClasses}>ounce</span> of spirits
+                      </p>
+                    </React.Fragment>
                   ) : null}
-                </p>
-                <div className={styles.resultsDivider}>or about</div>
-                <p>
-                  <span className={styles.resultsNumber}>
-                    {resultsTranslated}
-                  </span>{' '}
-                  <span className={translatedClasses}>{translatedUnit}</span>
-                </p>
-                <p className={styles.resultsText}>of water.</p>
+                </div>
+                {!isVolEnd ? (
+                  <React.Fragment>
+                    <p className={styles.resultsDivider}>or about</p>
+                    <div>
+                      <span className={styles.resultsNumber}>
+                        {resultsTranslated}
+                      </span>{' '}
+                      <span className={translatedClasses}>
+                        {translatedUnit}
+                      </span>
+                    </div>
+                    <p className={styles.resultsText}>of water.</p>
+                  </React.Fragment>
+                ) : null}
               </div>
             </div>
             <h3 className="hp-heading">To Make</h3>
-            <div className={styles.results} key="3">
+            <div className={styles.results}>
               <div className={styles.resultsGroup}>
                 <p>
                   <span className={styles.resultsNumber}>{displayResults}</span>{' '}

@@ -14,7 +14,8 @@
     justify-content: flex-start;
   }
 
-  &Amount {
-    flex: 1 0 auto;
+  &Label {
+    flex: 0 0 auto;
+    width: max-content;
   }
 }

@@ -59,7 +59,6 @@ export function dilute(amount, desiredABV, startingABV, unit, volume) {
   const displayResults = isCups ? finalAmount / ozToCups : finalAmount;
 
   const results = {
-    finalAmount,
     finalAmountSpirit,
     resultsOz,
     displayUnits,
