@@ -30,9 +30,16 @@ class Ingredients extends Component {
     });
   };
 
-  setIngredientItem = event => {
+  setIngredientItem = (event, index) => {
     const activeIngredient = event.target.value;
     this.setState({ activeIngredient });
+  };
+
+  editIngredient = (event, index) => {
+    const activeIngredient = event.target.value;
+    let ingredients = [...this.state.ingredients];
+    ingredients[index] = activeIngredient;
+    this.setState({ ingredients });
   };
 
   removeItem = index => {
@@ -60,8 +67,7 @@ class Ingredients extends Component {
           index={index}
           ingredient={item}
           removeItem={this.removeItem}
-          disabled
-          readOnly
+          onChange={this.editIngredient}
         />
       );
     });

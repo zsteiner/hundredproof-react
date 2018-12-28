@@ -12,7 +12,6 @@ const IngredientItem = ({
   onChange,
   onSubmit,
   placeholder,
-  readOnly,
   removeItem
 }) => {
   return (
@@ -20,15 +19,14 @@ const IngredientItem = ({
       <form onSubmit={onSubmit}>
         <Input
           value={ingredient}
-          onChange={onChange}
+          onChange={event => onChange(event, index)}
           className={styles.input}
           type="text"
           disabled={disabled}
-          readOnly={readOnly}
           placeholder={placeholder}
         />
       </form>
-      {readOnly ? (
+      {removeItem ? (
         <button className={styles.button} onClick={() => removeItem(index)}>
           x
         </button>
@@ -44,7 +42,6 @@ IngredientItem.propTypes = {
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
   placeholder: PropTypes.string,
-  readOnly: PropTypes.bool,
   removeItem: PropTypes.func
 };
 
