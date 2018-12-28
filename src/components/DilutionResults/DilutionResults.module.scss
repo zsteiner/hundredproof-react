@@ -2,10 +2,11 @@
 
 .results {
   font-size: 1.25rem;
+  margin-bottom: spacer(2);
 
   &Group,
   &Divider {
-    margin-bottom: 1em;
+    margin-bottom: spacer(1);
   }
 
   &Text {
