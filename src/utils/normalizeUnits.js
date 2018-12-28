@@ -23,6 +23,10 @@ export default function normalizeUnits(unit) {
     case 'tablespoons':
       formattedUnit = 'tablespoon';
       break;
+    case 'dashs':
+    case 'dashes':
+      formattedUnit = 'dash';
+      break;
     default:
       formattedUnit = unit;
   }

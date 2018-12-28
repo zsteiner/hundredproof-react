@@ -5,23 +5,19 @@ import classNames from 'classnames';
 
 import styles from '../DilutionResults/DilutionResults.module.scss';
 
-const ResultsBlock = ({ amount, unit, liquid, showPlus, text }) => {
+const ResultsBlock = ({ amount, unit, liquid, showPlus }) => {
   const resultsClasses = classNames({
     [styles.unit]: true,
-    [styles.plural]: amount !== 1
+    [styles.plural]: unit && amount !== 1
   });
-
+  const formattedUnit = unit === 'dash' && amount !== 1 ? 'dashe' : unit;
   return (
     <React.Fragment>
       {showPlus ? <span> + </span> : null}
-      {!text ? (
-        <div>
-          <span className={styles.resultsNumber}>{amount} </span>
-          <span className={resultsClasses}>{unit}</span> {liquid}
-        </div>
-      ) : (
-        text
-      )}
+      <div>
+        <span className={styles.resultsNumber}>{amount} </span>
+        <span className={resultsClasses}>{formattedUnit}</span> {liquid}
+      </div>
     </React.Fragment>
   );
 };
@@ -29,7 +25,7 @@ const ResultsBlock = ({ amount, unit, liquid, showPlus, text }) => {
 ResultsBlock.propTypes = {
   amount: PropTypes.number,
   liquid: PropTypes.string,
-  unit: PropTypes.oneOf(['ounce', 'oz', 'cup', 'teaspoon'])
+  unit: PropTypes.oneOf(['ounce', 'oz', 'cup', 'teaspoon', 'dash'])
 };
 
 export default ResultsBlock;

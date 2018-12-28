@@ -7,7 +7,7 @@ import styles from './ScalingResults.module.scss';
 const ScalingResults = ({ results }) => {
   const ingredients = results.map((ingredient, index) => {
     return (
-      <li key={index}>
+      <li key={index} className={styles.resultsItem}>
         <ResultsBlock
           amount={ingredient.amount}
           liquid={ingredient.ingredient}
