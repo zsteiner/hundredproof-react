@@ -46,9 +46,10 @@ class ScalingTools extends Component {
     });
   };
 
-  setIngredients = ingredients => {
+  setIngredients = ingredientsRaw => {
+    console.log('ingredients', ingredientsRaw);
     this.setState({
-      ingredients
+      ingredientsRaw
     });
   };
 
