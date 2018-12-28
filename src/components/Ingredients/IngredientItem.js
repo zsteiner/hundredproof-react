@@ -11,6 +11,7 @@ const IngredientItem = ({
   ingredient,
   onChange,
   onSubmit,
+  placeholder,
   readOnly,
   removeItem
 }) => {
@@ -24,6 +25,7 @@ const IngredientItem = ({
           type="text"
           disabled={disabled}
           readOnly={readOnly}
+          placeholder={placeholder}
         />
       </form>
       {readOnly ? (
@@ -41,6 +43,7 @@ IngredientItem.propTypes = {
   ingredient: PropTypes.string,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
+  placeholder: PropTypes.string,
   readOnly: PropTypes.bool,
   removeItem: PropTypes.func
 };

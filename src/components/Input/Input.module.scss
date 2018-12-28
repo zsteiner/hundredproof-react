@@ -34,6 +34,20 @@
       border-bottom-color: $primary;
     }
   }
+
+  $info--light: lighten($info, 40%);
+  &::-webkit-input-placeholder {
+    color: $info--light;
+  }
+  &::-moz-placeholder {
+    color: $info--light;
+  }
+  &:-ms-input-placeholder {
+    color: $info--light;
+  }
+  &:-moz-placeholder {
+    color: $info--light;
+  }
 }
 
 input[type="number"]::-webkit-inner-spin-button,

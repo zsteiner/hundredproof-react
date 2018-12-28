@@ -12,6 +12,7 @@ const Input = ({
   autoSize,
   className,
   onChange,
+  placeholder,
   readOnly,
   type,
   value
@@ -43,6 +44,7 @@ const Input = ({
       pattern={type === 'number' ? 'd*' : '[A-Za-z0-9 ./]*'}
       type={type ? type : 'text'}
       value={value}
+      placeholder={placeholder}
       onChange={onChange}
       readOnly={readOnly}
     />
@@ -53,6 +55,7 @@ Input.propTypes = {
   autoFocus: PropTypes.bool,
   className: PropTypes.string,
   onChange: PropTypes.func,
+  placeholder: PropTypes.string,
   type: PropTypes.oneOf(['number', 'text']),
   value: PropTypes.any
 };

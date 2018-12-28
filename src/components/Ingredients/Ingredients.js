@@ -74,6 +74,7 @@ class Ingredients extends Component {
             ingredient={this.state.activeIngredient}
             onChange={this.setIngredientItem}
             onSubmit={this.setIngredients}
+            placeholder="1 oz bourbon"
           />
         </ul>
         <Button text="Scale Recipe" onClick={this.saveIngredients} />
