@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import styles from '../DilutionResults/DilutionResults.module.scss';
 
-const DilutionResultsBlock = ({ amount, unit, liquid, showPlus }) => {
+const ResultsBlock = ({ amount, unit, liquid, showPlus }) => {
   const resultsClasses = classNames({
     [styles.unit]: true,
     [styles.plural]: amount !== 1
@@ -22,10 +22,10 @@ const DilutionResultsBlock = ({ amount, unit, liquid, showPlus }) => {
   );
 };
 
-DilutionResultsBlock.propTypes = {
+ResultsBlock.propTypes = {
   amount: PropTypes.number,
   liquid: PropTypes.oneOf(['spirits', 'water']),
   unit: PropTypes.oneOf(['ounce', 'cup', 'teaspoon'])
 };
 
-export default DilutionResultsBlock;
+export default ResultsBlock;

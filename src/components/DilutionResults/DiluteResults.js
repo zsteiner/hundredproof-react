@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { DilutionContext } from '../../contexts/DilutionContext';
 
 import styles from './DilutionResults.module.scss';
-import DilutionResultsBlock from '../DilutionResultsBlock/DilutionResultsBlock';
+import ResultsBlock from '../ResultsBlock/ResultsBlock';
 
 class DiluteResults extends Component {
   static contextType = DilutionContext;
@@ -56,13 +56,9 @@ class DiluteResults extends Component {
             </h3>
             <div className={styles.results}>
               <div className={styles.resultsGroup}>
-                <DilutionResultsBlock
-                  amount={resultsOz}
-                  unit="ounce"
-                  liquid="water"
-                />
+                <ResultsBlock amount={resultsOz} unit="ounce" liquid="water" />
                 {isVolEnd ? (
-                  <DilutionResultsBlock
+                  <ResultsBlock
                     amount={finalAmountSpirit}
                     unit="ounce"
                     liquid="spirits"
@@ -70,13 +66,13 @@ class DiluteResults extends Component {
                   />
                 ) : null}
                 <p className={styles.resultsDivider}>or about</p>
-                <DilutionResultsBlock
+                <ResultsBlock
                   amount={resultsTranslated}
                   unit={translatedUnit}
                   liquid="water"
                 />
                 {isVolEnd ? (
-                  <DilutionResultsBlock
+                  <ResultsBlock
                     amount={context.finalAmountSpiritTranslated}
                     unit={translatedUnit}
                     liquid="spirits"
