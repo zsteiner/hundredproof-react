@@ -7,7 +7,7 @@
   color: $info;
   border-bottom: 0.15rem dashed $info;
   text-align: center;
-  line-height: 0.5;
+  line-height: 1.5;
   font-family: $font-family-script;
   margin: 0 spacer(1);
   padding: 0;
@@ -27,7 +27,7 @@
   input {
     border: 0;
     text-align: inherit;
-    height: 1em;
+    height: 1.5em;
 
     &:focus {
       outline: none;
