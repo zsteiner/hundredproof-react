@@ -16,7 +16,7 @@ const ResultsBlock = ({ amount, unit, liquid, showPlus }) => {
       {showPlus ? <span> + </span> : null}
       <div>
         <span className={styles.resultsNumber}>{amount} </span>
-        <span className={resultsClasses}>{unit}</span> of {liquid}
+        <span className={resultsClasses}>{unit}</span> {liquid}
       </div>
     </React.Fragment>
   );

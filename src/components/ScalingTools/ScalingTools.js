@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
 
+import stringifyIngredient from '../../utils/stringifyIngredient';
+import { defaultRecipe } from '../../consts/defaultRecipe';
+
 import Errors from '../Errors/Errors';
+import Ingredients from '../Ingredients/Ingredients';
 import ScalingHeader from '../ScalingHeader/ScalingHeader';
 import ScalingResults from '../ScalingResults/ScalingResults';
 
@@ -11,20 +15,12 @@ class ScalingTools extends Component {
     super(props);
 
     this.state = {
-      ingredients: [
-        {
-          amount: 1,
-          unit: 'oz',
-          ingredient: 'gin'
-        }
-      ],
+      ingredients: defaultRecipe,
+      ingredientsRaw: stringifyIngredient(defaultRecipe),
       scalingFactor: 2,
-      setScalingFactor: this.setScalingFactor
+      setScalingFactor: this.setScalingFactor,
+      setIngredients: this.setIngredients
     };
-  }
-
-  componentDidMount() {
-    // this.updateResults();
   }
 
   checkForError(value, code) {
@@ -50,6 +46,12 @@ class ScalingTools extends Component {
     });
   };
 
+  setIngredients = ingredients => {
+    this.setState({
+      ingredients
+    });
+  };
+
   render() {
     const { error, showResults } = this.state;
 
@@ -59,6 +61,7 @@ class ScalingTools extends Component {
         <section className="hp-section hp-app__row">
           <div className="hp-app__col">
             <h3 className="hp-heading">Original Recipe</h3>
+            <Ingredients />
             <Errors errorCode={this.state.error} />
           </div>
           <div className="hp-app__col">

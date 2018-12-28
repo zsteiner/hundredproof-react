@@ -7,35 +7,44 @@ import classNames from 'classnames';
 
 import styles from './Input.module.scss';
 
-const Input = ({ autoFocus, autoSize, className, onChange, type, value }) => {
-  
+const Input = ({
+  autoFocus,
+  autoSize,
+  className,
+  onChange,
+  readOnly,
+  type,
+  value
+}) => {
   const inputClasses = classNames({
     [styles.input]: true,
     [styles.inputAutosize]: autoSize,
     [className]: className
   });
-  
-  if ( autoSize ) {
+
+  if (autoSize) {
     return (
-      <AutosizeInput 
+      <AutosizeInput
         autoFocus={autoFocus}
         className={inputClasses}
+        pattern={type === 'number' ? 'd*' : '[A-Za-z0-9 ]'}
         type={type ? type : 'text'}
-        pattern={type === 'number' ? '\d*' : '' }
         value={value}
         onChange={onChange}
+        readOnly={readOnly}
       />
     );
   }
-  
+
   return (
-    <input 
+    <input
       autoFocus={autoFocus}
       className={inputClasses}
-      pattern={type === 'number' ? '\d*' : '' }
+      pattern={type === 'number' ? 'd*' : '[A-Za-z0-9 ]*'}
       type={type ? type : 'text'}
       value={value}
       onChange={onChange}
+      readOnly={readOnly}
     />
   );
 };

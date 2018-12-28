@@ -18,6 +18,12 @@
     width: auto;
   }
 
+  &:focus,
+  &:focus-within {
+    outline: none;
+    border-bottom-color: $primary;
+  }
+
   input {
     border: 0;
     text-align: inherit;
@@ -25,6 +31,7 @@
 
     &:focus {
       outline: none;
+      border-bottom-color: $primary;
     }
   }
 }
