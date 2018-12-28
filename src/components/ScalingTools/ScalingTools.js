@@ -27,7 +27,28 @@ class ScalingTools extends Component {
     // this.updateResults();
   }
 
-  setScalingFactor = event => {};
+  checkForError(value, code) {
+    if (isNaN(value) || value === '') {
+      this.setState({
+        scalingFactor: 1
+      });
+      console.error('ERROR!');
+      return '';
+    } else {
+      this.setState({
+        error: null
+      });
+      return value.trim();
+    }
+  }
+
+  setScalingFactor = event => {
+    const scalingFactor = this.checkForError(event.target.value, 1);
+
+    this.setState({
+      scalingFactor
+    });
+  };
 
   render() {
     const { error, showResults } = this.state;
