@@ -21,8 +21,6 @@ export default function scale(ingredients, scaleFactor) {
       amount = parseFloat(amount);
     }
 
-    console.log('groups', normalizeItem.match(regex));
-
     amount = amount * setZero(scaleFactor);
     unit = normalizeUnits(unit);
 
