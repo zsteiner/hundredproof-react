@@ -8,7 +8,11 @@ const ScalingResults = ({ results }) => {
   const ingredients = results.map((ingredient, index) => {
     return (
       <li key={index}>
-        <ResultsBlock text={ingredient} />
+        <ResultsBlock
+          amount={ingredient.amount}
+          liquid={ingredient.ingredient}
+          unit={ingredient.unit}
+        />
       </li>
     );
   });

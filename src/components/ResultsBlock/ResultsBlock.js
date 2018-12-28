@@ -28,8 +28,8 @@ const ResultsBlock = ({ amount, unit, liquid, showPlus, text }) => {
 
 ResultsBlock.propTypes = {
   amount: PropTypes.number,
-  liquid: PropTypes.oneOf(['spirits', 'water']),
-  unit: PropTypes.oneOf(['ounce', 'cup', 'teaspoon'])
+  liquid: PropTypes.string,
+  unit: PropTypes.oneOf(['ounce', 'oz', 'cup', 'teaspoon'])
 };
 
 export default ResultsBlock;

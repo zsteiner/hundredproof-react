@@ -15,10 +15,6 @@
 
   &Group {
     font-size: 1.25rem;
-
-    .unit {
-      font-weight: 700;
-    }
   }
 
   .inputgroup {
@@ -67,4 +63,8 @@
   max-width: 15rem;
   margin: spacer(2) auto spacer(1);
   font-size: 1.125em;
+}
+
+.unit {
+  font-weight: 700;
 }

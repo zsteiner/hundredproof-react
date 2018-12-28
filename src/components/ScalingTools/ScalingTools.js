@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
 
+import scale from '../../utils/scale';
 import stringifyIngredient from '../../utils/stringifyIngredient';
 import { defaultRecipe } from '../../consts/defaultRecipe';
 
@@ -41,13 +42,21 @@ class ScalingTools extends Component {
   setScalingFactor = event => {
     const scalingFactor = this.checkForError(event.target.value, 1);
 
-    this.setState({
-      scalingFactor
-    });
+    this.setState(
+      {
+        scalingFactor
+      },
+      () => {
+        this.setIngredients(this.state.ingredientsRaw);
+      }
+    );
   };
 
   setIngredients = ingredientsRaw => {
+    const ingredients = scale(ingredientsRaw, this.state.scalingFactor);
+
     this.setState({
+      ingredients,
       ingredientsRaw,
       showResults: true
     });
@@ -67,7 +76,7 @@ class ScalingTools extends Component {
           </div>
           <div className="hp-app__col">
             {!error && showResults ? (
-              <ScalingResults results={this.state.ingredientsRaw} />
+              <ScalingResults results={this.state.ingredients} />
             ) : null}
           </div>
         </section>
