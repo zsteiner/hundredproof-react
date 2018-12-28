@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { ScalingContext } from '../../contexts/ScalingContext';
 
 import scale from '../../utils/scale';
-import stringifyIngredient from '../../utils/stringifyIngredient';
-import { defaultRecipe } from '../../consts/defaultRecipe';
+// import stringifyIngredient from '../../utils/stringifyIngredient';
+// import { defaultRecipe } from '../../consts/defaultRecipe';
 
 import Errors from '../Errors/Errors';
 import Ingredients from '../Ingredients/Ingredients';
@@ -16,8 +16,8 @@ class ScalingTools extends Component {
     super(props);
 
     this.state = {
-      ingredients: defaultRecipe,
-      ingredientsRaw: stringifyIngredient(defaultRecipe),
+      ingredients: [],
+      ingredientsRaw: [],
       scalingFactor: 2,
       setScalingFactor: this.setScalingFactor,
       setIngredients: this.setIngredients

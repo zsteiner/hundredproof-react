@@ -50,8 +50,6 @@ class Ingredients extends Component {
 
   removeItem = index => {
     const { ingredients } = this.state;
-    console.log('index', index);
-
     if (index > -1) {
       ingredients.splice(index, 1);
       this.setState({

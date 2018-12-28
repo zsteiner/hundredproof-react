@@ -10,8 +10,8 @@ class Scale extends Component {
         <Subheader>
           <p>Scale your favorite cocktail recipe for a crowd.</p>
           <p>
-            Enter each ingredient like "1 oz gin" or "1 1/2 shots of whisky" or
-            "2 dashes of dry vermouth"
+            Enter each ingredient like "1 oz gin" or "1.5 shots of whisky" or "2
+            dashes of dry vermouth"
           </p>
         </Subheader>
         <ScalingTools />
