@@ -1,13 +1,13 @@
-@import '../../theme/variables';
+@import "../../theme/variables";
 
 .header {
   padding: 1rem 0;
   text-align: center;
-  background: $primary url('/images/hp-bottles.svg') repeat-x bottom;
-  background-size: auto 4em;    
+  background: $primary url("/images/hp-bottles.svg") repeat-x bottom;
+  background-size: auto 4em;
   margin: 0;
   overflow: auto;
-  
+
   a {
     color: $white;
   }
@@ -15,16 +15,16 @@
 
 .heading {
   font-family: $font-family-heading;
-  letter-spacing: .075em;
+  letter-spacing: 0.075em;
   text-transform: uppercase;
   color: $default;
   text-align: center;
   font-style: normal;
-  
+
   &Logo {
     color: $white;
     margin-bottom: 2em;
-    
+
     svg {
       height: 5em;
       width: auto;
@@ -38,20 +38,19 @@
 }
 
 .subheader {
-  padding: spacer(3) spacer(1);
+  padding: spacer(1.5) spacer(1);
   background: $black;
   color: $white;
   text-align: center;
-  
+
   p {
     font-size: 1em;
     line-height: 1.5;
     margin: spacer(1) auto;
     max-width: 38rem;
-    
+
     &:last-child {
-        margin-top: 1em;
-    }    
+      margin-top: 1em;
+    }
   }
 }
-

@@ -9,7 +9,6 @@ const Header = () => {
     <header className={styles.header}>
       <h1 className={`${styles.heading} ${styles.headingLogo}`}>
         <Link to="/">
-          {' '}
           <Logo />
         </Link>
       </h1>

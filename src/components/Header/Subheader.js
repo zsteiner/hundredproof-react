@@ -3,19 +3,22 @@ import PropTypes from 'prop-types';
 
 import styles from './Header.module.scss';
 
-const Subheader = ({ children }) => {
+const Subheader = ({ children, showSubheading }) => {
   return (
     <section className={styles.subheader}>
-      <h2 className={`${styles.heading} ${styles.headingSubheading}`}>
-        Math for the modern mixologist.
-      </h2>
+      {showSubheading ? (
+        <h2 className={`${styles.heading} ${styles.headingSubheading}`}>
+          Math for the modern mixologist.
+        </h2>
+      ) : null}
       {children}
     </section>
   );
 };
 
 Subheader.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  showSubheading: PropTypes.bool
 };
 
 export default Subheader;

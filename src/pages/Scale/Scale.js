@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import Subheader from '../../components/Header/Subheader';
+import ScalingTools from '../../components/ScalingTools/ScalingTools';
 
 class Scale extends Component {
-  static propTypes = {
-    prop: PropTypes.string
-  };
-
   render() {
     return (
-      <Subheader>
-        <p>Scaling</p>
-      </Subheader>
+      <React.Fragment>
+        <Subheader>
+          <p>Scale your favorite cocktail recipe for a crowd.</p>
+          <p>
+            Enter each ingredient like "1 oz gin" or "1 1/2 shots of whisky" or
+            "2 dashes of dry vermouth"
+          </p>
+        </Subheader>
+        <ScalingTools />
+      </React.Fragment>
     );
   }
 }
