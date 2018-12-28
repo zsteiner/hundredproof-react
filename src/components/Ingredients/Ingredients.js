@@ -24,9 +24,15 @@ class Ingredients extends Component {
       event.preventDefault();
     }
 
+    const { ingredients, activeIngredient } = this.state;
+    const newIngredients =
+      activeIngredient === ''
+        ? ingredients
+        : [...ingredients, activeIngredient];
+
     this.setState({
       activeIngredient: '',
-      ingredients: [...this.state.ingredients, this.state.activeIngredient]
+      ingredients: newIngredients
     });
   };
 

@@ -47,9 +47,9 @@ class ScalingTools extends Component {
   };
 
   setIngredients = ingredientsRaw => {
-    console.log('ingredients', ingredientsRaw);
     this.setState({
-      ingredientsRaw
+      ingredientsRaw,
+      showResults: true
     });
   };
 
@@ -66,7 +66,9 @@ class ScalingTools extends Component {
             <Errors errorCode={this.state.error} />
           </div>
           <div className="hp-app__col">
-            {!error && showResults ? <ScalingResults /> : null}
+            {!error && showResults ? (
+              <ScalingResults results={this.state.ingredientsRaw} />
+            ) : null}
           </div>
         </section>
       </ScalingContext.Provider>

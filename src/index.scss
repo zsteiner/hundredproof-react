@@ -47,51 +47,55 @@ h5 {
   line-height: 1.2;
 }
 
-:global {
-  .hp-app {
-    padding: 0 spacer(1) spacer(2);
+.hp-app {
+  padding: 0 spacer(1) spacer(2);
+
+  @include respond-to(large) {
+    padding: 0 spacer(2) spacer(2);
+  }
+
+  &__row {
+    @include respond-to(large) {
+      display: flex;
+    }
+  }
+
+  &__col {
+    width: 100%;
+    text-align: center;
+    padding: spacer(1);
+
+    &:last-of-type {
+      border-top: 1px solid lighten($info, 15%);
+    }
 
     @include respond-to(large) {
-      padding: 0 spacer(2) spacer(2);
-    }
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 50%;
 
-    &__row {
-      @include respond-to(large) {
-        display: flex;
-      }
-    }
-
-    &__col {
-      width: 100%;
-      text-align: center;
-      padding: spacer(1);
-
-      &:last-of-type {
-        border-top: 1px solid lighten($info, 15%);
+      &:first-child {
+        border-right: 1px solid lighten($info, 25%);
       }
 
-      @include respond-to(large) {
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 50%;
-
-        &:first-child {
-          border-right: 1px solid lighten($info, 25%);
-        }
-
-        &:last-child {
-          border: 0;
-        }
+      &:last-child {
+        border: 0;
       }
     }
   }
+}
 
-  .hp-heading {
-    font-family: $font-family-heading;
-    letter-spacing: 0.075em;
-    text-transform: uppercase;
-    color: $default;
-    text-align: center;
-    font-style: normal;
-  }
+.hp-heading {
+  font-family: $font-family-heading;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  color: $default;
+  text-align: center;
+  font-style: normal;
+}
+
+.hp-clearlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }

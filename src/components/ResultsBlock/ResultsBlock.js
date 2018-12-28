@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import styles from '../DilutionResults/DilutionResults.module.scss';
 
-const ResultsBlock = ({ amount, unit, liquid, showPlus }) => {
+const ResultsBlock = ({ amount, unit, liquid, showPlus, text }) => {
   const resultsClasses = classNames({
     [styles.unit]: true,
     [styles.plural]: amount !== 1
@@ -14,10 +14,14 @@ const ResultsBlock = ({ amount, unit, liquid, showPlus }) => {
   return (
     <React.Fragment>
       {showPlus ? <span> + </span> : null}
-      <div>
-        <span className={styles.resultsNumber}>{amount} </span>
-        <span className={resultsClasses}>{unit}</span> {liquid}
-      </div>
+      {!text ? (
+        <div>
+          <span className={styles.resultsNumber}>{amount} </span>
+          <span className={resultsClasses}>{unit}</span> {liquid}
+        </div>
+      ) : (
+        text
+      )}
     </React.Fragment>
   );
 };
