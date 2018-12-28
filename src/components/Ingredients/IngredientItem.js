@@ -7,10 +7,12 @@ import styles from './Ingredients.module.scss';
 
 const IngredientItem = ({
   disabled,
+  index,
   ingredient,
   onChange,
   onSubmit,
-  readOnly
+  readOnly,
+  removeItem
 }) => {
   return (
     <li className={styles.ingredientsItem}>
@@ -24,16 +26,23 @@ const IngredientItem = ({
           readOnly={readOnly}
         />
       </form>
+      {readOnly ? (
+        <button className={styles.button} onClick={() => removeItem(index)}>
+          x
+        </button>
+      ) : null}
     </li>
   );
 };
 
 IngredientItem.propTypes = {
   disabled: PropTypes.bool,
+  index: PropTypes.number,
   ingredient: PropTypes.string,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
-  readOnly: PropTypes.bool
+  readOnly: PropTypes.bool,
+  removeItem: PropTypes.func
 };
 
 export default IngredientItem;

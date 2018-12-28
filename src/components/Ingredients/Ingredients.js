@@ -20,7 +20,10 @@ class Ingredients extends Component {
   }
 
   setIngredients = event => {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
+
     this.setState({
       activeIngredient: '',
       ingredients: [...this.state.ingredients, this.state.activeIngredient]
@@ -32,13 +35,35 @@ class Ingredients extends Component {
     this.setState({ activeIngredient });
   };
 
+  removeItem = index => {
+    const { ingredients } = this.state;
+    console.log('index', index);
+
+    if (index > -1) {
+      ingredients.splice(index, 1);
+      this.setState({
+        ingredients
+      });
+    }
+  };
+
   saveIngredients = () => {
+    this.setIngredients();
     this.context.setIngredients(this.state.ingredients);
   };
 
   render() {
     const ingredients = this.state.ingredients.map((item, index) => {
-      return <IngredientItem key={index} ingredient={item} disabled readOnly />;
+      return (
+        <IngredientItem
+          key={index}
+          index={index}
+          ingredient={item}
+          removeItem={this.removeItem}
+          disabled
+          readOnly
+        />
+      );
     });
 
     return (

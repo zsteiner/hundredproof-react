@@ -40,7 +40,7 @@ const Input = ({
     <input
       autoFocus={autoFocus}
       className={inputClasses}
-      pattern={type === 'number' ? 'd*' : '[A-Za-z0-9 ]*'}
+      pattern={type === 'number' ? 'd*' : '[A-Za-z0-9 ./]*'}
       type={type ? type : 'text'}
       value={value}
       onChange={onChange}
