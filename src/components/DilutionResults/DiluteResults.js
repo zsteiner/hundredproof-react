@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import pluralize from 'pluralize';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
 
@@ -35,11 +35,6 @@ class DiluteResults extends Component {
       translatedUnit,
       volume
     } = this.context;
-
-    const originalClasses = classNames({
-      [styles.unit]: true,
-      [styles.plural]: displayResults !== 1
-    });
 
     const isVolEnd = volume === 'end';
     const isABV = displayMeasureUnit === 'abv';
@@ -86,7 +81,9 @@ class DiluteResults extends Component {
               <div className={styles.resultsGroup}>
                 <p>
                   <span className={styles.resultsNumber}>{displayResults}</span>{' '}
-                  <span className={originalClasses}>{displayUnits}</span>
+                  <span className={styles.unit}>
+                    {pluralize(displayUnits, displayResults)}
+                  </span>
                 </p>
                 <div className={styles.resultsDivider}>of</div>
                 <p className={styles.resultsText}>
