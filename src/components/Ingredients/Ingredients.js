@@ -39,11 +39,6 @@ class Ingredients extends Component {
     });
   };
 
-  setIngredientItem = (event, index) => {
-    const activeIngredient = event.target.value;
-    this.setState({ activeIngredient });
-  };
-
   editIngredient = (event, index) => {
     const activeIngredient = event.target.value;
     let ingredients = [...this.state.ingredients];
@@ -67,6 +62,10 @@ class Ingredients extends Component {
     this.setIngredients();
     const cleanedIngredients = ingredients.filter(item => item !== '');
 
+    this.setState({
+      ingredients: cleanedIngredients
+    });
+
     this.context.setIngredients(cleanedIngredients);
   };
 
@@ -79,7 +78,6 @@ class Ingredients extends Component {
           ingredient={item}
           removeItem={this.removeItem}
           onChange={this.editIngredient}
-          // onChange={this.setIngredientItem}
           onSubmit={this.setIngredients}
           placeholder="1 oz bourbon"
         />

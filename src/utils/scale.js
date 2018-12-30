@@ -9,18 +9,21 @@ export default function scale(ingredients, scaleFactor) {
   const fractionRegex = /([0-9]*)\/([0-9]*)/;
 
   ingredients.map(item => {
+    let unit;
+    let ingredient;
+
     const normalizeItem = item.replace(' of ', ' ');
     const match = normalizeItem.match(regex);
     const hasThree = match[3] !== '';
 
     let amount = match[1];
-    let unit = hasThree ? normalizeUnits(match[2]) : null;
-    let ingredient = hasThree ? match[3] : match[2];
+    unit = hasThree ? normalizeUnits(match[2]) : null;
+    ingredient = hasThree ? match[3] : match[2];
 
     if (units.indexOf(unit) < 0) {
       console.log('no match', unit);
-      ingredient = `${unit} ${ingredient}`;
       unit = null;
+      ingredient = hasThree ? `${match[2]} ${match[3]}` : match[2];
     }
 
     if (fractionRegex.test(amount)) {
