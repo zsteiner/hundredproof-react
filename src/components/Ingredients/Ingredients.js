@@ -60,7 +60,8 @@ class Ingredients extends Component {
     const { ingredients } = this.state;
 
     this.setIngredients();
-    const cleanedIngredients = ingredients.filter(item => item !== '');
+    let cleanedIngredients = ingredients.filter(item => item !== '');
+    cleanedIngredients.push('');
 
     this.setState({
       ingredients: cleanedIngredients

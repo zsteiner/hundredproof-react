@@ -8,7 +8,9 @@ export default function scale(ingredients, scaleFactor) {
   const regex = /([0-9]*.?\/?[0-9]*)\s?(\S*)?\s?(.*)/;
   const fractionRegex = /([0-9]*)\/([0-9]*)/;
 
-  ingredients.map(item => {
+  const cleanedIngredients = ingredients.filter(item => item !== '');
+
+  cleanedIngredients.map(item => {
     let unit;
     let ingredient;
 
