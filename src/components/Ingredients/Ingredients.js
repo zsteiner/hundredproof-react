@@ -25,10 +25,13 @@ class Ingredients extends Component {
     }
 
     const { ingredients, activeIngredient } = this.state;
-    const newIngredients =
+
+    let newIngredients =
       activeIngredient === ''
         ? ingredients
         : [...ingredients, activeIngredient];
+
+    newIngredients.push('');
 
     this.setState({
       activeIngredient: '',
@@ -59,8 +62,12 @@ class Ingredients extends Component {
   };
 
   saveIngredients = () => {
+    const { ingredients } = this.state;
+
     this.setIngredients();
-    this.context.setIngredients(this.state.ingredients);
+    const cleanedIngredients = ingredients.filter(item => item !== '');
+
+    this.context.setIngredients(cleanedIngredients);
   };
 
   render() {
@@ -72,21 +79,16 @@ class Ingredients extends Component {
           ingredient={item}
           removeItem={this.removeItem}
           onChange={this.editIngredient}
+          // onChange={this.setIngredientItem}
+          onSubmit={this.setIngredients}
+          placeholder="1 oz bourbon"
         />
       );
     });
 
     return (
       <React.Fragment>
-        <ul className={styles.ingredients}>
-          {ingredients}
-          <IngredientItem
-            ingredient={this.state.activeIngredient}
-            onChange={this.setIngredientItem}
-            onSubmit={this.setIngredients}
-            placeholder="1 oz bourbon"
-          />
-        </ul>
+        <ul className={styles.ingredients}>{ingredients}</ul>
         <Button text="Scale Recipe" onClick={this.saveIngredients} />
       </React.Fragment>
     );

@@ -17,7 +17,7 @@ class ScalingTools extends Component {
 
     this.state = {
       ingredients: [],
-      ingredientsRaw: [],
+      ingredientsRaw: [''],
       scalingFactor: 2,
       setScalingFactor: this.setScalingFactor,
       setIngredients: this.setIngredients

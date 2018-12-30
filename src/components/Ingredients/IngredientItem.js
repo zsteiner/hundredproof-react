@@ -18,6 +18,7 @@ const IngredientItem = ({
     <li className={styles.ingredientsItem}>
       <form onSubmit={onSubmit}>
         <Input
+          autoFocus
           value={ingredient}
           onChange={event => onChange(event, index)}
           className={styles.input}
