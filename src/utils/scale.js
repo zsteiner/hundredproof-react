@@ -1,5 +1,6 @@
 import normalizeUnits from './normalizeUnits';
 import setZero from './setZero';
+import units from '../consts/units';
 
 export default function scale(ingredients, scaleFactor) {
   const ingredientsFormatted = [];
@@ -13,8 +14,14 @@ export default function scale(ingredients, scaleFactor) {
     const hasThree = match[3] !== '';
 
     let amount = match[1];
-    const unit = hasThree ? normalizeUnits(match[2]) : null;
-    const ingredient = hasThree ? match[3] : match[2];
+    let unit = hasThree ? normalizeUnits(match[2]) : null;
+    let ingredient = hasThree ? match[3] : match[2];
+
+    if (units.indexOf(unit) < 0) {
+      console.log('no match', unit);
+      ingredient = `${unit} ${ingredient}`;
+      unit = null;
+    }
 
     if (fractionRegex.test(amount)) {
       const numerator = parseInt(amount.match(fractionRegex)[1], 10);

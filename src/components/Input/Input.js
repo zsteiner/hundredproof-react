@@ -28,7 +28,7 @@ const Input = ({
       <AutosizeInput
         autoFocus={autoFocus}
         className={inputClasses}
-        pattern={type === 'number' ? 'd*' : '[A-Za-z0-9 ]'}
+        pattern={type === 'number' ? 'd*' : '.*'}
         type={type ? type : 'text'}
         value={value}
         onChange={onChange}
@@ -41,7 +41,7 @@ const Input = ({
     <input
       autoFocus={autoFocus}
       className={inputClasses}
-      pattern={type === 'number' ? 'd*' : '[A-Za-z0-9 ./]*'}
+      pattern={type === 'number' ? 'd*' : '.*'}
       type={type ? type : 'text'}
       value={value}
       placeholder={placeholder}
