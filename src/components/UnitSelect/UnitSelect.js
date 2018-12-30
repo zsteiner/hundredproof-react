@@ -1,57 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import pluralize from 'pluralize';
 
 import Icon from '../Icon/Icon';
 
 import styles from './UnitSelect.module.scss';
 
 const UnitSelect = ({ amount, setUnits }) => {
-  const unitClasses = classNames({
-    [styles.unit]: true,
-    [styles.plural]: amount !== 1
+  const unitData = [
+    {
+      value: 'shot',
+      label: '1 fluid oz',
+      default: true
+    },
+    {
+      value: 'jigger',
+      label: '1.5 fluid oz'
+    },
+    {
+      value: 'cup',
+      label: '8 fluid oz'
+    }
+  ];
+
+  const units = unitData.map((item, index) => {
+    return (
+      <React.Fragment key={index}>
+        <input
+          type="radio"
+          id={`bg2_${index}`}
+          name="bg2"
+          value={item.value}
+          onClick={setUnits}
+          defaultChecked={item.default}
+        />
+        <label htmlFor={`bg2_${index}`}>
+          <span className={styles.unit}>{pluralize(item.value, amount)}</span>
+          <Icon icon={item.value} className={styles.icon} />
+          <span className={styles.conversion}>{item.label}</span>
+        </label>
+      </React.Fragment>
+    );
   });
 
   return (
-    <div className={unitClasses}>
+    <div className={styles.unit}>
       <div className={styles.buttongroup} id="amount-units">
-        <input
-          type="radio"
-          id="bg2_1"
-          name="bg2"
-          value="shot"
-          onClick={setUnits}
-          defaultChecked
-        />
-        <label htmlFor="bg2_1">
-          <span className={styles.unit}>shot</span>
-          <Icon icon="shot" className={styles.icon} />
-          <span className={styles.conversion}>1 fluid oz</span>
-        </label>
-        <input
-          type="radio"
-          id="bg2_2"
-          name="bg2"
-          value="jigger"
-          onClick={setUnits}
-        />
-        <label htmlFor="bg2_2">
-          <span className={styles.unit}>jigger</span>
-          <Icon icon="jigger" className={styles.icon} />
-          <span className={styles.conversion}>1.5 fluid oz</span>
-        </label>
-        <input
-          type="radio"
-          id="bg2_3"
-          name="bg2"
-          value="cup"
-          onClick={setUnits}
-        />
-        <label htmlFor="bg2_3">
-          <span className={styles.unit}>cup</span>
-          <Icon icon="cup" className={styles.icon} />
-          <span className={styles.conversion}>8 fluid oz</span>
-        </label>
+        {units}
       </div>
     </div>
   );
