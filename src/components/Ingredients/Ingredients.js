@@ -48,12 +48,21 @@ class Ingredients extends Component {
 
   removeItem = index => {
     const { ingredients } = this.state;
-    if (index > -1) {
+    if (ingredients.length === 1 && index > -1) {
       ingredients.splice(index, 1);
-      this.setState({
-        ingredients
-      });
+      ingredients.push('');
+    } else if (index > -1) {
+      ingredients.splice(index, 1);
     }
+
+    this.setState(
+      {
+        ingredients
+      },
+      () => {
+        this.saveIngredients();
+      }
+    );
   };
 
   saveIngredients = () => {

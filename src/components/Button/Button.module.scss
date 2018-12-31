@@ -1,13 +1,19 @@
-@import '../../theme/variables';
+@import "../../theme/variables";
 
 .button {
   border: $border-match-color;
   background: none;
-  padding: .5em;
+  padding: 0.5em;
   border-radius: 0;
   color: $default;
+
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    font-weight: 700;
+  }
 }
 
 .disabled {
-  opacity: .4;
+  opacity: 0.4;
 }
