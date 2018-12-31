@@ -39,7 +39,7 @@ export default function scale(ingredients, scaleFactor) {
       const numerator = parseInt(amount.match(fractionRegex)[1], 10);
       const denominator = parseInt(amount.match(fractionRegex)[2], 10);
       amount = scaleAmount(numerator / denominator, scaleFactor);
-    } else if (amount === '') {
+    } else if (!amount || amount === '') {
       amount = null;
     } else {
       amount = parseFloat(amount);

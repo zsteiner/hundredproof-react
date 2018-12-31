@@ -9,7 +9,7 @@ import styles from '../DilutionResults/DilutionResults.module.scss';
 
 const ResultsBlock = ({ amount, unit, liquid, showPlus }) => {
   const formattedUnit = unit ? pluralize(unit, amount) : null;
-  const formattedAmount = round(amount, 2);
+  const formattedAmount = amount ? round(amount, 2) : amount;
   return (
     <React.Fragment>
       {showPlus ? <span> + </span> : null}
