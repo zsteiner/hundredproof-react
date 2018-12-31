@@ -54,9 +54,20 @@ class Ingredients extends Component {
 
   pasteIngredient = event => {
     event.preventDefault();
+
+    const { ingredients } = this.state;
+    const last = ingredients.length - 1;
     const activeIngredient = event.clipboardData.getData('Text');
     const split = activeIngredient.split(/\r?\n/);
-    this.setState({ ingredients: split });
+
+    if (ingredients[last] === '') {
+      ingredients.splice(last, 1);
+    }
+
+    let newIngredients = ingredients.concat(split);
+    newIngredients.push('');
+
+    this.setState({ ingredients: newIngredients });
   };
 
   removeItem = index => {
