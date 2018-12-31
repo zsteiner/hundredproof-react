@@ -12,6 +12,7 @@ const Input = ({
   autoSize,
   className,
   onChange,
+  onFocus,
   onPaste,
   placeholder,
   readOnly,
@@ -33,6 +34,7 @@ const Input = ({
         type={type ? type : 'text'}
         value={value}
         onChange={onChange}
+        onFocus={onFocus}
         onPaste={onPaste}
         readOnly={readOnly}
       />
@@ -48,6 +50,7 @@ const Input = ({
       value={value}
       placeholder={placeholder}
       onChange={onChange}
+      onFocus={onFocus}
       onPaste={onPaste}
       readOnly={readOnly}
     />
@@ -58,6 +61,7 @@ Input.propTypes = {
   autoFocus: PropTypes.bool,
   className: PropTypes.string,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   onPaste: PropTypes.func,
   placeholder: PropTypes.string,
   type: PropTypes.oneOf(['number', 'text']),
