@@ -1,7 +1,6 @@
 @import "../../theme/variables";
 
 .picker {
-  display: flex;
   justify-content: space-around;
   max-width: $large-width;
   margin: spacer(3) auto;
@@ -11,10 +10,12 @@
   }
 
   &Item {
+    display: block;
     text-decoration: none;
     color: $default;
     text-align: center;
     flex: 0 0 12rem;
+    margin-bottom: spacer(3);
 
     h2 {
       font-size: 2em;
