@@ -8,9 +8,7 @@ import styles from './Picker.module.scss';
 const Picker = () => {
   return (
     <React.Fragment>
-      <Subheader showSubheading>
-        <p>Dilution or Scaling. Something something goes here</p>
-      </Subheader>
+      <Subheader showSubheading />
       <section className={styles.picker}>
         <Link to="/dilute" className={styles.pickerItem}>
           <h2>Dilute</h2>

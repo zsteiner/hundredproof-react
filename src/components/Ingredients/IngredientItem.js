@@ -10,6 +10,7 @@ const IngredientItem = ({
   index,
   ingredient,
   onChange,
+  onFocus,
   onPaste,
   onSubmit,
   placeholder,
@@ -19,9 +20,9 @@ const IngredientItem = ({
     <li className={styles.ingredientsItem}>
       <form onSubmit={onSubmit}>
         <Input
-          autoFocus
           value={ingredient}
           onChange={event => onChange(event, index)}
+          onFocus={onFocus}
           onPaste={onPaste}
           className={styles.input}
           type="text"
@@ -30,7 +31,10 @@ const IngredientItem = ({
         />
       </form>
       {removeItem ? (
-        <button className={styles.button} onClick={() => removeItem(index)}>
+        <button
+          className={styles.button}
+          tabIndex="-1"
+          onClick={() => removeItem(index)}>
           x
         </button>
       ) : null}
@@ -44,6 +48,7 @@ IngredientItem.propTypes = {
   ingredient: PropTypes.string,
   onChange: PropTypes.func,
   onPaste: PropTypes.func,
+  onFocus: PropTypes.func,
   onSubmit: PropTypes.func,
   placeholder: PropTypes.string,
   removeItem: PropTypes.func

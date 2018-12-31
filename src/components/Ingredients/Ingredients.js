@@ -42,8 +42,14 @@ class Ingredients extends Component {
   editIngredient = (event, index) => {
     const activeIngredient = event.target.value;
     let ingredients = [...this.state.ingredients];
+    const length = ingredients.length;
     ingredients[index] = activeIngredient;
-    this.setState({ ingredients });
+
+    if (ingredients[length - 1] !== '' && activeIngredient !== '') {
+      ingredients.push('');
+    }
+
+    this.setState({ ingredients, activeIngredient });
   };
 
   pasteIngredient = event => {
