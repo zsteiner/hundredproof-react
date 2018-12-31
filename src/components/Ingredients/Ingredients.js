@@ -20,23 +20,8 @@ class Ingredients extends Component {
   }
 
   setIngredients = event => {
-    if (event) {
-      event.preventDefault();
-    }
-
-    const { ingredients, activeIngredient } = this.state;
-
-    let newIngredients =
-      activeIngredient === ''
-        ? ingredients
-        : [...ingredients, activeIngredient];
-
-    newIngredients.push('');
-
-    this.setState({
-      activeIngredient: '',
-      ingredients: newIngredients
-    });
+    event.preventDefault();
+    this.saveIngredients();
   };
 
   editIngredient = (event, index) => {
@@ -92,7 +77,6 @@ class Ingredients extends Component {
   saveIngredients = () => {
     const { ingredients } = this.state;
 
-    this.setIngredients();
     let cleanedIngredients = ingredients.filter(item => item !== '');
     cleanedIngredients.push('');
 
