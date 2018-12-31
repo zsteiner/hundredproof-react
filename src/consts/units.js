@@ -31,7 +31,9 @@ const units = [
   'quart',
   'quarts',
   'gallon',
-  'gallons'
+  'gallons',
+  'part',
+  'parts'
 ];
 
 export default units;

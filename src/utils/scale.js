@@ -35,7 +35,7 @@ export default function scale(ingredients, scaleFactor) {
     } else {
       amount = parseFloat(amount);
     }
-
+    console.log('amount', amount);
     amount = amount * setZero(scaleFactor);
 
     ingredientsFormatted.push({
