@@ -7,6 +7,14 @@
     display: flex;
     justify-content: space-around;
   }
+
+  &Item {
+    margin-bottom: spacer(2);
+
+    @include respond-to(large) {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .measureButtons {
