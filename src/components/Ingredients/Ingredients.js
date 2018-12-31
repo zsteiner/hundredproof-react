@@ -46,6 +46,13 @@ class Ingredients extends Component {
     this.setState({ ingredients });
   };
 
+  pasteIngredient = event => {
+    event.preventDefault();
+    const activeIngredient = event.clipboardData.getData('Text');
+    const split = activeIngredient.split(/\r?\n/);
+    this.setState({ ingredients: split });
+  };
+
   removeItem = index => {
     const { ingredients } = this.state;
     if (ingredients.length === 1 && index > -1) {
@@ -89,6 +96,7 @@ class Ingredients extends Component {
           removeItem={this.removeItem}
           onChange={this.editIngredient}
           onSubmit={this.setIngredients}
+          onPaste={this.pasteIngredient}
           placeholder="1 oz bourbon"
         />
       );

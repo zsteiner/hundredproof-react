@@ -75,6 +75,7 @@ class ScalingTools extends Component {
             <Errors errorCode={this.state.error} />
           </div>
           <div className="hp-app__col">
+            <h3 className="hp-heading">Scaled Recipe</h3>
             {!error && showResults ? (
               <ScalingResults results={this.state.ingredients} />
             ) : null}
