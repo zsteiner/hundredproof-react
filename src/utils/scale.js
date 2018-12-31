@@ -24,8 +24,6 @@ export default function scale(ingredients, scaleFactor) {
     const match = normalizeItem.match(regex);
     const hasThree = match[3] !== '';
 
-    console.log('match', match);
-
     amount = match[1]; // amount from string
     unit = hasThree ? normalizeUnits(match[2]) : null; // if two strings after amount, set unit
     ingredient = hasThree ? match[3] : match[2]; // if two strings after amount, set ingredient
