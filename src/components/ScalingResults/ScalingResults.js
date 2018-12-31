@@ -17,12 +17,7 @@ const ScalingResults = ({ results }) => {
     );
   });
 
-  return (
-    <React.Fragment>
-      <h3 className="hp-heading">Scaled Recipe</h3>
-      <ul className={`${styles.results} hp-clearlist`}>{ingredients}</ul>
-    </React.Fragment>
-  );
+  return <ul className={`${styles.results} hp-clearlist`}>{ingredients}</ul>;
 };
 
 export default ScalingResults;

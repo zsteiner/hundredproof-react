@@ -10,6 +10,7 @@ const IngredientItem = ({
   index,
   ingredient,
   onChange,
+  onPaste,
   onSubmit,
   placeholder,
   removeItem
@@ -21,6 +22,7 @@ const IngredientItem = ({
           autoFocus
           value={ingredient}
           onChange={event => onChange(event, index)}
+          onPaste={onPaste}
           className={styles.input}
           type="text"
           disabled={disabled}
@@ -41,6 +43,7 @@ IngredientItem.propTypes = {
   index: PropTypes.number,
   ingredient: PropTypes.string,
   onChange: PropTypes.func,
+  onPaste: PropTypes.func,
   onSubmit: PropTypes.func,
   placeholder: PropTypes.string,
   removeItem: PropTypes.func
