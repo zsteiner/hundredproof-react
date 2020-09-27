@@ -1,5 +1,8 @@
 {
   "name": "hundredproof-react",
+  "engines": {
+    "node": ">=12.18.4",
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
