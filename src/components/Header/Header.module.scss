@@ -1,11 +1,13 @@
-@import "../../theme/variables";
+@import '../../theme/variables';
 
 .header {
-  padding: 1rem 0;
-  text-align: center;
-  background: $primary url("/images/hp-bottles.svg") repeat-x bottom;
-  background-size: auto 4em;
   margin: 0;
+  padding: 1rem 0;
+  background-color: $primary;
+  background-position: bottom;
+  background-size: auto 4em;
+  background-repeat: repeat-x;
+  text-align: center;
   overflow: auto;
 
   a {

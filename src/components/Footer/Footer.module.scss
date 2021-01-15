@@ -1,10 +1,10 @@
 @import '../../theme/variables';
 
 .footer {
-  height: $footer-size;  
+  height: $footer-size;
   padding: spacer(1);
   display: flex;
-  background: url('/images/hp-bottles.svg') repeat-x top;
+  background-repeat: repeat-x;
   background-size: auto 4em;
   padding: 0;
   color: $white;
@@ -13,13 +13,12 @@
     flex: 0 100%;
     align-self: flex-end;
     background-color: $black;
-    padding: spacer(.5) spacer(1);
+    padding: spacer(0.5) spacer(1);
     text-align: center;
-    
+
     a {
       color: $primary;
       text-decoration: none;
     }
   }
 }
-
