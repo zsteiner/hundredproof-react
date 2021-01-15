@@ -1,12 +1,12 @@
 @import '../../theme/variables';
 
 .segmentedButton {
-  position: relative;
   display: flex;
-  padding: 0;
+  position: relative;
   margin: 0 auto;
-  list-style: none;
+  padding: 0;
   color: $default;
+  list-style: none;
 
   &Item {
     height: inherit;
@@ -31,26 +31,25 @@
 
     &:checked + label {
       background-color: $default;
-      border-color: $default;
       color: $white;
+      border-color: $default;
     }
   }
 
   input[disabled] {
     & + label {
-      opacity: .5;
+      opacity: 0.5;
     }
   }
 
   label {
     display: flex;
+    height: 100%;
+    min-width: 4em;
+    padding: 0.5em 0.75em;
+    text-align: center;
     align-items: center;
     justify-content: center;
-    padding: .5em .75em;
-    min-width: 4em;
-    text-align: center;
     cursor: pointer;
-    height: 100%;
-
   }
 }

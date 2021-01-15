@@ -3,21 +3,23 @@
 .buttongroup {
   display: flex;
   width: auto;
+  font-size: 0.875rem;
   font-weight: 700;
-  font-size: .875rem;
   flex: 0 1 auto;
 
   label {
     display: block;
-    flex: 0 1 auto;
+    padding: 0.5em;
+    color: transparentize($info, 0.55);
     text-align: center;
-    padding: .5em;
-    color: transparentize($info, .55);
+    flex: 0 1 auto;
   }
-  
+
   input {
     position: absolute;
-    left: -999px;
+    z-index: -1;
+    visibility: hidden;
+    opacity: 0;
   }
 
   input:checked + label {
@@ -26,31 +28,31 @@
 
   .icon {
     display: block;
-    margin: .5em auto;
+    margin: 0.5em auto;
     font-size: 1.75em;
   }
 }
 
 .unit {
   display: block;
-  margin-bottom: spacer(.5);
+  margin-bottom: spacer(0.5);
 
-  .plural &:after {
-    content: 's'
+  .plural &::after {
+    content: 's';
   }
 }
 
 .conversion {
-  margin-top: .5em;
-  display: block;  
-  
-  &:before {
-    content: "{";
-    margin-right: .1em;
-  } 
+  display: block;
+  margin-top: 0.5em;
 
-  &:after {
-    content: "}";
-    margin-left: .1em;
-  }   
+  &::before {
+    content: '{';
+    margin-right: 0.1em;
+  }
+
+  &::after {
+    content: '}';
+    margin-left: 0.1em;
+  }
 }

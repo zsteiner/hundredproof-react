@@ -1,17 +1,17 @@
-@import "../../theme/variables";
+@import '../../theme/variables';
 
 .input {
-  background: none;
   width: 1.5em;
-  border: 0;
-  color: $info;
-  border-bottom: 0.15rem dashed $info;
-  text-align: center;
-  line-height: 2;
-  font-family: $font-family-script;
   margin: 0 spacer(1);
   padding: 0;
+  background: none;
+  color: $info;
   font-size: 2em;
+  text-align: center;
+  border: 0;
+  border-bottom: 0.15rem dashed $info;
+  line-height: 2;
+  font-family: $font-family-script;
   align-self: center;
 
   &Autosize {
@@ -25,10 +25,10 @@
   }
 
   input {
-    border: 0;
-    text-align: inherit;
-    line-height: 1;
     height: 1.25em;
+    text-align: inherit;
+    border: 0;
+    line-height: 1;
 
     &:focus {
       outline: none;
@@ -37,27 +37,31 @@
   }
 
   $info--light: lighten($info, 40%);
+
   &::-webkit-input-placeholder {
     color: $info--light;
   }
+
   &::-moz-placeholder {
     color: $info--light;
   }
+
   &:-ms-input-placeholder {
     color: $info--light;
   }
+
   &:-moz-placeholder {
     color: $info--light;
   }
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   appearance: none;
   margin: 0;
 }
 
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
