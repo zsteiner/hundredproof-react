@@ -33,37 +33,31 @@
     background: none;
     border: 0;
 
+    $info--light: lighten($info, 40%);
+
+    &::-webkit-input-placeholder {
+      color: $info--light;
+    }
+
+    &::-moz-placeholder {
+      color: $info--light;
+    }
+
+    &:-ms-input-placeholder {
+      color: $info--light;
+    }
+
+    &:-moz-placeholder {
+      color: $info--light;
+    }
+
+    &:invalid {
+      box-shadow: none;
+      outline: none;
+    }
+
     &:focus {
       outline: none;
     }
   }
-
-  $info--light: lighten($info, 40%);
-
-  &::-webkit-input-placeholder {
-    color: $info--light;
-  }
-
-  &::-moz-placeholder {
-    color: $info--light;
-  }
-
-  &:-ms-input-placeholder {
-    color: $info--light;
-  }
-
-  &:-moz-placeholder {
-    color: $info--light;
-  }
-}
-
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  appearance: none;
-  margin: 0;
-}
-
-input[type='number'] {
-  -moz-appearance: textfield;
 }
