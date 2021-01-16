@@ -13,6 +13,7 @@
     color: transparentize($info, 0.55);
     text-align: center;
     flex: 0 1 auto;
+    cursor: pointer;
   }
 
   input {
@@ -45,6 +46,7 @@
 .conversion {
   display: block;
   margin-top: 0.5em;
+  font-size: 0.625rem;
 
   &::before {
     content: '{';

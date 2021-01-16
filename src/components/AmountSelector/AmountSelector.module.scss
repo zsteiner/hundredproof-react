@@ -1,4 +1,4 @@
-@import "../../theme/variables";
+@import '../../theme/variables';
 
 .amount {
   display: inline-flex;
@@ -8,10 +8,6 @@
 
   &:first-of-type {
     margin-bottom: spacer(1);
-  }
-
-  @include respond-to(large) {
-    justify-content: flex-start;
   }
 
   &Label {

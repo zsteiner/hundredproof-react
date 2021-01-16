@@ -1,11 +1,12 @@
 @import '../../theme/variables';
 
 .measureHeader {
-  padding: spacer(2) 0;
+  padding: spacer(2) spacer(1);
 
   @include respond-to(large) {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: spacer(2);
   }
 
   &Item {
@@ -19,6 +20,6 @@
 
 .measureButtons {
   width: 100%;
-  max-width: 30rem;
+  max-width: 20rem;
   margin: auto;
 }

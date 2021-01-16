@@ -1,17 +1,27 @@
-@import "../../theme/variables";
+@import '../../theme/variables';
 
 .button {
-  border: $border-match-color;
-  background: none;
-  padding: 0.5em;
-  border-radius: 0;
-  color: $default;
   width: 100%;
+  max-width: 20rem;
+  margin: 0 auto;
+  padding: 0.5em;
+  background: none;
+  color: $default;
+  font-weight: 700;
+  border: $border-match-color;
+  border-radius: 0.175rem;
+  font-family: $font-family-heading;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
 
   &:focus {
+    font-weight: 700;
     outline: none;
     border-color: $primary;
-    font-weight: 700;
+  }
+
+  &:hover {
+    background: $primary;
   }
 }
 

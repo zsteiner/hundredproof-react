@@ -22,8 +22,9 @@
 
   input[type='radio'] {
     position: absolute;
-    left: -99rem;
+    left: 0;
     opacity: 0;
+    visibility: hidden;
 
     &:focus + label {
       background-color: $default;

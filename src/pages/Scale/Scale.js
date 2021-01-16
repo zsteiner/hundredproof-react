@@ -14,7 +14,9 @@ class Scale extends Component {
             dashes of dry vermouth"
           </p>
         </Subheader>
-        <ScalingTools />
+        <article className="hp-app">
+          <ScalingTools />
+        </article>
       </React.Fragment>
     );
   }

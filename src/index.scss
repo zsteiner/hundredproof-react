@@ -56,23 +56,32 @@ h5 {
 
   &__row {
     @include respond-to(large) {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
   }
 
+  $large-padding: spacer(3) spacer(2);
+
   &__col {
     width: 100%;
-    padding: spacer(1);
+    padding: spacer(2) spacer(2) spacer(3);
     text-align: center;
 
     &:last-of-type {
+      padding: $large-padding;
       border-top: 0.0625rem solid lighten($info, 15%);
+
+      @include respond-to(large) {
+        padding: $large-padding;
+      }
     }
 
     @include respond-to(large) {
       display: flex;
       flex-direction: column;
       flex: 1 1 50%;
+      padding: $large-padding;
 
       &:first-child {
         border-right: 0.0625rem solid lighten($info, 25%);

@@ -24,8 +24,8 @@
   font-style: normal;
 
   &Logo {
-    color: $white;
     margin-bottom: 2em;
+    color: $white;
 
     svg {
       height: 5em;
@@ -46,10 +46,10 @@
   text-align: center;
 
   p {
+    max-width: 38rem;
+    margin: spacer(1) auto;
     font-size: 1em;
     line-height: 1.5;
-    margin: spacer(1) auto;
-    max-width: 38rem;
 
     &:last-child {
       margin-top: 1em;

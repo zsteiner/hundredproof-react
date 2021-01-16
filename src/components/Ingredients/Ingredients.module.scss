@@ -1,7 +1,9 @@
 @import '../../theme/variables';
 
 .ingredients {
-  margin: 0;
+  width: 100%;
+  max-width: 50ch;
+  margin: 0 auto;
   padding: 0;
   list-style: none;
 
@@ -23,10 +25,10 @@
 .button {
   padding: 0;
   background: none;
-  font-size: 1.5rem;
+  color: $info;
+  font-size: 1rem;
   border: 0;
-  font-family: $font-family-heading;
-  text-transform: uppercase;
+  align-self: center;
 
   &:focus {
     color: $primary;
