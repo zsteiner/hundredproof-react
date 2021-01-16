@@ -7,11 +7,10 @@ class Scale extends Component {
   render() {
     return (
       <React.Fragment>
-        <Subheader>
-          <p>Scale your favorite cocktail recipe for a crowd.</p>
+        <Subheader heading="Scale">
           <p>
             Enter each ingredient like "1 oz gin" or "1.5 shots of whisky" or "2
-            dashes of dry vermouth"
+            dashes of dry vermouth". Let's this party started.
           </p>
         </Subheader>
         <article className="hp-app">

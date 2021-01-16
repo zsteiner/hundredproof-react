@@ -1,16 +1,19 @@
 @import '../../theme/variables';
 
 .input {
+  display: flex;
+  position: relative;
+  height: 2em;
   width: 1.5em;
   margin: 0 spacer(1);
-  padding: 0;
+  padding: 0 0.25em;
   background: none;
   color: $info;
   font-size: 2em;
   text-align: center;
   border: 0;
   border-bottom: 0.15rem dashed $info;
-  line-height: 2;
+  line-height: 1;
   font-family: $font-family-script;
   align-self: center;
 
@@ -25,14 +28,13 @@
   }
 
   input {
-    height: 1.25em;
-    text-align: inherit;
+    display: block;
+    padding: 0 0.25em;
+    background: none;
     border: 0;
-    line-height: 1;
 
     &:focus {
       outline: none;
-      border-bottom-color: $primary;
     }
   }
 

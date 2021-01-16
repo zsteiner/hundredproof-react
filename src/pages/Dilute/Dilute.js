@@ -8,18 +8,10 @@ import Subheader from '../../components/Header/Subheader';
 const Dilute = () => {
   return (
     <React.Fragment>
-      <Subheader>
+      <Subheader heading="Dilute">
         <p>
-          Got a bottle of uncut whiskey and unsure how much water to add for
-          sipping?
-        </p>
-        <p>
-          Making homemade liqueur and not sure how much to dilute to get a
-          desired proof?
-        </p>
-        <p>
-          Enter your quantity, starting proof/ABV below for boozy, arithmetical
-          awesomeness. Let's get this party started.
+          Enter your quantity and starting proof or ABV below for boozy,
+          arithmetical awesomeness.
         </p>
       </Subheader>
       <article className="hp-app">

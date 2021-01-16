@@ -9,16 +9,18 @@ import styles from './ScalingHeader.module.scss';
 const ScalingHeader = () => {
   return (
     <ScalingContext.Consumer>
-      {context => (
+      {(context) => (
         <section className={`${styles.scalingHeader} hp-section`}>
-          I'm serving
-          <Input
-            autoSize
-            onChange={context.setScalingFactor}
-            type="number"
-            value={context.scalingFactor}
-          />
-          people.
+          <div className={styles.scale}>
+            <label>I'm serving</label>
+            <Input
+              autoSize
+              onChange={context.setScalingFactor}
+              type="number"
+              value={context.scalingFactor}
+            />
+            <label>people.</label>
+          </div>
         </section>
       )}
     </ScalingContext.Consumer>

@@ -10,8 +10,9 @@
   font-weight: 700;
   border: $border-match-color;
   border-radius: 0.175rem;
-  font-family: $font-family-heading;
+  font-family: $font-family-sans;
   text-transform: uppercase;
+  text-decoration: none;
   letter-spacing: 0.05rem;
 
   &:focus {

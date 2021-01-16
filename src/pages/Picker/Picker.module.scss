@@ -3,7 +3,7 @@
 .picker {
   justify-content: space-around;
   max-width: $large-width;
-  margin: spacer(3) auto;
+  margin: spacer(4) auto;
 
   @include respond-to(large) {
     display: flex;
@@ -13,12 +13,32 @@
     display: block;
     margin-bottom: spacer(3);
     color: $default;
+    font-size: 0.875rem;
     text-align: center;
     text-decoration: none;
-    flex: 0 0 30ch;
+    flex: 0 0 35ch;
 
     h2 {
+      margin-bottom: spacer(0.5);
       font-size: 2em;
     }
+
+    p {
+      margin-bottom: spacer(2);
+      line-height: 1.5;
+    }
   }
+}
+
+.tagline {
+  margin-bottom: spacer(1);
+  color: $info;
+  font-size: 0.875rem;
+  font-family: $font-family-sans;
+}
+
+.button {
+  padding: spacer(0.5) spacer;
+  color: $default;
+  text-decoration: none;
 }
