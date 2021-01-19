@@ -10,7 +10,7 @@ import styles from './DilutionValues.module.scss';
 const DilutionValues = () => {
   return (
     <DilutionContext.Consumer>
-      {context => (
+      {(context) => (
         <form onSubmit={context.updateResults}>
           <InputGroup
             onChange={context.setStartingABV}
@@ -26,7 +26,7 @@ const DilutionValues = () => {
           />
           <Button
             onClick={context.updateResults}
-            text="Update"
+            text="calculate"
             className={styles.submitButton}
             disabled={context.error ? true : false}
           />

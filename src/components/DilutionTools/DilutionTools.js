@@ -20,7 +20,7 @@ class DilutionTools extends Component {
       measure: 'proof',
       translatedUnit: 'teaspoon',
       unit: 'shot',
-      volume: 'start'
+      volume: 'start',
     };
 
     const startingABV = convertABV(defaults.measure, 50);
@@ -49,7 +49,7 @@ class DilutionTools extends Component {
       finalAmountSpiritTranslated: 1.5,
       updateResults: this.updateResults,
       unit: defaults.unit,
-      volume: defaults.volume
+      volume: defaults.volume,
     };
   }
 
@@ -57,7 +57,7 @@ class DilutionTools extends Component {
     this.updateResults();
   }
 
-  updateResults = event => {
+  updateResults = (event) => {
     if (event) {
       event.preventDefault();
     }
@@ -68,7 +68,7 @@ class DilutionTools extends Component {
       measure,
       startingABV,
       unit,
-      volume
+      volume,
     } = this.state;
 
     const dilutionResults = dilute(
@@ -76,7 +76,7 @@ class DilutionTools extends Component {
       desiredABV,
       startingABV,
       unit,
-      volume
+      volume,
     );
 
     this.setState({
@@ -90,7 +90,7 @@ class DilutionTools extends Component {
       resultsSpirit: dilutionResults.resultsSpirit,
       resultsTranslated: dilutionResults.resultsTranslated,
       showResults: true,
-      translatedUnit: dilutionResults.translatedUnit
+      translatedUnit: dilutionResults.translatedUnit,
     });
   };
 
@@ -103,30 +103,30 @@ class DilutionTools extends Component {
         translatedUnit: 0,
         displayResults: 0,
         displayMeasure: 0,
-        showResults: false
+        showResults: false,
       });
       console.error('ERROR!');
       return '';
     } else {
       this.setState({
-        error: null
+        error: null,
       });
       return value.trim();
     }
   }
 
-  setVolume = volume => {
+  setVolume = (volume) => {
     this.setState(
       {
-        volume: volume
+        volume: volume,
       },
       () => {
         this.updateResults();
-      }
+      },
     );
   };
 
-  setMeasure = measure => {
+  setMeasure = (measure) => {
     const { desiredABV, startingABV, displayMeasure } = this.state;
 
     this.setState(
@@ -135,46 +135,46 @@ class DilutionTools extends Component {
         desiredABV: convertABV(measure, desiredABV),
         startingABV: convertABV(measure, startingABV),
         displayMeasure: convertABV(measure, displayMeasure),
-        displayMeasureUnit: measure
+        displayMeasureUnit: measure,
       },
       () => {
         this.updateResults();
-      }
+      },
     );
   };
 
-  setAmount = event => {
+  setAmount = (event) => {
     const amount = this.checkForError(event.target.value, 1);
 
     this.setState({
-      amount: amount
+      amount: amount,
     });
   };
 
-  setUnits = event => {
+  setUnits = (event) => {
     const unit = event.target.value;
 
     this.setState(
       {
-        unit: unit
+        unit: unit,
       },
-      this.updateResults
+      this.updateResults,
     );
   };
 
-  setStartingABV = event => {
+  setStartingABV = (event) => {
     const startingABV = this.checkForError(event.target.value, 2);
 
     this.setState({
-      startingABV: startingABV
+      startingABV: startingABV,
     });
   };
 
-  setDesiredABV = event => {
+  setDesiredABV = (event) => {
     const desiredABV = this.checkForError(event.target.value, 3);
 
     this.setState({
-      desiredABV: desiredABV
+      desiredABV: desiredABV,
     });
   };
 
@@ -186,10 +186,10 @@ class DilutionTools extends Component {
         <MeasureHeader />
         <section className="hp-section hp-app__row">
           <div className="hp-app__col">
-            <h3 className="hp-heading">Starting with ... </h3>
+            <h3 className="hp-heading">Starting with</h3>
             <AmountSelector />
             <DilutionValues />
-            <Errors errorCode={this.state.error} />
+            {error ? <Errors errorCode={error} /> : null}
           </div>
           <div className="hp-app__col">
             {!error && showResults ? <DiluteResults /> : null}

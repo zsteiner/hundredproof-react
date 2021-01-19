@@ -1,13 +1,13 @@
 @import 'theme/variables';
 
 .pagewrap {
-  margin-bottom: -$footer-size;
   min-height: 100%;
+  margin-bottom: -$footer-size;
 }
 
-.pagewrap:after {
+.pagewrap::after {
   display: block;
-  content: "";
+  content: '';
   z-index: -1;
   height: $footer-size;
 }

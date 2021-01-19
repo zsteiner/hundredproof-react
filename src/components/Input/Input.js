@@ -17,12 +17,12 @@ const Input = ({
   placeholder,
   readOnly,
   type,
-  value
+  value,
 }) => {
   const inputClasses = classNames({
     [styles.input]: true,
     [styles.inputAutosize]: autoSize,
-    [className]: className
+    [className]: className,
   });
 
   if (autoSize) {
@@ -31,12 +31,12 @@ const Input = ({
         autoFocus={autoFocus}
         className={inputClasses}
         pattern={type === 'number' ? 'd*' : '.*'}
-        type={type ? type : 'text'}
         value={value}
         onChange={onChange}
         onFocus={onFocus}
         onPaste={onPaste}
         readOnly={readOnly}
+        type="text"
       />
     );
   }
@@ -65,7 +65,7 @@ Input.propTypes = {
   onPaste: PropTypes.func,
   placeholder: PropTypes.string,
   type: PropTypes.oneOf(['number', 'text']),
-  value: PropTypes.any
+  value: PropTypes.any,
 };
 
 export default Input;

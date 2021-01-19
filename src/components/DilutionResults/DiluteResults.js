@@ -20,7 +20,7 @@ class DiluteResults extends Component {
     resultsSpirit: PropTypes.number,
     resultsTranslated: PropTypes.number,
     translatedUnit: PropTypes.string,
-    volume: PropTypes.string
+    volume: PropTypes.string,
   };
 
   render() {
@@ -33,7 +33,7 @@ class DiluteResults extends Component {
       resultsOz,
       resultsTranslated,
       translatedUnit,
-      volume
+      volume,
     } = this.context;
 
     const isVolEnd = volume === 'end';
@@ -44,10 +44,10 @@ class DiluteResults extends Component {
 
     return (
       <DilutionContext.Consumer>
-        {context => (
+        {(context) => (
           <React.Fragment>
             <h3 className="hp-heading">
-              You Should {isVolEnd ? 'Combine' : 'Add'} ...
+              You Should {isVolEnd ? 'Combine' : 'Add'}
             </h3>
             <div className={styles.results}>
               <div className={styles.resultsGroup}>

@@ -1,18 +1,23 @@
-@import "../../theme/variables";
+@import '../../theme/variables';
 
 .input {
-  background: none;
-  width: 1.5em;
-  border: 0;
-  color: $info;
-  border-bottom: 0.15rem dashed $info;
-  text-align: center;
-  line-height: 2;
-  font-family: $font-family-script;
+  display: flex;
+  position: relative;
+  box-sizing: content-box;
+  height: 1.875em;
+  width: 2rem;
+  min-width: 2ch;
   margin: 0 spacer(1);
-  padding: 0;
-  font-size: 2em;
+  background: none;
+  color: $info;
+  font-size: 1.25rem;
+  text-align: center;
+  border: 0;
+  border-bottom: 0.15rem dashed $info;
+  line-height: 1;
+  font-family: $font-family-script;
   align-self: center;
+  text-indent: 0.5em;
 
   &Autosize {
     width: auto;
@@ -25,39 +30,35 @@
   }
 
   input {
+    padding: 0 0.25em;
+    background: none;
     border: 0;
-    text-align: inherit;
-    line-height: 1;
-    height: 1.25em;
+
+    $info--light: lighten($info, 40%);
+
+    &::-webkit-input-placeholder {
+      color: $info--light;
+    }
+
+    &::-moz-placeholder {
+      color: $info--light;
+    }
+
+    &:-ms-input-placeholder {
+      color: $info--light;
+    }
+
+    &:-moz-placeholder {
+      color: $info--light;
+    }
+
+    &:invalid {
+      box-shadow: none;
+      outline: none;
+    }
 
     &:focus {
       outline: none;
-      border-bottom-color: $primary;
     }
   }
-
-  $info--light: lighten($info, 40%);
-  &::-webkit-input-placeholder {
-    color: $info--light;
-  }
-  &::-moz-placeholder {
-    color: $info--light;
-  }
-  &:-ms-input-placeholder {
-    color: $info--light;
-  }
-  &:-moz-placeholder {
-    color: $info--light;
-  }
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  appearance: none;
-  margin: 0;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
 }

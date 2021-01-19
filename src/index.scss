@@ -1,5 +1,5 @@
-@import "theme/variables";
-@import "theme/normalize";
+@import 'theme/variables';
+@import 'theme/normalize';
 
 body {
   font-family: $font-family-serif;
@@ -7,8 +7,8 @@ body {
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -56,26 +56,35 @@ h5 {
 
   &__row {
     @include respond-to(large) {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
   }
 
+  $large-padding: spacer(3) spacer(2);
+
   &__col {
     width: 100%;
+    padding: spacer(2) spacer(2) spacer(3);
     text-align: center;
-    padding: spacer(1);
 
     &:last-of-type {
-      border-top: 1px solid lighten($info, 15%);
+      padding: $large-padding;
+      border-top: 0.0625rem solid lighten($info, 15%);
+
+      @include respond-to(large) {
+        padding: $large-padding;
+      }
     }
 
     @include respond-to(large) {
       display: flex;
       flex-direction: column;
       flex: 1 1 50%;
+      padding: $large-padding;
 
       &:first-child {
-        border-right: 1px solid lighten($info, 25%);
+        border-right: 0.0625rem solid lighten($info, 25%);
       }
 
       &:last-child {
@@ -85,8 +94,13 @@ h5 {
   }
 }
 
+.hp-section {
+  max-width: 100ch;
+  margin: 0 auto;
+}
+
 .hp-heading {
-  font-family: $font-family-heading;
+  font-family: $font-family-sans;
   letter-spacing: 0.075em;
   text-transform: uppercase;
   color: $default;
@@ -95,7 +109,7 @@ h5 {
 }
 
 .hp-clearlist {
-  list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  list-style: none;
 }

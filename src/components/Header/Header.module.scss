@@ -1,39 +1,63 @@
-@import "../../theme/variables";
+@import '../../theme/variables';
 
 .header {
-  padding: 1rem 0;
-  text-align: center;
-  background: $primary url("/images/hp-bottles.svg") repeat-x bottom;
-  background-size: auto 4em;
   margin: 0;
+  padding: 1rem 0;
+  background-color: $primary;
+  background-position: bottom;
+  background-size: auto spacer(2);
+  background-repeat: repeat-x;
+  text-align: center;
   overflow: auto;
 
+  @include respond-to(large) {
+    background-size: auto 4em;
+  }
+
   a {
+    display: block;
     color: $white;
   }
 }
 
 .heading {
-  font-family: $font-family-heading;
+  color: $default;
+  font-size: 1rem;
+  text-align: center;
+  font-family: $font-family-sans;
   letter-spacing: 0.075em;
   text-transform: uppercase;
-  color: $default;
-  text-align: center;
   font-style: normal;
 
+  @include respond-to(large) {
+    font-size: 1.5rem;
+  }
+
   &Logo {
+    margin-bottom: spacer(2);
     color: $white;
-    margin-bottom: 2em;
+
+    @include respond-to(large) {
+      margin-bottom: spacer(4);
+    }
 
     svg {
-      height: 5em;
+      height: 5rem;
       width: auto;
       fill: currentColor;
+
+      @include respond-to(large) {
+        height: 8rem;
+      }
     }
   }
 
   &Subheading {
     color: $white;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -44,10 +68,10 @@
   text-align: center;
 
   p {
+    max-width: 45ch;
+    margin: spacer(1) auto;
     font-size: 1em;
     line-height: 1.5;
-    margin: spacer(1) auto;
-    max-width: 38rem;
 
     &:last-child {
       margin-top: 1em;

@@ -1,4 +1,4 @@
-@import "../../theme/variables";
+@import '../../theme/variables';
 
 .amount {
   display: inline-flex;
@@ -10,12 +10,10 @@
     margin-bottom: spacer(1);
   }
 
-  @include respond-to(large) {
-    justify-content: flex-start;
-  }
-
   &Label {
+    display: block;
     flex: 0 0 auto;
     width: max-content;
+    margin: 0;
   }
 }

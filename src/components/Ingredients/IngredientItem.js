@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Input from '../Input/Input';
+import Icon from '../Icon/Icon';
 
 import styles from './Ingredients.module.scss';
 
@@ -14,14 +15,14 @@ const IngredientItem = ({
   onPaste,
   onSubmit,
   placeholder,
-  removeItem
+  removeItem,
 }) => {
   return (
     <li className={styles.ingredientsItem}>
       <form onSubmit={onSubmit}>
         <Input
           value={ingredient}
-          onChange={event => onChange(event, index)}
+          onChange={(event) => onChange(event, index)}
           onFocus={onFocus}
           onPaste={onPaste}
           className={styles.input}
@@ -34,8 +35,9 @@ const IngredientItem = ({
         <button
           className={styles.button}
           tabIndex="-1"
-          onClick={() => removeItem(index)}>
-          x
+          onClick={() => removeItem(index)}
+        >
+          <Icon icon="close" />
         </button>
       ) : null}
     </li>
@@ -51,7 +53,7 @@ IngredientItem.propTypes = {
   onFocus: PropTypes.func,
   onSubmit: PropTypes.func,
   placeholder: PropTypes.string,
-  removeItem: PropTypes.func
+  removeItem: PropTypes.func,
 };
 
 export default IngredientItem;

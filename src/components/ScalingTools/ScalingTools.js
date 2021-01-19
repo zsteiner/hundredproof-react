@@ -20,50 +20,50 @@ class ScalingTools extends Component {
       ingredientsRaw: [''],
       scalingFactor: 2,
       setScalingFactor: this.setScalingFactor,
-      setIngredients: this.setIngredients
+      setIngredients: this.setIngredients,
     };
   }
 
   checkForError(value, code) {
     if (isNaN(value) || value === '') {
       this.setState({
-        scalingFactor: 1
+        scalingFactor: 1,
       });
       console.error('ERROR!');
       return '';
     } else {
       this.setState({
-        error: null
+        error: null,
       });
       return value.trim();
     }
   }
 
-  setScalingFactor = event => {
+  setScalingFactor = (event) => {
     const scalingFactor = this.checkForError(event.target.value, 1);
 
     this.setState(
       {
-        scalingFactor
+        scalingFactor,
       },
       () => {
         this.setIngredients(this.state.ingredientsRaw);
-      }
+      },
     );
   };
 
-  setIngredients = ingredientsRaw => {
+  setIngredients = (ingredientsRaw) => {
     const ingredients = scale(ingredientsRaw, this.state.scalingFactor);
 
     this.setState({
       ingredients,
       ingredientsRaw,
-      showResults: true
+      showResults: true,
     });
   };
 
   render() {
-    const { error, showResults } = this.state;
+    const { error, ingredients, showResults } = this.state;
 
     return (
       <ScalingContext.Provider value={this.state}>
@@ -72,12 +72,12 @@ class ScalingTools extends Component {
           <div className="hp-app__col">
             <h3 className="hp-heading">Original Recipe</h3>
             <Ingredients />
-            <Errors errorCode={this.state.error} />
+            {error ? <Errors errorCode={error} /> : null}
           </div>
           <div className="hp-app__col">
             <h3 className="hp-heading">Scaled Recipe</h3>
             {!error && showResults ? (
-              <ScalingResults results={this.state.ingredients} />
+              <ScalingResults results={ingredients} />
             ) : null}
           </div>
         </section>
