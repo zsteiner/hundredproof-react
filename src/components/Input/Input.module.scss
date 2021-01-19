@@ -3,19 +3,21 @@
 .input {
   display: flex;
   position: relative;
-  height: 2em;
-  width: 1.5em;
+  box-sizing: content-box;
+  height: 1.875em;
+  width: 2rem;
+  min-width: 2ch;
   margin: 0 spacer(1);
-  padding: 0 0.25em;
   background: none;
   color: $info;
-  font-size: 2em;
+  font-size: 1.25rem;
   text-align: center;
   border: 0;
   border-bottom: 0.15rem dashed $info;
   line-height: 1;
   font-family: $font-family-script;
   align-self: center;
+  text-indent: 0.5em;
 
   &Autosize {
     width: auto;
@@ -28,7 +30,6 @@
   }
 
   input {
-    display: block;
     padding: 0 0.25em;
     background: none;
     border: 0;
