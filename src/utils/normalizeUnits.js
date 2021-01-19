@@ -4,6 +4,8 @@ export default function normalizeUnits(unit) {
   switch (unit) {
   case 'ounce':
   case 'ounces':
+  case 'jigger':
+  case 'jiggers':
   case 'shot':
   case 'shots':
   case 'oz':
