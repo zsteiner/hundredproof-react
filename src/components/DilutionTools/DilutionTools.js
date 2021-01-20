@@ -105,7 +105,6 @@ class DilutionTools extends Component {
         displayMeasure: 0,
         showResults: false,
       });
-      console.error('ERROR!');
       return '';
     } else {
       this.setState({
@@ -162,19 +161,33 @@ class DilutionTools extends Component {
     );
   };
 
+  abvValidation(startingABV, desiredABV) {
+    if (Number(desiredABV) >= Number(startingABV)) {
+      this.setState({
+        error: 4,
+      });
+    }
+  }
+
   setStartingABV = (event) => {
+    const { desiredABV } = this.state;
     const startingABV = this.checkForError(event.target.value, 2);
 
+    this.abvValidation(startingABV, desiredABV);
+
     this.setState({
-      startingABV: startingABV,
+      startingABV: Number(startingABV),
     });
   };
 
   setDesiredABV = (event) => {
+    const { startingABV } = this.state;
     const desiredABV = this.checkForError(event.target.value, 3);
 
+    this.abvValidation(startingABV, desiredABV);
+
     this.setState({
-      desiredABV: desiredABV,
+      desiredABV: Number(desiredABV),
     });
   };
 

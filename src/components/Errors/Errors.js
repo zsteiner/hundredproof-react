@@ -9,14 +9,14 @@ const Errors = ({ errorCode }) => {
   let errorDisplay = <span>&nbsp;</span>;
 
   if (errorCode) {
-    errorDisplay = errorText[Number(errorCode)];
+    errorDisplay = errorText[errorCode];
   }
 
   return <p className={styles.error}>{errorDisplay}</p>;
 };
 
 Errors.propTypes = {
-  errorCode: PropTypes.number
+  errorCode: PropTypes.number,
 };
 
 export default Errors;
