@@ -162,9 +162,21 @@ class DilutionTools extends Component {
   };
 
   abvValidation(startingABV, desiredABV) {
-    if (Number(desiredABV) >= Number(startingABV)) {
+    const formattedStartingABV = Number(startingABV);
+    const formattedDesiredABV = Number(desiredABV);
+
+    if (formattedDesiredABV >= formattedStartingABV) {
       this.setState({
         error: 4,
+      });
+    }
+
+    const max = this.state.measure === 'abv' ? 100 : 200;
+    const code = this.state.measure === 'abv' ? 5 : 6;
+
+    if (formattedDesiredABV > max || formattedStartingABV > max) {
+      this.setState({
+        error: code,
       });
     }
   }
@@ -182,7 +194,7 @@ class DilutionTools extends Component {
 
   setDesiredABV = (event) => {
     const { startingABV } = this.state;
-    const desiredABV = this.checkForError(event.target.value, 3);
+    const desiredABV = this.checkForError(event.target.value, 2);
 
     this.abvValidation(startingABV, desiredABV);
 
