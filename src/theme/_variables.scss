@@ -25,5 +25,6 @@ $footer-size: 6em;
 //Card Borders
 $border-width: 0.0625rem;
 $border-match-color: $border-width solid currentColor;
+$border-radius: 0.175rem;
 
 @import 'mixins';
