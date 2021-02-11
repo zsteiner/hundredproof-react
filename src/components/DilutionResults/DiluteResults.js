@@ -51,12 +51,16 @@ class DiluteResults extends Component {
             </h3>
             <div className={styles.results}>
               <div className={styles.resultsGroup}>
-                <ResultsBlock amount={resultsOz} unit="ounce" liquid="water" />
+                <ResultsBlock
+                  amount={resultsOz}
+                  unit="ounce"
+                  ingredient="water"
+                />
                 {isVolEnd ? (
                   <ResultsBlock
                     amount={finalAmountSpirit}
                     unit="ounce"
-                    liquid="spirits"
+                    ingredient="spirits"
                     showPlus
                   />
                 ) : null}
@@ -64,13 +68,13 @@ class DiluteResults extends Component {
                 <ResultsBlock
                   amount={resultsTranslated}
                   unit={translatedUnit}
-                  liquid="water"
+                  ingredient="water"
                 />
                 {isVolEnd ? (
                   <ResultsBlock
                     amount={context.finalAmountSpiritTranslated}
                     unit={translatedUnit}
-                    liquid="spirits"
+                    ingredient="spirits"
                     showPlus
                   />
                 ) : null}

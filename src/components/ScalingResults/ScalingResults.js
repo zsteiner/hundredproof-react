@@ -10,6 +10,7 @@ const ScalingResults = ({ results }) => {
       <li key={index} className={styles.resultsItem}>
         <ResultsBlock
           amount={ingredient.amount}
+          formatIngredient
           ingredient={ingredient.ingredient}
           unit={ingredient.unit}
         />
