@@ -87,11 +87,8 @@ class DiluteResults extends Component {
                   <span className={styles.resultsNumber}>{displayResults}</span>{' '}
                   <span className={styles.unit}>
                     {pluralize(displayUnits, displayResults)}
-                  </span>
-                </p>
-                <div className={styles.resultsDivider}>of</div>
-                <p className={styles.resultsText}>
-                  {measurePrefix} {displayMeasure}
+                  </span>{' '}
+                  of {measurePrefix} {displayMeasure}
                   {measure} spirit.
                 </p>
               </div>
