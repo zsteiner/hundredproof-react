@@ -18,8 +18,8 @@ const IngredientItem = ({
   removeItem,
 }) => {
   return (
-    <li className={styles.ingredientsItem}>
-      <form onSubmit={onSubmit}>
+    <li>
+      <form onSubmit={onSubmit} className={styles.ingredientsItem}>
         <Input
           value={ingredient}
           onChange={(event) => onChange(event, index)}
@@ -30,16 +30,16 @@ const IngredientItem = ({
           disabled={disabled}
           placeholder={placeholder}
         />
+        {removeItem ? (
+          <button
+            className={styles.button}
+            tabIndex="-1"
+            onClick={() => removeItem(index)}
+          >
+            <Icon icon="close" />
+          </button>
+        ) : null}
       </form>
-      {removeItem ? (
-        <button
-          className={styles.button}
-          tabIndex="-1"
-          onClick={() => removeItem(index)}
-        >
-          <Icon icon="close" />
-        </button>
-      ) : null}
     </li>
   );
 };

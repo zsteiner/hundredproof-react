@@ -16,6 +16,7 @@ const Input = ({
   onPaste,
   placeholder,
   readOnly,
+  required,
   type,
   value,
 }) => {
@@ -53,6 +54,7 @@ const Input = ({
       onFocus={onFocus}
       onPaste={onPaste}
       readOnly={readOnly}
+      required={required}
     />
   );
 };
@@ -64,6 +66,8 @@ Input.propTypes = {
   onFocus: PropTypes.func,
   onPaste: PropTypes.func,
   placeholder: PropTypes.string,
+  readOnly: PropTypes.bool,
+  required: PropTypes.bool,
   type: PropTypes.oneOf(['number', 'text']),
   value: PropTypes.any,
 };

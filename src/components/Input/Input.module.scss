@@ -23,6 +23,24 @@
     width: auto;
   }
 
+  $info--light: lighten($info, 40%);
+
+  &::placeholder {
+    color: $info--light;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $info--light;
+  }
+
+  &:placeholder-shown {
+    border-color: $info--light;
+
+    & + button {
+      display: none;
+    }
+  }
+
   &:focus,
   &:focus-within {
     outline: none;
@@ -33,24 +51,6 @@
     padding: 0 0.25em;
     background: none;
     border: 0;
-
-    $info--light: lighten($info, 40%);
-
-    &::-webkit-input-placeholder {
-      color: $info--light;
-    }
-
-    &::-moz-placeholder {
-      color: $info--light;
-    }
-
-    &:-ms-input-placeholder {
-      color: $info--light;
-    }
-
-    &:-moz-placeholder {
-      color: $info--light;
-    }
 
     &:invalid {
       box-shadow: none;

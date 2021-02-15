@@ -10,7 +10,7 @@ class Scale extends Component {
         <Subheader heading="Scale">
           <p>
             Enter each ingredient like "1 oz gin" or "1.5 shots of whisky" or "2
-            dashes of dry vermouth". Let's this party started.
+            dashes of dry vermouth". Let's get this party started.
           </p>
         </Subheader>
         <article className="hp-app">

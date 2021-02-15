@@ -15,11 +15,11 @@ class Ingredients extends Component {
 
     this.state = {
       ingredients: context.ingredientsRaw,
-      activeIngredient: ''
+      activeIngredient: '',
     };
   }
 
-  setIngredients = event => {
+  setIngredients = (event) => {
     event.preventDefault();
     this.saveIngredients();
   };
@@ -37,7 +37,7 @@ class Ingredients extends Component {
     this.setState({ ingredients, activeIngredient });
   };
 
-  pasteIngredient = event => {
+  pasteIngredient = (event) => {
     event.preventDefault();
 
     const { ingredients } = this.state;
@@ -55,9 +55,11 @@ class Ingredients extends Component {
     this.setState({ ingredients: newIngredients });
   };
 
-  removeItem = index => {
+  removeItem = (index) => {
     const { ingredients } = this.state;
-    if (ingredients.length === 1 && index > -1) {
+    const ingredientsLength = ingredients.length;
+
+    if (ingredientsLength === 1 && index > -1) {
       ingredients.splice(index, 1);
       ingredients.push('');
     } else if (index > -1) {
@@ -66,25 +68,35 @@ class Ingredients extends Component {
 
     this.setState(
       {
-        ingredients
+        ingredients,
       },
       () => {
         this.saveIngredients();
-      }
+      },
     );
   };
 
   saveIngredients = () => {
     const { ingredients } = this.state;
 
-    let cleanedIngredients = ingredients.filter(item => item !== '');
+    let cleanedIngredients = ingredients.filter((item) => item !== '');
     cleanedIngredients.push('');
 
     this.setState({
-      ingredients: cleanedIngredients
+      ingredients: cleanedIngredients,
     });
 
     this.context.setIngredients(cleanedIngredients);
+  };
+
+  showRemoveItem = (index) => {
+    const ingredientsLength = this.ingredients.length;
+
+    if (ingredientsLength === index + 1) {
+      return false;
+    } else {
+      return true;
+    }
   };
 
   render() {
@@ -95,6 +107,7 @@ class Ingredients extends Component {
           index={index}
           ingredient={item}
           removeItem={this.removeItem}
+          showRemoveItem={this.showRemoveItem}
           onChange={this.editIngredient}
           onSubmit={this.setIngredients}
           onPaste={this.pasteIngredient}
