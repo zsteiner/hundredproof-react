@@ -13,33 +13,30 @@ const IngredientItem = ({
   onChange,
   onFocus,
   onPaste,
-  onSubmit,
   placeholder,
   removeItem,
 }) => {
   return (
-    <li>
-      <form onSubmit={onSubmit} className={styles.ingredientsItem}>
-        <Input
-          value={ingredient}
-          onChange={(event) => onChange(event, index)}
-          onFocus={onFocus}
-          onPaste={onPaste}
-          className={styles.input}
-          type="text"
-          disabled={disabled}
-          placeholder={placeholder}
-        />
-        {removeItem ? (
-          <button
-            className={styles.button}
-            tabIndex="-1"
-            onClick={() => removeItem(index)}
-          >
-            <Icon icon="close" />
-          </button>
-        ) : null}
-      </form>
+    <li className={styles.ingredientsItem}>
+      <Input
+        value={ingredient}
+        onChange={(event) => onChange(event, index)}
+        onFocus={onFocus}
+        onPaste={onPaste}
+        className={styles.input}
+        type="text"
+        disabled={disabled}
+        placeholder={placeholder}
+      />
+      {removeItem ? (
+        <button
+          className={styles.button}
+          tabIndex="-1"
+          onClick={() => removeItem(index)}
+        >
+          <Icon icon="close" />
+        </button>
+      ) : null}
     </li>
   );
 };
@@ -51,7 +48,6 @@ IngredientItem.propTypes = {
   onChange: PropTypes.func,
   onPaste: PropTypes.func,
   onFocus: PropTypes.func,
-  onSubmit: PropTypes.func,
   placeholder: PropTypes.string,
   removeItem: PropTypes.func,
 };
