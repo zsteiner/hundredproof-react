@@ -109,7 +109,6 @@ class Ingredients extends Component {
           removeItem={this.removeItem}
           showRemoveItem={this.showRemoveItem}
           onChange={this.editIngredient}
-          onSubmit={this.setIngredients}
           onPaste={this.pasteIngredient}
           placeholder="1 oz bourbon"
         />

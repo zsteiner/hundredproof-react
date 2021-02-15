@@ -35,10 +35,6 @@
 
   &:placeholder-shown {
     border-color: $info--light;
-
-    & + button {
-      display: none;
-    }
   }
 
   &:focus,

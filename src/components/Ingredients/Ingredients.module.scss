@@ -34,4 +34,8 @@
     color: $primary;
     outline: none;
   }
+
+  :last-child > & {
+    visibility: hidden;
+  }
 }
