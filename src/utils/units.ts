@@ -26,6 +26,7 @@ export const units = [
   'liters',
   'dram',
   'drams',
+  'c',
   'cup',
   'cups',
   'quart',

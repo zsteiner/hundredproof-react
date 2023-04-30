@@ -8,6 +8,7 @@ type InputProps = HTMLAttributes<HTMLInputElement> & {
   autoFocus?: boolean;
   autoSize?: boolean;
   type?: 'number' | 'text';
+  value?: string | number;
 }
 
 const Input: FC<InputProps> = ({
@@ -19,7 +20,7 @@ const Input: FC<InputProps> = ({
   onPaste,
   placeholder,
   type,
-  ...rest,
+  ...rest
 }) => {
   const inputClasses = classNames({
     [styles.input]: true,
