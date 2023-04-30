@@ -1,9 +1,14 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import { FC } from 'react';
 
 import styles from './Icon.module.scss';
 
-const Icon = ({ className, icon }) => {
+type IconProps = {
+  className: string,
+  icon: 'close' | 'cup' | 'jigger' | 'shot'
+};
+
+const Icon: FC<IconProps> = ({ className, icon }) => {
   const iconClasses = classNames({
     [styles.icon]: true,
     [className]: className
@@ -16,9 +21,5 @@ const Icon = ({ className, icon }) => {
   );
 };
 
-Icon.propTypes = {
-  className: PropTypes.string,
-  icon: PropTypes.string
-};
 
 export default Icon;

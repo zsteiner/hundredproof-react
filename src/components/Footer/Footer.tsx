@@ -2,11 +2,12 @@
 
 import styles from './Footer.module.scss';
 
-const year = new Date().getFullYear();
-const background = '/images/hp-bottles.svg';
-const backgroundStyles = { backgroundImage: `url(${background})` };
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+  const background = '/images/hp-bottles.svg';
+  const backgroundStyles = { backgroundImage: `url(${background})` };
+
   return (
     <footer className={styles.footer} style={backgroundStyles}>
       <section className={styles.footerSection}>

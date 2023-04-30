@@ -1,20 +1,20 @@
-import PropTypes from 'prop-types';
+import { FC } from 'react';
 
+import { errorCodes } from './errorCodes';
 import styles from './Errors.module.scss';
-import errorText from './ErrorText.jsx';
 
-const Errors = ({ errorCode }) => {
-  let errorDisplay = <span>&nbsp;</span>;
+type ErrorProps = {
+  errorCode: number;
+}
+
+const Errors: FC<ErrorProps> = ({ errorCode }) => {
+  let errorDisplay;
 
   if (errorCode) {
-    errorDisplay = errorText[errorCode];
+    errorDisplay = errorCodes[errorCode as keyof typeof errorCodes];
   }
 
   return <p className={styles.error}>{errorDisplay}</p>;
-};
-
-Errors.propTypes = {
-  errorCode: PropTypes.number,
 };
 
 export default Errors;

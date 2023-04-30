@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header className={styles.header} style={backgroundStyles}>
       <h1 className={`${styles.heading} ${styles.headingLogo}`}>
-        <Link to="/">
+        <Link href="/">
           <Logo />
         </Link>
       </h1>

@@ -1,27 +1,26 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import { ButtonHTMLAttributes, FC } from 'react';
 
 import styles from './Button.module.scss';
 
-const Button = ({ className, disabled, onClick, text }) => {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  text: string;
+};
+
+const Button: FC<ButtonProps> = ({ className, children, disabled, ...rest }) => {
   const buttonClasses = classNames({
     [styles.button]: true,
     [className]: className,
-    [styles.disabled]: disabled
+    [styles.disabled]: !!disabled
   });
 
   return (
-    <button className={buttonClasses} disabled={disabled} onClick={onClick}>
-      {text}
+    <button {...rest} className={buttonClasses}>
+      {children}
     </button>
   );
 };
 
-Button.propTypes = {
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func,
-  text: PropTypes.string
-};
+
 
 export default Button;
