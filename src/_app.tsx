@@ -4,7 +4,7 @@ import AppRouter from './components/AppRouter/AppRouter';
 import Footer from './components/Footer/Footer';
 import IconSet from './components/IconSet/IconSet';
 
-import styles from './App.module.scss';
+import styles from './app.module.scss';
 
 class App extends Component {
   render() {
