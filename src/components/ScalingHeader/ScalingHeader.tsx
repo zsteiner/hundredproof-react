@@ -10,7 +10,7 @@ const ScalingHeader = () => {
       {(context) => (
         <section className={`${styles.scalingHeader} hp-section`}>
           <div className={styles.scale}>
-            <label>I'm serving</label>
+            <label>Im serving</label>
             <Input
               autoSize
               onChange={context.setScalingFactor}

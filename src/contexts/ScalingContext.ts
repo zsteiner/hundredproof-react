@@ -1,11 +1,16 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 type ScalingContextType = {
+  error?: number,
   ingredients: string[],
   ingredientsRaw: string[],
   scalingFactor: number,
-  setScalingFactor?: () => void,
-  setIngredients?: () => void,
+  setError?: (newValue: number) => void,
+  setIngredients?: (newValue: []) => void,
+  setIngredientsRaw?: (newValue: []) => void,
+  setScalingFactor?: (newValue: number) => void,
+  setShowResults?: (newValue: boolean) => void,
+  showResults?: boolean,
 }
 
 export const ScalingContext = createContext<ScalingContextType>({
