@@ -1,4 +1,4 @@
-@import "../../theme/variables";
+@import url("../../theme/variables");
 
 .results {
   font-size: 1.25rem;
@@ -18,8 +18,8 @@
   }
 
   .inputgroup {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
     margin-bottom: spacer(2);
 
@@ -33,8 +33,8 @@
   }
 
   .input {
-    margin: 0 spacer(1);
     font-size: 2em;
+    margin: 0 spacer(1);
   }
 
   &Number {
@@ -42,12 +42,12 @@
   }
 
   &Divider {
-    text-transform: uppercase;
     font-size: 0.75em;
     margin: spacer(1.5) 0;
+    text-transform: uppercase;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       content: " - ";
     }
   }
@@ -59,10 +59,10 @@
 
 .submitButton {
   display: block;
-  width: 100%;
-  max-width: 15rem;
-  margin: spacer(2) auto spacer(1);
   font-size: 1.125em;
+  margin: spacer(2) auto spacer(1);
+  max-width: 15rem;
+  width: 100%;
 }
 
 .unit {

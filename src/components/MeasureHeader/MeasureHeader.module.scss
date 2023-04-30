@@ -1,12 +1,12 @@
-@import '../../theme/variables';
+@import url('../../theme/variables');
 
 .measureHeader {
   padding: spacer(2) spacer(1);
 
   @include respond-to(large) {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     grid-gap: spacer(2);
+    grid-template-columns: 1fr 1fr;
   }
 
   &Item {
@@ -19,7 +19,7 @@
 }
 
 .measureButtons {
-  width: 100%;
-  max-width: 20rem;
   margin: auto;
+  max-width: 20rem;
+  width: 100%;
 }

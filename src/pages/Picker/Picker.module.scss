@@ -1,45 +1,45 @@
-@import '../../theme/variables';
+@import url('../../theme/variables');
 
 .picker {
   justify-content: space-around;
-  max-width: $large-width;
   margin: spacer(4) auto;
+  max-width: $large-width;
 
   @include respond-to(large) {
     display: flex;
   }
 
   &Item {
-    display: block;
-    margin-bottom: spacer(6);
     color: $default;
+    display: block;
+    flex: 0 0 auto;
     font-size: 0.875rem;
+    margin-bottom: spacer(6);
     text-align: center;
     text-decoration: none;
-    flex: 0 0 auto;
 
     h2 {
-      margin-bottom: spacer(0.5);
       font-size: 2em;
+      margin-bottom: spacer(0.5);
     }
 
     p {
-      max-width: 35ch;
-      margin: 0 auto spacer(2);
       line-height: 1.5;
+      margin: 0 auto spacer(2);
+      max-width: 35ch;
     }
   }
 }
 
 .tagline {
-  margin-bottom: spacer(1);
   color: $info;
-  font-size: 0.875rem;
   font-family: $font-family-sans;
+  font-size: 0.875rem;
+  margin-bottom: spacer(1);
 }
 
 .button {
-  padding: spacer(0.5) spacer;
   color: $default;
+  padding: spacer(0.5) spacer;
   text-decoration: none;
 }

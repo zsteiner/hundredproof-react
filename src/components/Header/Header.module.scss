@@ -1,50 +1,50 @@
-@import '../../theme/variables';
+@import url('../../theme/variables');
 
 .header {
-  margin: 0;
-  padding: 1rem 0;
   background-color: $primary;
   background-position: bottom;
-  background-size: auto spacer(2);
   background-repeat: repeat-x;
-  text-align: center;
+  background-size: auto spacer(2);
+  margin: 0;
   overflow: auto;
+  padding: 1rem 0;
+  text-align: center;
 
   @include respond-to(large) {
     background-size: auto 4em;
   }
 
   a {
-    display: block;
     color: $white;
+    display: block;
   }
 }
 
 .heading {
   color: $default;
-  font-size: 1rem;
-  text-align: center;
   font-family: $font-family-sans;
-  letter-spacing: 0.075em;
-  text-transform: uppercase;
+  font-size: 1rem;
   font-style: normal;
+  letter-spacing: 0.075em;
+  text-align: center;
+  text-transform: uppercase;
 
   @include respond-to(large) {
     font-size: 1.5rem;
   }
 
   &Logo {
-    margin-bottom: spacer(2);
     color: $white;
+    margin-bottom: spacer(2);
 
     @include respond-to(large) {
       margin-bottom: spacer(4);
     }
 
     svg {
+      fill: currentcolor;
       height: 5rem;
       width: auto;
-      fill: currentColor;
 
       @include respond-to(large) {
         height: 8rem;
@@ -62,16 +62,16 @@
 }
 
 .subheader {
-  padding: spacer(1.5) spacer(1);
   background: $black;
   color: $white;
+  padding: spacer(1.5) spacer(1);
   text-align: center;
 
   p {
-    max-width: 45ch;
-    margin: spacer(1) auto;
     font-size: 1em;
     line-height: 1.5;
+    margin: spacer(1) auto;
+    max-width: 45ch;
 
     &:last-child {
       margin-top: 1em;

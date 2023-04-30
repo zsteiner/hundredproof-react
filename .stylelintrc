@@ -1,78 +1,31 @@
 {
-  "extends": "stylelint-config-standard",
-  "plugins": [
-    "stylelint-order"
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-sass-guidelines",
   ],
+  "plugins": ["stylelint-scss", "stylelint-order"],
   "rules": {
-    "unit-whitelist": [
+    "at-rule-no-unknown": null,
+    "function-no-unknown": null,
+    "no-invalid-position-at-import-rule": null,
+    "order/order": ["custom-properties", "declarations", "rules"],
+    "order/properties-alphabetical-order": [true],
+    "property-no-vendor-prefix": [true, { "ignoreProperties": ["appearance"] }],
+    "scss/at-rule-no-unknown": true,
+    "selector-id-pattern": null,
+    "selector-class-pattern": null,
+    "max-nesting-depth": 2,
+    "unit-allowed-list": [
       "ch",
       "em",
       "rem",
       "vh",
       "vw",
+      "vmin",
       "deg",
       "%",
       "s",
       "fr"
-    ],
-    "at-rule-no-unknown": [
-      true,
-      "ignoreAtRules": [
-        "mixin",
-        "include"
-      ]
-    ],
-    "order/order": [
-      "custom-properties",
-      "declarations",
-      "rules"
-    ],
-    "order/properties-order": [
-      {
-        "unspecified": "bottomAlphabetical",
-        "properties": [
-          "display",
-          "position",
-          "content",
-          "box-sizing",
-          "top",
-          "right",
-          "bottom",
-          "left",
-          "height",
-          "min-height",
-          "max-height",
-          "width",
-          "min-width",
-          "max-width",
-          "margin",
-          "margin-top",
-          "margin-right",
-          "margin-bottom",
-          "margin-left",
-          "padding",
-          "padding-top",
-          "padding-right",
-          "padding-bottom",
-          "padding-left",
-          "background",
-          "background-color",
-          "background-image",
-          "background-position",
-          "background-size",
-          "background-attachment",
-          "background-repeat",
-          "color",
-          "font-size",
-          "font-weight",
-          "text-align",
-          "border",
-          "border-radius",
-          "transform",
-          "transition",
-          "animation"
-        ]
-      }
     ]
   }
 }

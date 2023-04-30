@@ -1,8 +1,8 @@
-@import "../../theme/variables";
+@import url("../../theme/variables");
 
 .inputgroup {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
   margin-bottom: spacer(2);
 
@@ -16,6 +16,6 @@
 }
 
 .input {
-  margin: 0 spacer(1);
   font-size: 2em;
+  margin: 0 spacer(1);
 }

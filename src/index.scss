@@ -1,9 +1,9 @@
-@import 'theme/variables';
-@import 'theme/normalize';
+@import url('theme/variables');
+@import url('theme/normalize');
 
 body {
-  font-family: $font-family-serif;
   box-sizing: border-box;
+  font-family: $font-family-serif;
 }
 
 *,
@@ -42,9 +42,9 @@ h2,
 h3,
 h4,
 h5 {
-  margin-top: 0;
-  margin-bottom: spacer(1);
   line-height: 1.2;
+  margin-bottom: spacer(1);
+  margin-top: 0;
 }
 
 .hp-app {
@@ -64,13 +64,13 @@ h5 {
   $large-padding: spacer(3) spacer(2);
 
   &__col {
-    width: 100%;
     padding: spacer(2) spacer(2) spacer(3);
     text-align: center;
+    width: 100%;
 
     &:last-of-type {
-      padding: $large-padding;
       border-top: 0.0625rem solid lighten($info, 15%);
+      padding: $large-padding;
 
       @include respond-to(large) {
         padding: $large-padding;
@@ -79,8 +79,8 @@ h5 {
 
     @include respond-to(large) {
       display: flex;
-      flex-direction: column;
       flex: 1 1 50%;
+      flex-direction: column;
       padding: $large-padding;
 
       &:first-child {
@@ -95,21 +95,21 @@ h5 {
 }
 
 .hp-section {
-  max-width: 100ch;
   margin: 0 auto;
+  max-width: 100ch;
 }
 
 .hp-heading {
-  font-family: $font-family-sans;
-  letter-spacing: 0.075em;
-  text-transform: uppercase;
   color: $default;
-  text-align: center;
+  font-family: $font-family-sans;
   font-style: normal;
+  letter-spacing: 0.075em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .hp-clearlist {
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }

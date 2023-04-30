@@ -1,23 +1,23 @@
-@import '../../theme/variables';
+@import url('../../theme/variables');
 
 .input {
-  display: flex;
-  position: relative;
-  box-sizing: content-box;
-  height: 1.875em;
-  width: 2rem;
-  min-width: 2ch;
-  margin: 0 spacer(1);
+  align-self: center;
   background: none;
-  color: $info;
-  font-size: 1.25rem;
-  text-align: center;
   border: 0;
   border-bottom: 0.15rem dashed $info;
-  line-height: 1;
+  box-sizing: content-box;
+  color: $info;
+  display: flex;
   font-family: $font-family-script;
-  align-self: center;
+  font-size: 1.25rem;
+  height: 1.875em;
+  line-height: 1;
+  margin: 0 spacer(1);
+  min-width: 2ch;
+  position: relative;
+  text-align: center;
   text-indent: 0.5em;
+  width: 2rem;
 
   &Autosize {
     width: auto;
@@ -29,7 +29,7 @@
     color: $info--light;
   }
 
-  &::-webkit-input-placeholder {
+  &::input-placeholder {
     color: $info--light;
   }
 
@@ -39,14 +39,14 @@
 
   &:focus,
   &:focus-within {
-    outline: none;
     border-bottom-color: $primary;
+    outline: none;
   }
 
   input {
-    padding: 0 0.25em;
     background: none;
     border: 0;
+    padding: 0 0.25em;
 
     &:invalid {
       box-shadow: none;

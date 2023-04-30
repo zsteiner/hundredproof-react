@@ -1,18 +1,18 @@
-@import '../../theme/variables';
+@import url('../../theme/variables');
 
 .footer {
-  height: $footer-size;
-  padding: spacer(1);
-  display: flex;
   background-repeat: repeat-x;
   background-size: auto 4em;
-  padding: 0;
   color: $white;
+  display: flex;
+  height: $footer-size;
+  padding: spacer(1);
+  padding: 0;
 
   &Section {
-    flex: 0 100%;
     align-self: flex-end;
     background-color: $black;
+    flex: 0 100%;
     padding: spacer(0.5) spacer(1);
     text-align: center;
 

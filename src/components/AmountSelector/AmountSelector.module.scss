@@ -1,8 +1,8 @@
-@import '../../theme/variables';
+@import url('../../theme/variables');
 
 .amount {
-  display: inline-flex;
   align-items: center;
+  display: inline-flex;
   justify-content: center;
   margin-bottom: spacer(2);
 
@@ -13,7 +13,7 @@
   &Label {
     display: block;
     flex: 0 0 auto;
-    width: max-content;
     margin: 0;
+    width: max-content;
   }
 }

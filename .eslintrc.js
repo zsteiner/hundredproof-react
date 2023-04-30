@@ -1,21 +1,19 @@
 module.exports = {
-  env: {
-    browser: true,
-    es6: true,
-  },
-  extends: 'react-app',
+  extends: [
+    'next/core-web-vitals',
+    'prettier',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 2018,
-    sourceType: 'module',
+    tsconfigRootDir: './',
+    project: ['tsconfig.json'],
   },
-  plugins: ['react'],
+  plugins: ['simple-import-sort', '@typescript-eslint'],
   rules: {
-    indent: ['error', 2],
-    'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
+    'simple-import-sort/imports': 'error',
+    'react/jsx-sort-props': 'error',
   },
 };

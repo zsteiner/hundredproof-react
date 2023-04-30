@@ -1,4 +1,4 @@
-@import '../../theme/variables';
+@import url('../../theme/variables');
 
 .scalingHeader {
   padding: spacer(2) 0;
@@ -6,8 +6,8 @@
 }
 
 .scale {
-  display: flex;
-  margin: 0 auto;
   align-items: center;
+  display: flex;
   justify-content: center;
+  margin: 0 auto;
 }

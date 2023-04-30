@@ -1,24 +1,24 @@
-@import '../../theme/variables';
+@import url('../../theme/variables');
 
 .button {
-  display: inline-block;
-  max-width: 20rem;
-  margin: 0 auto;
-  padding: 0.5em 1.5em;
   background: none;
-  color: $default;
-  font-weight: 700;
   border: $border-match-color;
   border-radius: $border-radius;
+  color: $default;
+  display: inline-block;
   font-family: $font-family-sans;
-  text-transform: uppercase;
-  text-decoration: none;
+  font-weight: 700;
   letter-spacing: 0.05rem;
+  margin: 0 auto;
+  max-width: 20rem;
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
 
   &:focus {
+    border-color: $primary;
     font-weight: 700;
     outline: none;
-    border-color: $primary;
   }
 
   &:hover {

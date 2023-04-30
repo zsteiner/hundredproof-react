@@ -1,13 +1,13 @@
-@import 'theme/variables';
+@import url('theme/variables');
 
 .pagewrap {
-  min-height: 100%;
   margin-bottom: -$footer-size;
+  min-height: 100%;
 }
 
 .pagewrap::after {
-  display: block;
   content: '';
-  z-index: -1;
+  display: block;
   height: $footer-size;
+  z-index: -1;
 }

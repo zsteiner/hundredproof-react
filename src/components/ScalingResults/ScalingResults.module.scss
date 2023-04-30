@@ -1,6 +1,6 @@
-@import '../../theme/variables';
+@import url('../../theme/variables');
 
 .resultsItem {
-  margin-bottom: spacer(1);
   font-size: 1.25rem;
+  margin-bottom: spacer(1);
 }

@@ -1,9 +1,9 @@
-@import '../../theme/variables';
+@import url('../../theme/variables');
 
 .icon {
   display: inline-block;
+  fill: currentcolor;
   height: 1em;
+  stroke: currentcolor;
   width: 1em;
-  fill: currentColor;
-  stroke: currentColor;
 }

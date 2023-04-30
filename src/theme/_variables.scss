@@ -1,6 +1,6 @@
 $spacer-unit: 1rem;
 
-@import 'functions';
+@import url('functions');
 
 $primary: #f6921e;
 $default: #3e2508;
@@ -27,4 +27,4 @@ $border-width: 0.0625rem;
 $border-match-color: $border-width solid currentColor;
 $border-radius: 0.175rem;
 
-@import 'mixins';
+@import url('mixins');
