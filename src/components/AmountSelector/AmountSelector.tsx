@@ -1,10 +1,8 @@
 import React from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
-
 import Input from '../Input/Input';
 import UnitSelect from '../UnitSelect/UnitSelect';
-
 import styles from './AmountSelector.module.scss';
 
 const AmountSelector = () => {

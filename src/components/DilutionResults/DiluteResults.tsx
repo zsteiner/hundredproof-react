@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import pluralize from 'pluralize';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
-
-import styles from './DilutionResults.module.scss';
 import ResultsBlock from '../ResultsBlock/ResultsBlock';
+import styles from './DilutionResults.module.scss';
 
 class DiluteResults extends Component {
   static contextType = DilutionContext;
@@ -53,29 +52,29 @@ class DiluteResults extends Component {
               <div className={styles.resultsGroup}>
                 <ResultsBlock
                   amount={resultsOz}
-                  unit="ounce"
                   ingredient="water"
+                  unit="ounce"
                 />
                 {isVolEnd ? (
                   <ResultsBlock
                     amount={finalAmountSpirit}
-                    unit="ounce"
                     ingredient="spirits"
                     showPlus
+                    unit="ounce"
                   />
                 ) : null}
                 <p className={styles.resultsDivider}>or about</p>
                 <ResultsBlock
                   amount={resultsTranslated}
-                  unit={translatedUnit}
                   ingredient="water"
+                  unit={translatedUnit}
                 />
                 {isVolEnd ? (
                   <ResultsBlock
                     amount={context.finalAmountSpiritTranslated}
-                    unit={translatedUnit}
                     ingredient="spirits"
                     showPlus
+                    unit={translatedUnit}
                   />
                 ) : null}
               </div>

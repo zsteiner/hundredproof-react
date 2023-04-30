@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
-
 import Button from '../Button/Button';
 import IngredientItem from './IngredientItem';
-
 import styles from './Ingredients.module.scss';
 
 class Ingredients extends Component {
@@ -26,7 +24,7 @@ class Ingredients extends Component {
 
   editIngredient = (event, index) => {
     const activeIngredient = event.target.value;
-    let ingredients = [...this.state.ingredients];
+    const ingredients = [...this.state.ingredients];
     const length = ingredients.length;
     ingredients[index] = activeIngredient;
 
@@ -49,7 +47,7 @@ class Ingredients extends Component {
       ingredients.splice(last, 1);
     }
 
-    let newIngredients = ingredients.concat(split);
+    const newIngredients = ingredients.concat(split);
     newIngredients.push('');
 
     this.setState({ ingredients: newIngredients });
@@ -79,7 +77,7 @@ class Ingredients extends Component {
   saveIngredients = () => {
     const { ingredients } = this.state;
 
-    let cleanedIngredients = ingredients.filter((item) => item !== '');
+    const cleanedIngredients = ingredients.filter((item) => item !== '');
     cleanedIngredients.push('');
 
     this.setState({
@@ -103,14 +101,14 @@ class Ingredients extends Component {
     const ingredients = this.state.ingredients.map((item, index) => {
       return (
         <IngredientItem
-          key={index}
           index={index}
           ingredient={item}
-          removeItem={this.removeItem}
-          showRemoveItem={this.showRemoveItem}
+          key={index}
           onChange={this.editIngredient}
           onPaste={this.pasteIngredient}
           placeholder="1 oz bourbon"
+          removeItem={this.removeItem}
+          showRemoveItem={this.showRemoveItem}
         />
       );
     });
@@ -118,7 +116,7 @@ class Ingredients extends Component {
     return (
       <React.Fragment>
         <ul className={styles.ingredients}>{ingredients}</ul>
-        <Button text="Scale Recipe" onClick={this.saveIngredients} />
+        <Button onClick={this.saveIngredients} text="Scale Recipe" />
       </React.Fragment>
     );
   }

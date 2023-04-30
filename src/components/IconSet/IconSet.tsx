@@ -3,10 +3,10 @@ import React from 'react';
 const IconSet = () => {
   return (
     <svg
-      style={{ position: 'absolute', width: 0, height: 0 }}
-      width="0"
       height="0"
+      style={{ position: 'absolute', width: 0, height: 0 }}
       version="1.1"
+      width="0"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >

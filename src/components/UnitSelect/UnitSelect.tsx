@@ -1,9 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import pluralize from 'pluralize';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Icon from '../Icon/Icon';
-
 import styles from './UnitSelect.module.scss';
 
 const UnitSelect = ({ amount, setUnits }) => {
@@ -27,16 +26,16 @@ const UnitSelect = ({ amount, setUnits }) => {
     return (
       <React.Fragment key={index}>
         <input
-          type="radio"
+          defaultChecked={item.default}
           id={`bg2_${index}`}
           name="bg2"
-          value={item.value}
           onClick={setUnits}
-          defaultChecked={item.default}
+          type="radio"
+          value={item.value}
         />
         <label htmlFor={`bg2_${index}`}>
           <span className={styles.unit}>{pluralize(item.value, amount)}</span>
-          <Icon icon={item.value} className={styles.icon} />
+          <Icon className={styles.icon} icon={item.value} />
           <span className={styles.conversion}>{item.label}</span>
         </label>
       </React.Fragment>

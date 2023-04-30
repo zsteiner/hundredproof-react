@@ -1,9 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-
-import errorText from './ErrorText.jsx';
+import React from 'react';
 
 import styles from './Errors.module.scss';
+import errorText from './ErrorText.jsx';
 
 const Errors = ({ errorCode }) => {
   let errorDisplay = <span>&nbsp;</span>;

@@ -1,5 +1,5 @@
 export default function stringifyIngredient(ingredients) {
-  let ingredientsRaw = [];
+  const ingredientsRaw = [];
 
   ingredients.map(item => {
     const { amount, unit, ingredient } = item;

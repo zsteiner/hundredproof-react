@@ -1,9 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
-import Input from '../Input/Input';
 import Icon from '../Icon/Icon';
-
+import Input from '../Input/Input';
 import styles from './Ingredients.module.scss';
 
 const IngredientItem = ({
@@ -19,20 +18,20 @@ const IngredientItem = ({
   return (
     <li className={styles.ingredientsItem}>
       <Input
-        value={ingredient}
+        className={styles.input}
+        disabled={disabled}
         onChange={(event) => onChange(event, index)}
         onFocus={onFocus}
         onPaste={onPaste}
-        className={styles.input}
-        type="text"
-        disabled={disabled}
         placeholder={placeholder}
+        type="text"
+        value={ingredient}
       />
       {removeItem ? (
         <button
           className={styles.button}
-          tabIndex="-1"
           onClick={() => removeItem(index)}
+          tabIndex="-1"
         >
           <Icon icon="close" />
         </button>

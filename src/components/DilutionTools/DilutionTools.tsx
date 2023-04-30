@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
-
-import dilute from '../../utils/dilute';
 import convertABV from '../../utils/convertABV';
-
+import dilute from '../../utils/dilute';
 import AmountSelector from '../AmountSelector/AmountSelector';
 import DiluteResults from '../DilutionResults/DiluteResults';
 import DilutionValues from '../DilutionValues/DilutionValues';

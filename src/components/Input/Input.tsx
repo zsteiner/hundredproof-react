@@ -1,9 +1,9 @@
 /* eslint-disable no-useless-escape */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import AutosizeInput from 'react-input-autosize';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
+import AutosizeInput from 'react-input-autosize';
 
 import styles from './Input.module.scss';
 
@@ -31,13 +31,13 @@ const Input = ({
       <AutosizeInput
         autoFocus={autoFocus}
         className={inputClasses}
-        pattern={type === 'number' ? 'd*' : '.*'}
-        value={value}
         onChange={onChange}
         onFocus={onFocus}
         onPaste={onPaste}
+        pattern={type === 'number' ? 'd*' : '.*'}
         readOnly={readOnly}
         type="text"
+        value={value}
       />
     );
   }
@@ -46,15 +46,15 @@ const Input = ({
     <input
       autoFocus={autoFocus}
       className={inputClasses}
-      pattern={type === 'number' ? 'd*' : '.*'}
-      type={type ? type : 'text'}
-      value={value}
-      placeholder={placeholder}
       onChange={onChange}
       onFocus={onFocus}
       onPaste={onPaste}
+      pattern={type === 'number' ? 'd*' : '.*'}
+      placeholder={placeholder}
       readOnly={readOnly}
       required={required}
+      type={type ? type : 'text'}
+      value={value}
     />
   );
 };

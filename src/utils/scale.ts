@@ -1,6 +1,6 @@
+import units from '../consts/units';
 import normalizeUnits from './normalizeUnits';
 import setZero from './setZero';
-import units from '../consts/units';
 
 function scaleAmount(amount, scaleFactor) {
   const scaledAmount = amount * setZero(scaleFactor);

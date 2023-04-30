@@ -1,10 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
 import pluralize from 'pluralize';
+import PropTypes from 'prop-types';
+import React from 'react';
+
 import units from '../../consts/units';
 import round from '../../utils/round';
-
 import styles from '../DilutionResults/DilutionResults.module.scss';
 
 const ResultsBlock = ({ amount, unit, ingredient, showPlus }) => {

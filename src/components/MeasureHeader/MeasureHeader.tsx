@@ -1,9 +1,7 @@
 import React from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
-
 import SegmentedButton from '../SegmentedButton/SegmentedButton';
-
 import styles from './MeasureHeader.module.scss';
 
 const MeasureHeader = () => {
@@ -38,19 +36,19 @@ const MeasureHeader = () => {
           <div className={styles.measureHeaderItem}>
             <h4 className="hp-heading">I want to set my:</h4>
             <SegmentedButton
-              name="volume"
-              options={volumeOptions}
-              onChange={context.setVolume}
               className={styles.measureButtons}
+              name="volume"
+              onChange={context.setVolume}
+              options={volumeOptions}
             />
           </div>
           <div className={styles.measureHeaderItem}>
             <h4 className="hp-heading">Working with:</h4>
             <SegmentedButton
-              name="measure"
-              options={measureOptions}
-              onChange={context.setMeasure}
               className={styles.measureButtons}
+              name="measure"
+              onChange={context.setMeasure}
+              options={measureOptions}
             />
           </div>
         </section>

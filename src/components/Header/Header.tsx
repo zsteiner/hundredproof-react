@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from './Logo';
 
 import styles from './Header.module.scss';
+import Logo from './Logo';
 
 const background = '/images/hp-bottles.svg';
 const backgroundStyles = { backgroundImage: `url(${background})` };

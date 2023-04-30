@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import styles from './SegmentedButton.module.scss';
 
@@ -11,15 +11,15 @@ const SegmentedButton = ({ className, name, options, onChange }) => {
 
   const optionsContents = options.map(function makeRows(option, index) {
     return (
-      <li key={index} className={styles.segmentedButtonItem}>
+      <li className={styles.segmentedButtonItem} key={index}>
         <input
-          id={name + index}
-          type="radio"
-          name={name}
-          value={option.value}
           defaultChecked={!!option.default}
           disabled={!!option.disabled}
+          id={name + index}
+          name={name}
           onClick={updateValue}
+          type="radio"
+          value={option.value}
         />
         <label htmlFor={name + index}>
           <span>{option.label}</span>
