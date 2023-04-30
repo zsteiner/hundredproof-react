@@ -1,11 +1,23 @@
 import pluralize from 'pluralize';
-import PropTypes from 'prop-types';
+import { FC } from 'react';
 
+import { IconType } from '../../utils/types';
 import Icon from '../Icon/Icon';
 import styles from './UnitSelect.module.scss';
 
-const UnitSelect = ({ amount, setUnits }) => {
-  const unitData = [
+type UnitSelectProps = {
+  amount: number;
+  setUnits: () => void;
+}
+
+type UnitData = {
+  value: IconType;
+  label: string;
+  default?: boolean;
+}
+
+const UnitSelect: FC<UnitSelectProps> = ({ amount, setUnits }) => {
+  const unitData: UnitData[] = [
     {
       value: 'shot',
       label: '1 fluid oz',
@@ -23,7 +35,7 @@ const UnitSelect = ({ amount, setUnits }) => {
 
   const units = unitData.map((item, index) => {
     return (
-      <React.Fragment key={index}>
+      <div key={index}>
         <input
           defaultChecked={item.default}
           id={`bg2_${index}`}
@@ -37,7 +49,7 @@ const UnitSelect = ({ amount, setUnits }) => {
           <Icon className={styles.icon} icon={item.value} />
           <span className={styles.conversion}>{item.label}</span>
         </label>
-      </React.Fragment>
+      </div>
     );
   });
 
@@ -50,9 +62,5 @@ const UnitSelect = ({ amount, setUnits }) => {
   );
 };
 
-UnitSelect.propTypes = {
-  amount: PropTypes.number,
-  setUnits: PropTypes.func
-};
 
 export default UnitSelect;

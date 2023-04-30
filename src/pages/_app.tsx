@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { Component } from 'react';
 
 import Footer from '../components/Footer/Footer';
 import IconSet from '../components/IconSet/IconSet';
@@ -15,13 +14,13 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-      <title>Hundred Proof</title>
+        <title>Hundred Proof</title>
       </Head>
       <IconSet />
-        <div className={styles.pagewrap}>
-          <Component {...pageProps} />
-        </div>
-        <Footer />
+      <div className={styles.pagewrap}>
+        <Component {...pageProps} />
+      </div>
+      <Footer />
     </>
   );
 };

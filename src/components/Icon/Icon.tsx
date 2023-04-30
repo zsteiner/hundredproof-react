@@ -1,11 +1,12 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 
+import { IconType } from '../../utils/types';
 import styles from './Icon.module.scss';
 
 type IconProps = {
-  className: string,
-  icon: 'close' | 'cup' | 'jigger' | 'shot'
+  className: string;
+  icon: IconType;
 };
 
 const Icon: FC<IconProps> = ({ className, icon }) => {

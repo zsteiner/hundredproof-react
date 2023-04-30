@@ -32,11 +32,16 @@
     "@types/node": "18.15.11",
     "@types/pluralize": "^0.0.29",
     "@types/react": "18.0.33",
-    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.57.1",
+    "eslint": "^8.0.1",
     "eslint-config-next": "^13.2.4",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "next": "^13.3.2",
@@ -48,6 +53,6 @@
     "stylelint-config-standard": "^33.0.0",
     "stylelint-order": "^6.0.3",
     "stylelint-scss": "^5.0.0",
-    "typescript": "^5.0.4"
+    "typescript": "*"
   }
 }

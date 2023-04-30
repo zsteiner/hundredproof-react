@@ -1,5 +1,7 @@
 import { units } from './units';
 
+export type IconType = 'close' | 'cup' | 'jigger' | 'shot';
+
 export type Ingredient = {
   amount: number;
   formatIngredient?: string;

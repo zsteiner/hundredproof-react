@@ -1,19 +1,25 @@
 module.exports = {
+  env: {
+    browser: true,
+    es2021: true
+  },
   extends: [
     'next/core-web-vitals',
     'prettier',
-    'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking'
   ],
-  parser: '@typescript-eslint/parser',
+  overrides: [
+  ],
   parserOptions: {
+    ecmaVersion: 'latest',
     tsconfigRootDir: './',
     project: ['tsconfig.json'],
+    sourceType: 'module'
   },
   plugins: ['simple-import-sort', '@typescript-eslint'],
   rules: {
     'simple-import-sort/imports': 'error',
-    'react/jsx-sort-props': 'error',
-  },
-};
+    'react/jsx-sort-props': 'error'
+  }
+}
