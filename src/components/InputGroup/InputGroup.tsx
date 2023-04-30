@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+
 
 import Input from '../Input/Input';
 import styles from './InputGroup.module.scss';

@@ -1,6 +1,6 @@
 import pluralize from 'pluralize';
 import PropTypes from 'prop-types';
-import React from 'react';
+
 
 import units from '../../consts/units';
 import round from '../../utils/round';

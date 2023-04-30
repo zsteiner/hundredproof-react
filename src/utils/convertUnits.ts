@@ -1,6 +1,7 @@
 import conversions from '../consts/conversions';
+import { Unit } from './types'
 
-export default function convertUnits(amount, unit) {
+export default function convertUnits(amount: number, unit: Unit) {
   if (unit === 'cup') {
     amount = amount * conversions.ozToCups;
   } else if (unit === 'jigger') {

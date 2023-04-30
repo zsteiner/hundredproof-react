@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+
 
 import styles from './Errors.module.scss';
 import errorText from './ErrorText.jsx';

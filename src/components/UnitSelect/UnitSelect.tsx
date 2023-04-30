@@ -1,6 +1,5 @@
 import pluralize from 'pluralize';
 import PropTypes from 'prop-types';
-import React from 'react';
 
 import Icon from '../Icon/Icon';
 import styles from './UnitSelect.module.scss';

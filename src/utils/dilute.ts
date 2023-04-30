@@ -5,8 +5,9 @@ import round from './round';
 import setZero from './setZero';
 import startDilute from './startDilute';
 import translateResults from './translateResults';
+import { Unit } from './types';
 
-export default function dilute(amount, desiredABV, startingABV, unit, volume) {
+export default function dilute(amount: number, desiredABV: number, startingABV, unit: Unit, volume: number) {
   amount = setZero(Number(amount));
   desiredABV = setZero(Number(desiredABV));
   startingABV = setZero(Number(startingABV));

@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 import ResultsBlock from '../ResultsBlock/ResultsBlock';
 import styles from './ScalingResults.module.scss';

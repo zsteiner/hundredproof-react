@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 import { ScalingContext } from '../../contexts/ScalingContext';
 import Input from '../Input/Input';
