@@ -1,7 +1,7 @@
 import React from 'react';
 
-import DilutionTools from '../../components/DilutionTools/DilutionTools';
-import Subheader from '../../components/Header/Subheader';
+import DilutionTools from '../components/DilutionTools/DilutionTools';
+import Subheader from '../components/Header/Subheader';
 
 // import styles from './Dillution.module.scss';
 

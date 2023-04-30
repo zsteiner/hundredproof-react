@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Subheader from '../../components/Header/Subheader';
+import Subheader from '../components/Header/Subheader';
 
 import styles from './Picker.module.scss';
 import buttonStyles from '../../components/Button/Button.module.scss';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Subheader from '../../components/Header/Subheader';
-import ScalingTools from '../../components/ScalingTools/ScalingTools';
+import Subheader from '../components/Header/Subheader';
+import ScalingTools from '../components/ScalingTools/ScalingTools';
 
 class Scale extends Component {
   render() {
