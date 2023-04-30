@@ -1,8 +1,10 @@
+import './index.css';
+import './normalize.css';
+
 import Head from 'next/head';
 
 import Footer from '../components/Footer/Footer';
 import IconSet from '../components/IconSet/IconSet';
-import styles from './app.module.scss';
 
 type AppProps = {
   Component: React.ElementType;
@@ -17,7 +19,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <title>Hundred Proof</title>
       </Head>
       <IconSet />
-      <div className={styles.pagewrap}>
+      <div className="pagewrap">
         <Component {...pageProps} />
       </div>
       <Footer />
