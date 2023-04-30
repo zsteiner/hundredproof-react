@@ -1,10 +1,8 @@
-@import url('../../theme/variables');
-
 .segmentedButton {
-  border-radius: $border-radius;
-  color: $default;
+  border-radius: var(--border-radius);
+  color: var(--default);
   display: flex;
-  font-family: $font-family-sans;
+  font-family: var(--font-family-sans);
   font-weight: 400;
   list-style: none;
   margin: 0 auto;
@@ -13,23 +11,23 @@
   position: relative;
 
   &Item {
-    border-bottom: $border-match-color;
-    border-left: $border-match-color;
-    border-top: $border-match-color;
+    border-bottom: var(--border-match-color);
+    border-left: var(--border-match-color);
+    border-top: var(--border-match-color);
     flex: 1 1 auto;
     font-size: 0.875rem;
     height: inherit;
     overflow: hidden;
 
     &:last-child {
-      border-bottom-right-radius: $border-radius;
-      border-right: $border-match-color;
-      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: var(--border-radius);
+      border-right: var(--border-match-color);
+      border-top-right-radius: var(--border-radius);
     }
 
     &:first-child {
-      border-bottom-left-radius: $border-radius;
-      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: var(--border-radius);
+      border-top-left-radius: var(--border-radius);
     }
   }
 
@@ -40,13 +38,13 @@
     visibility: hidden;
 
     &:focus + label {
-      background-color: $default;
+      background-color: var(--default);
     }
 
     &:checked + label {
-      background-color: $default;
-      border-color: $default;
-      color: $white;
+      background-color: var(--default);
+      border-color: var(--default);
+      color: var(--white);
     }
   }
 

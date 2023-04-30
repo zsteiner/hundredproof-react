@@ -3,21 +3,21 @@
 .footer {
   background-repeat: repeat-x;
   background-size: auto 4em;
-  color: $white;
+  color: var(--white);
   display: flex;
-  height: $footer-size;
-  padding: spacer(1);
+  height: var(--footer-size();
+  padding: var(--spacer);
   padding: 0;
 
   &Section {
     align-self: flex-end;
-    background-color: $black;
+    background-color: var(--black);
     flex: 0 100%;
-    padding: spacer(0.5) spacer(1);
+    padding: var(--spacer-0-5) var(--spacer);
     text-align: center;
 
     a {
-      color: $primary;
+      color: var(--primary);
       text-decoration: none;
     }
   }

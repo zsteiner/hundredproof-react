@@ -1,13 +1,11 @@
-@import url('theme/variables');
-
 .pagewrap {
-  margin-bottom: -$footer-size;
+  margin-bottom: calc(var(--footer-size) * -1);
   min-height: 100%;
 }
 
 .pagewrap::after {
   content: '';
   display: block;
-  height: $footer-size;
+  height: var(--footer-size);
   z-index: -1;
 }

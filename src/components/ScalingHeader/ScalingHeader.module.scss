@@ -1,7 +1,7 @@
 @import url('../../theme/variables');
 
 .scalingHeader {
-  padding: spacer(2) 0;
+  padding: var(--spacer-2) 0;
   text-align: center;
 }
 

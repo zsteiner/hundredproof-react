@@ -2,11 +2,11 @@
 
 .button {
   background: none;
-  border: $border-match-color;
-  border-radius: $border-radius;
-  color: $default;
+  border: var(--border-match-color);
+  border-radius: var(--border-radius);
+  color: var(--default);
   display: inline-block;
-  font-family: $font-family-sans;
+  font-family: inherit;
   font-weight: 700;
   letter-spacing: 0.05rem;
   margin: 0 auto;
@@ -16,13 +16,13 @@
   text-transform: uppercase;
 
   &:focus {
-    border-color: $primary;
+    border-color: var(--primary);
     font-weight: 700;
     outline: none;
   }
 
   &:hover {
-    background: $primary;
+    background: var(--primary);
   }
 }
 

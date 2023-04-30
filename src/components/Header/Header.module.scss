@@ -1,59 +1,59 @@
 @import url('../../theme/variables');
 
 .header {
-  background-color: $primary;
+  background-color: var(--primary);
   background-position: bottom;
   background-repeat: repeat-x;
-  background-size: auto spacer(2);
+  background-size: auto var(--spacer-2);
   margin: 0;
   overflow: auto;
   padding: 1rem 0;
   text-align: center;
 
-  @include respond-to(large) {
-    background-size: auto 4em;
-  }
+  // @include respond-to(large) {
+  //   background-size: auto 4em;
+  // }
 
   a {
-    color: $white;
+    color: var(--white);
     display: block;
   }
 }
 
 .heading {
-  color: $default;
-  font-family: $font-family-sans;
+  color: var(--default);
+  font-family: var(--font-family-sans);
   font-size: 1rem;
   font-style: normal;
   letter-spacing: 0.075em;
   text-align: center;
   text-transform: uppercase;
 
-  @include respond-to(large) {
-    font-size: 1.5rem;
-  }
+  // @include respond-to(large) {
+  //   font-size: 1.5rem;
+  // }
 
   &Logo {
-    color: $white;
-    margin-bottom: spacer(2);
+    color: var(--white);
+    margin-bottom: var(--spacer-2);
 
-    @include respond-to(large) {
-      margin-bottom: spacer(4);
-    }
+    // @include respond-to(large) {
+    //   margin-bottom: var(--spacer-4);
+    // }
 
     svg {
       fill: currentcolor;
       height: 5rem;
       width: auto;
 
-      @include respond-to(large) {
-        height: 8rem;
-      }
+      // @include respond-to(large) {
+      //   height: 8rem;
+      // }
     }
   }
 
   &Subheading {
-    color: $white;
+    color: var(--white);
 
     &:last-child {
       margin-bottom: 0;
@@ -62,15 +62,15 @@
 }
 
 .subheader {
-  background: $black;
-  color: $white;
-  padding: spacer(1.5) spacer(1);
+  background: var(--black);
+  color: var(--white);
+  padding: var(--spacer-1-5) var(--spacer);
   text-align: center;
 
   p {
     font-size: 1em;
     line-height: 1.5;
-    margin: spacer(1) auto;
+    margin: var(--spacer) auto;
     max-width: 45ch;
 
     &:last-child {

@@ -2,44 +2,44 @@
 
 .picker {
   justify-content: space-around;
-  margin: spacer(4) auto;
-  max-width: $large-width;
+  margin: var(--spacer-4) auto;
+  max-width: var(--large-width);
 
-  @include respond-to(large) {
-    display: flex;
-  }
+  // @include respond-to(large) {
+  //   display: flex;
+  // }
 
   &Item {
-    color: $default;
+    color: var(--default);
     display: block;
     flex: 0 0 auto;
     font-size: 0.875rem;
-    margin-bottom: spacer(6);
+    margin-bottom: 6rem;
     text-align: center;
     text-decoration: none;
 
     h2 {
       font-size: 2em;
-      margin-bottom: spacer(0.5);
+      margin-bottom: var(--spacer-0-5);
     }
 
     p {
       line-height: 1.5;
-      margin: 0 auto spacer(2);
+      margin: 0 auto var(--spacer-2);
       max-width: 35ch;
     }
   }
 }
 
 .tagline {
-  color: $info;
-  font-family: $font-family-sans;
+  color: var(--info;
+  font-family: var(--font-family-sans;
   font-size: 0.875rem;
-  margin-bottom: spacer(1);
+  margin-bottom: var(--spacer);
 }
 
 .button {
-  color: $default;
-  padding: spacer(0.5) spacer;
+  color: var(--default;
+  padding: var(--spacer-0-5) spacer;
   text-decoration: none;
 }

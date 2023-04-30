@@ -1,18 +1,16 @@
-@import url('../../theme/variables');
-
 .input {
   align-self: center;
   background: none;
   border: 0;
-  border-bottom: 0.15rem dashed $info;
+  border-bottom: 0.15rem dashed var(--info);
   box-sizing: content-box;
-  color: $info;
+  color: var(--info);
   display: flex;
-  font-family: $font-family-script;
+  font-family: var(--font-family-script);
   font-size: 1.25rem;
   height: 1.875em;
   line-height: 1;
-  margin: 0 spacer(1);
+  margin: 0 var(--spacer);
   min-width: 2ch;
   position: relative;
   text-align: center;
@@ -23,23 +21,23 @@
     width: auto;
   }
 
-  $info--light: lighten($info, 40%);
+  // $--info--light: lighten(var(--info, 40%);
 
   &::placeholder {
-    color: $info--light;
+    color: var(--info--light);
   }
 
   &::input-placeholder {
-    color: $info--light;
+    color: var(--info--light;
   }
 
   &:placeholder-shown {
-    border-color: $info--light;
+    border-color: var(--info--light;
   }
 
   &:focus,
   &:focus-within {
-    border-bottom-color: $primary;
+    border-bottom-color: var(--primary;
     outline: none;
   }
 

@@ -2,11 +2,11 @@
 
 .results {
   font-size: 1.25rem;
-  margin-bottom: spacer(2);
+  margin-bottom: var(--spacer-2);
 
   &Group,
   &Divider {
-    margin-bottom: spacer(1);
+    margin-bottom: var(--spacer);
   }
 
   &Text {
@@ -21,20 +21,20 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    margin-bottom: spacer(2);
+    margin-bottom: var(--spacer-2);
 
     &:first-of-type {
-      margin-bottom: spacer(1);
+      margin-bottom: var(--spacer);
     }
 
-    @include respond-to(large) {
-      justify-content: flex-start;
-    }
+    // @include respond-to(large) {
+    //   justify-content: flex-start;
+    // }
   }
 
   .input {
     font-size: 2em;
-    margin: 0 spacer(1);
+    margin: 0 var(--spacer);
   }
 
   &Number {
@@ -43,7 +43,7 @@
 
   &Divider {
     font-size: 0.75em;
-    margin: spacer(1.5) 0;
+    margin: var(--spacer-1-5) 0;
     text-transform: uppercase;
 
     &::before,
@@ -60,7 +60,7 @@
 .submitButton {
   display: block;
   font-size: 1.125em;
-  margin: spacer(2) auto spacer(1);
+  margin: var(--spacer-2) auto var(--spacer);
   max-width: 15rem;
   width: 100%;
 }

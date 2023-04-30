@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FC, MouseEvent } from 'react';
+import { ChangeEvent, FC } from 'react';
 
 import styles from './SegmentedButton.module.scss';
 
@@ -15,14 +15,10 @@ type SegmentedButtonProps = {
   className: string;
   name: string;
   options: Option[];
-  onChange: (event: MouseEvent<HTMLButtonElement>) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const SegmentedButton: FC<SegmentedButtonProps> = ({ className, name, options, onChange }) => {
-  const updateValue = (event: MouseEvent<HTMLButtonElement>) => {
-    onChange(event.target.value);
-  };
-
   const segmentedButtonClasses = classNames({
     [styles.segmentedButton]: true,
     [className]: className
@@ -35,7 +31,7 @@ const SegmentedButton: FC<SegmentedButtonProps> = ({ className, name, options, o
         disabled={!!option.disabled}
         id={`${name}${index}`}
         name={name}
-        onClick={updateValue}
+        onChange={onChange}
         type="radio"
         value={option.value}
       />

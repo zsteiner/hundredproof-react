@@ -1,5 +1,3 @@
-@import url('../../theme/variables');
-
 .ingredients {
   list-style: none;
   margin: 0 auto;
@@ -26,12 +24,12 @@
   align-self: center;
   background: none;
   border: 0;
-  color: $info;
+  color: var(--info);
   font-size: 1rem;
   padding: 0;
 
   &:focus {
-    color: $primary;
+    color: var(--primary);
     outline: none;
   }
 
