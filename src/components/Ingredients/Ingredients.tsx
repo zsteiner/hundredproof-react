@@ -1,30 +1,19 @@
-import React, { Component } from 'react';
+
+import { useContext, useState } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
 import Button from '../Button/Button';
 import IngredientItem from './IngredientItem';
 import styles from './Ingredients.module.scss';
+import { Ingredient } from '../../utils/types';
 
-class Ingredients extends Component {
-  static contextType = ScalingContext;
+const Ingredients = () => {
+  const { ingredients, setIngredients } = useContext(ScalingContext);
 
-  constructor(props, context) {
-    super(props);
+  const [activeIngredient, setActiveIngredient] = useState('');
 
-    this.state = {
-      ingredients: context.ingredientsRaw,
-      activeIngredient: '',
-    };
-  }
-
-  setIngredients = (event) => {
-    event.preventDefault();
-    this.saveIngredients();
-  };
-
-  editIngredient = (event, index) => {
-    const activeIngredient = event.target.value;
-    const ingredients = [...this.state.ingredients];
+  const editIngredient = (event, index) => {
+    const newIngredient = event.target.value as Ingredient;
     const length = ingredients.length;
     ingredients[index] = activeIngredient;
 
@@ -32,13 +21,13 @@ class Ingredients extends Component {
       ingredients.push('');
     }
 
-    this.setState({ ingredients, activeIngredient });
+    setIngredients([...ingredients, newIngredient]);
+    setActiveIngredient(newIngredient);
   };
 
-  pasteIngredient = (event) => {
+  const pasteIngredient = (event) => {
     event.preventDefault();
 
-    const { ingredients } = this.state;
     const last = ingredients.length - 1;
     const activeIngredient = event.clipboardData.getData('Text');
     const split = activeIngredient.split(/\r?\n/);
@@ -50,11 +39,10 @@ class Ingredients extends Component {
     const newIngredients = ingredients.concat(split);
     newIngredients.push('');
 
-    this.setState({ ingredients: newIngredients });
+    setIngredients(newIngredients);
   };
 
-  removeItem = (index) => {
-    const { ingredients } = this.state;
+  const removeItem = (index) => {
     const ingredientsLength = ingredients.length;
 
     if (ingredientsLength === 1 && index > -1) {
@@ -64,31 +52,19 @@ class Ingredients extends Component {
       ingredients.splice(index, 1);
     }
 
-    this.setState(
-      {
-        ingredients,
-      },
-      () => {
-        this.saveIngredients();
-      },
-    );
+    setIngredient(ingredients);
   };
 
-  saveIngredients = () => {
-    const { ingredients } = this.state;
-
+  const saveIngredients = () => {
     const cleanedIngredients = ingredients.filter((item) => item !== '');
     cleanedIngredients.push('');
 
-    this.setState({
-      ingredients: cleanedIngredients,
-    });
 
-    this.context.setIngredients(cleanedIngredients);
+    setIngredients(cleanedIngredients);
   };
 
-  showRemoveItem = (index) => {
-    const ingredientsLength = this.ingredients.length;
+  const showRemoveItem = (index) => {
+    const ingredientsLength = ingredients.length;
 
     if (ingredientsLength === index + 1) {
       return false;
@@ -97,29 +73,26 @@ class Ingredients extends Component {
     }
   };
 
-  render() {
-    const ingredients = this.state.ingredients.map((item, index) => {
-      return (
-        <IngredientItem
-          index={index}
-          ingredient={item}
-          key={index}
-          onChange={this.editIngredient}
-          onPaste={this.pasteIngredient}
-          placeholder="1 oz bourbon"
-          removeItem={this.removeItem}
-          showRemoveItem={this.showRemoveItem}
-        />
-      );
-    });
+  return (
+    <>
+      <ul className={styles.ingredients}>{ingredients.map((item, index) => {
+        return (
+          <IngredientItem
+            index={index}
+            ingredient={item}
+            key={index}
+            onChange={editIngredient}
+            onPaste={pasteIngredient}
+            placeholder="1 oz bourbon"
+            removeItem={removeItem}
+            showRemoveItem={showRemoveItem}
+          />
+        );
+      })}</ul>
+      <Button onClick={saveIngredients} text="Scale Recipe" />
+    </>
+  );
 
-    return (
-      <React.Fragment>
-        <ul className={styles.ingredients}>{ingredients}</ul>
-        <Button onClick={this.saveIngredients} text="Scale Recipe" />
-      </React.Fragment>
-    );
-  }
 }
 
 export default Ingredients;
