@@ -3,7 +3,7 @@ import { FC, ReactNode } from 'react';
 import styles from './Header.module.scss';
 
 type SubheaderProps = {
-  children: ReactNode,
+  children?: ReactNode,
   heading: string,
 };
 
