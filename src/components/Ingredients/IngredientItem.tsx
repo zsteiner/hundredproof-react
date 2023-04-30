@@ -1,10 +1,21 @@
-import PropTypes from 'prop-types';
+import { FC } from 'react';
 
 import Icon from '../Icon/Icon';
 import Input from '../Input/Input';
 import styles from './Ingredients.module.scss';
 
-const IngredientItem = ({
+type IngredientItemProps = {
+  disabled: boolean,
+  index: number,
+  ingredient: string,
+  onChange: () => void,
+  onPaste: () => void,
+  onFocus: () => void,
+  placeholder: string,
+  removeItem: () => void,
+};
+
+const IngredientItem: FC<IngredientItemProps> = ({
   disabled,
   index,
   ingredient,
@@ -37,17 +48,6 @@ const IngredientItem = ({
       ) : null}
     </li>
   );
-};
-
-IngredientItem.propTypes = {
-  disabled: PropTypes.bool,
-  index: PropTypes.number,
-  ingredient: PropTypes.string,
-  onChange: PropTypes.func,
-  onPaste: PropTypes.func,
-  onFocus: PropTypes.func,
-  placeholder: PropTypes.string,
-  removeItem: PropTypes.func,
 };
 
 export default IngredientItem;

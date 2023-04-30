@@ -1,9 +1,17 @@
-import PropTypes from 'prop-types';
+import { FC } from 'react';
 
+import { Measure } from '../../utils/types';
 import Input from '../Input/Input';
 import styles from './InputGroup.module.scss';
 
-const InputGroup = ({ onChange, measure, text, value }) => {
+type InputGroupProps = {
+  onChange: () => void,
+  measure: Measure,
+  text: string,
+  value: number,
+}
+
+const InputGroup: FC<InputGroupProps> = ({ onChange, measure, text, value }) => {
   return (
     <div className={styles.inputgroup}>
       <label>
@@ -14,13 +22,6 @@ const InputGroup = ({ onChange, measure, text, value }) => {
       .
     </div>
   );
-};
-
-InputGroup.propTypes = {
-  onChange: PropTypes.func,
-  measure: PropTypes.string,
-  text: PropTypes.string,
-  value: PropTypes.any
 };
 
 export default InputGroup;

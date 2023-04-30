@@ -1,4 +1,4 @@
-const units = [
+export const units = [
   'oz',
   'ounce',
   'ounces',
@@ -34,6 +34,4 @@ const units = [
   'gallons',
   'part',
   'parts'
-];
-
-export default units;
+] as const;

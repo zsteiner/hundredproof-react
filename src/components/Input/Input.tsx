@@ -1,12 +1,16 @@
-/* eslint-disable no-useless-escape */
-
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import { FC, HTMLAttributes } from 'react';
 import AutosizeInput from 'react-input-autosize';
 
 import styles from './Input.module.scss';
 
-const Input = ({
+type InputProps = HTMLAttributes<HTMLInputElement> & {
+  autoFocus?: boolean;
+  autoSize?: boolean;
+  type?: 'number' | 'text';
+}
+
+const Input: FC<InputProps> = ({
   autoFocus,
   autoSize,
   className,
@@ -14,10 +18,8 @@ const Input = ({
   onFocus,
   onPaste,
   placeholder,
-  readOnly,
-  required,
   type,
-  value,
+  ...rest,
 }) => {
   const inputClasses = classNames({
     [styles.input]: true,
@@ -28,21 +30,21 @@ const Input = ({
   if (autoSize) {
     return (
       <AutosizeInput
+        {...rest}
         autoFocus={autoFocus}
         className={inputClasses}
         onChange={onChange}
         onFocus={onFocus}
         onPaste={onPaste}
         pattern={type === 'number' ? 'd*' : '.*'}
-        readOnly={readOnly}
         type="text"
-        value={value}
       />
     );
   }
 
   return (
     <input
+      {...rest}
       autoFocus={autoFocus}
       className={inputClasses}
       onChange={onChange}
@@ -50,25 +52,8 @@ const Input = ({
       onPaste={onPaste}
       pattern={type === 'number' ? 'd*' : '.*'}
       placeholder={placeholder}
-      readOnly={readOnly}
-      required={required}
-      type={type ? type : 'text'}
-      value={value}
+      type="text"
     />
   );
 };
-
-Input.propTypes = {
-  autoFocus: PropTypes.bool,
-  className: PropTypes.string,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onPaste: PropTypes.func,
-  placeholder: PropTypes.string,
-  readOnly: PropTypes.bool,
-  required: PropTypes.bool,
-  type: PropTypes.oneOf(['number', 'text']),
-  value: PropTypes.any,
-};
-
 export default Input;

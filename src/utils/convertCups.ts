@@ -1,4 +1,4 @@
-import conversions from '../consts/conversions';
+import conversions from './conversions';
 import round from './round';
 
 export default function convertCups(amount: number) {

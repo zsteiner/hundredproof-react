@@ -1,7 +1,7 @@
-import units from '../consts/units';
 import { Ingredient } from '../types/Ingredient';
 import normalizeUnits from './normalizeUnits';
 import setZero from './setZero';
+import units from './units';
 
 function scaleAmount(amount: number, scaleFactor: number) {
   const scaledAmount = amount * setZero(scaleFactor);

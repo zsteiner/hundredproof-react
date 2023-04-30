@@ -1,4 +1,4 @@
-import conversions from '../consts/conversions';
+import conversions from './conversions';
 import round from './round';
 
 export default function convertTeaspoons(amount: number) {

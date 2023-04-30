@@ -1,10 +1,17 @@
 
 
+import { FC } from 'react';
+
+import { Ingredient } from '../../utils/types';
 import ResultsBlock from '../ResultsBlock/ResultsBlock';
 import styles from './ScalingResults.module.scss';
 
-const ScalingResults = ({ results }) => {
-  const ingredients = results.map((ingredient, index) => {
+type ScalingResultsProps = {
+  results: Ingredient[]
+}
+
+const ScalingResults: FC<ScalingResultsProps> = ({ results }) => {
+  return <ul className={`${styles.results} hp-clearlist`}>{results.map((ingredient, index) => {
     return (
       <li className={styles.resultsItem} key={index}>
         <ResultsBlock
@@ -15,9 +22,7 @@ const ScalingResults = ({ results }) => {
         />
       </li>
     );
-  });
-
-  return <ul className={`${styles.results} hp-clearlist`}>{ingredients}</ul>;
+  })}</ul>;
 };
 
 export default ScalingResults;

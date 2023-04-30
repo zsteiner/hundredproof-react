@@ -1,4 +1,4 @@
-import conversions from '../consts/conversions';
+import conversions from './conversions';
 import { Unit } from './types'
 
 export default function convertUnits(amount: number, unit: Unit) {

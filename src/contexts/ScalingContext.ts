@@ -1,3 +1,3 @@
+import { createContext } from "react";
 
-
-export const ScalingContext = React.createContext();
+export const ScalingContext = createContext();

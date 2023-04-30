@@ -1,8 +1,12 @@
+import { units } from './units';
+
 export type Ingredient = {
   amount: number;
-  formatted?: string;
+  formatIngredient?: string;
   unit: Unit;
   ingredient: string;
 }
 
-export type Unit = 'cup' | 'jigger' | 'ounce' | 'ounces' | 'jigger' | 'jiggers' | 'shot' | 'shots' | 'oz';
+export type Measure = 'abv' | 'proof';
+
+export type Unit = typeof units[number] | undefined;
