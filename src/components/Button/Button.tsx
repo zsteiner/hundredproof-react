@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-
 import styles from './Button.module.scss';
 
 const Button = ({ className, disabled, onClick, text }) => {

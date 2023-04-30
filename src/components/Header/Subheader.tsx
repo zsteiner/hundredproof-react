@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 
-
 import styles from './Header.module.scss';
 
 const Subheader = ({ children, heading }) => {

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 
-
 import Icon from '../Icon/Icon';
 import Input from '../Input/Input';
 import styles from './Ingredients.module.scss';

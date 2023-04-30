@@ -2,7 +2,6 @@
 
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-
 import AutosizeInput from 'react-input-autosize';
 
 import styles from './Input.module.scss';

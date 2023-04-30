@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 
-
 import Input from '../Input/Input';
 import styles from './InputGroup.module.scss';
 

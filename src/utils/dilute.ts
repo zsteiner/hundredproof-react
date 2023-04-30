@@ -1,20 +1,20 @@
 import convertCups from './convertCups';
 import convertUnits from './convertUnits';
-import endDilute from './endDilute.ts';
+import endDilute from './endDilute';
 import round from './round';
 import setZero from './setZero';
 import startDilute from './startDilute';
 import translateResults from './translateResults';
 import { Unit } from './types';
 
-export default function dilute(amount: number, desiredABV: number, startingABV, unit: Unit, volume: number) {
+export default function dilute(amount: number, desiredABV: number, startingABV: number, unit: Unit, volume: string) {
   amount = setZero(Number(amount));
   desiredABV = setZero(Number(desiredABV));
   startingABV = setZero(Number(startingABV));
 
   amount = convertUnits(amount, unit);
 
-  let amountWaterOz;
+  let amountWaterOz: number;
 
   if (volume === 'end') {
     amountWaterOz = endDilute(amount, desiredABV, startingABV);

@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-
 import styles from './SegmentedButton.module.scss';
 
 const SegmentedButton = ({ className, name, options, onChange }) => {

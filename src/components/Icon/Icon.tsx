@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-
 import styles from './Icon.module.scss';
 
 const Icon = ({ className, icon }) => {

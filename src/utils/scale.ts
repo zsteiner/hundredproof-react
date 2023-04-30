@@ -1,14 +1,15 @@
 import units from '../consts/units';
+
 import normalizeUnits from './normalizeUnits';
 import setZero from './setZero';
 
-function scaleAmount(amount, scaleFactor) {
+function scaleAmount(amount: number, scaleFactor: number) {
   const scaledAmount = amount * setZero(scaleFactor);
   return scaledAmount;
 }
 
-export default function scale(ingredients, scaleFactor) {
-  const ingredientsFormatted = [];
+export default function scale(ingredients: string[], scaleFactor: number) {
+  const ingredientsFormatted = [] as string[];
 
   const regex = /([0-9]*\.?\/?[0-9]*)\s?(\S*)?\s?(.*)/;
   const fractionRegex = /([0-9]*)\/([0-9]*)/;
@@ -20,7 +21,7 @@ export default function scale(ingredients, scaleFactor) {
     let ingredient;
     let amount;
 
-    const normalizeItem = item.replace(' of ', ' ');
+    const normalizeItem = item.replace(' of ', ' ') as string;
     const match = normalizeItem.match(regex);
     const hasThree = match[3] !== '';
 
@@ -51,6 +52,7 @@ export default function scale(ingredients, scaleFactor) {
       unit,
       ingredient
     });
+
     return ingredientsFormatted;
   });
 
