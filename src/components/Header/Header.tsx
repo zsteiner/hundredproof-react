@@ -4,12 +4,9 @@ import Link from 'next/link'
 import styles from './Header.module.scss';
 import Logo from './Logo';
 
-const background = '/images/hp-bottles.svg';
-const backgroundStyles = { backgroundImage: `url(${background})` };
-
 const Header = () => {
   return (
-    <header className={styles.header} style={backgroundStyles}>
+    <header className={styles.header}>
       <h1 className={`${styles.heading} ${styles.headingLogo}`}>
         <Link href="/">
           <Logo />

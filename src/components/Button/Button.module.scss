@@ -1,4 +1,3 @@
-
 .button {
   background: none;
   border: var(--border-match-color);
@@ -13,16 +12,16 @@
   padding: 0.5em 1.5em;
   text-decoration: none;
   text-transform: uppercase;
+}
 
-  &:focus {
-    border-color: var(--primary);
-    font-weight: 700;
-    outline: none;
-  }
+.button:focus {
+  border-color: var(--primary);
+  font-weight: 700;
+  outline: none;
+}
 
-  &:hover {
-    background: var(--primary);
-  }
+.button:hover {
+  background: var(--primary);
 }
 
 .disabled {

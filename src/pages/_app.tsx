@@ -4,6 +4,7 @@ import './normalize.css';
 import Head from 'next/head';
 
 import Footer from '../components/Footer/Footer';
+import Header from '../components/Header/Header';
 import IconSet from '../components/IconSet/IconSet';
 
 type AppProps = {
@@ -20,9 +21,10 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       </Head>
       <IconSet />
       <div className="pagewrap">
+        <Header />
         <Component {...pageProps} />
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };

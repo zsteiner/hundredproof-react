@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import buttonStyles from '../components/Button/Button.module.scss';
 import Subheader from '../components/Header/Subheader';
-import styles from './Picker.module.scss';
+import styles from './indexPage.module.scss';
 
 const Picker = () => {
   return (

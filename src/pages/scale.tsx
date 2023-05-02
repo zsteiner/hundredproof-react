@@ -6,7 +6,7 @@ import ScalingTools from '../components/ScalingTools/ScalingTools';
 class Scale extends Component {
   render() {
     return (
-      <React.Fragment>
+      <>
         <Subheader heading="Scale">
           <p>
             Enter each ingredient like "1 oz gin" or "1.5 shots of whisky" or "2
@@ -16,7 +16,7 @@ class Scale extends Component {
         <article className="hp-app">
           <ScalingTools />
         </article>
-      </React.Fragment>
+      </>
     );
   }
 }
