@@ -28,8 +28,9 @@ const DilutionValues = () => {
         className={styles.submitButton}
         disabled={error ? true : false}
         onClick={updateResults}
-        text="calculate"
-      />
+      >
+        calculate
+      </Button>
     </form>);
 };
 

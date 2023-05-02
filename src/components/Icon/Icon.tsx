@@ -5,7 +5,7 @@ import { IconType } from '../../utils/types';
 import styles from './Icon.module.scss';
 
 type IconProps = {
-  className: string;
+  className?: string;
   icon: IconType;
 };
 

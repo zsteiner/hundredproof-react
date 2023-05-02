@@ -1,47 +1,46 @@
-import { FC } from 'react';
+import { ChangeEvent, FC } from 'react';
 
 import Icon from '../Icon/Icon';
 import Input from '../Input/Input';
 import styles from './Ingredients.module.scss';
 
 type IngredientItemProps = {
-  disabled: boolean,
-  index: number,
-  ingredient: string,
-  onChange: () => void,
-  onPaste: () => void,
-  onFocus: () => void,
-  placeholder: string,
+  disabled?: boolean,
+  onChange: (newIngredient: string) => void,
+  onPaste?: () => void,
+  onFocus?: () => void,
+  placeholder?: string,
   removeItem: () => void,
+  value: string,
 };
 
 const IngredientItem: FC<IngredientItemProps> = ({
-  disabled,
-  index,
-  ingredient,
+  // disabled,
   onChange,
   onFocus,
   onPaste,
   placeholder,
   removeItem,
+  value,
 }) => {
+
+
   return (
     <li className={styles.ingredientsItem}>
       <Input
         className={styles.input}
-        disabled={disabled}
-        onChange={(event) => onChange(event, index)}
+        onChange={(event: ChangeEvent<HTMLInputElement>) => onChange(event.target.value)}
         onFocus={onFocus}
         onPaste={onPaste}
         placeholder={placeholder}
         type="text"
-        value={ingredient}
+        value={value}
       />
       {removeItem ? (
         <button
           className={styles.button}
-          onClick={() => removeItem(index)}
-          tabIndex="-1"
+          onClick={removeItem}
+          tabIndex={-1}
         >
           <Icon icon="close" />
         </button>

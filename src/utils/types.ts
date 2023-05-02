@@ -4,9 +4,9 @@ export type IconType = 'close' | 'cup' | 'jigger' | 'shot';
 
 export type Ingredient = {
   amount: number;
-  formatIngredient?: string;
+  formattedName?: string;
   unit: Unit;
-  ingredient: string;
+  name: string;
 }
 
 export type Measure = 'abv' | 'proof';

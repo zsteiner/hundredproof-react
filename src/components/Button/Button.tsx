@@ -3,9 +3,7 @@ import { ButtonHTMLAttributes, FC } from 'react';
 
 import styles from './Button.module.scss';
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  text: string;
-};
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 
 const Button: FC<ButtonProps> = ({ className, children, disabled, ...rest }) => {
   const buttonClasses = classNames({

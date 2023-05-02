@@ -8,18 +8,17 @@ import ScalingResults from '../ScalingResults/ScalingResults';
 
 const ScalingTools = () => {
   const [error, setError] = useState<number>();
-  const [ingredients, setIngredients] = useState([]);
-  const [ingredientsRaw, setIngredientsRaw] = useState([]);
+  const [ingredients, setIngredients] = useState(['']);
   const [scalingFactor, setScalingFactor] = useState(2);
   const [showResults, setShowResults] = useState<boolean>(false);
+
+  console.log('ingredients', ingredients)
 
   return (
     <ScalingContext.Provider value={{
       error,
       ingredients,
-      ingredientsRaw,
       setIngredients,
-      setIngredientsRaw,
       setError,
       scalingFactor,
       setScalingFactor,
