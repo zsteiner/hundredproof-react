@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 import buttonStyles from '../components/Button/Button.module.scss';
 import Subheader from '../components/Header/Subheader';

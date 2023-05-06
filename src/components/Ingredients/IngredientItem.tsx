@@ -1,40 +1,47 @@
 import { ChangeEvent, FC } from 'react';
 
+import { Ingredient, IngredientParams } from '../../utils/types';
 import Icon from '../Icon/Icon';
 import Input from '../Input/Input';
 import styles from './Ingredients.module.scss';
 
 type IngredientItemProps = {
   disabled?: boolean,
-  onChange: (newIngredient: string) => void,
+  ingredient: Ingredient,
+  onChange: (params: IngredientParams) => void,
   onPaste?: () => void,
   onFocus?: () => void,
   placeholder?: string,
   removeItem: () => void,
-  value: string,
 };
 
 const IngredientItem: FC<IngredientItemProps> = ({
   // disabled,
+  ingredient,
   onChange,
   onFocus,
   onPaste,
   placeholder,
   removeItem,
-  value,
 }) => {
 
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    const { id } = ingredient;
+
+    onChange({ value, id });
+  };
 
   return (
     <li className={styles.ingredientsItem}>
       <Input
         className={styles.input}
-        onChange={(event: ChangeEvent<HTMLInputElement>) => onChange(event.target.value)}
+        onChange={handleOnChange}
         onFocus={onFocus}
         onPaste={onPaste}
         placeholder={placeholder}
         type="text"
-        value={value}
+        value={ingredient.value}
       />
       {removeItem ? (
         <button

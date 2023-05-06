@@ -76,6 +76,6 @@ const DiluteResults = () => {
       </div>
     </>
   );
-}
+};
 
 export default DiluteResults;

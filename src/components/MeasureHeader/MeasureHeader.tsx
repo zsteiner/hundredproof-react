@@ -54,7 +54,7 @@ const MeasureHeader = () => {
         />
       </div>
     </section>
-  )
+  );
 };
 
 export default MeasureHeader;

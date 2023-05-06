@@ -1,5 +1,5 @@
 import { conversions } from './conversions';
-import { Unit } from './types'
+import { Unit } from './types';
 
 export default function convertUnits(amount: number, unit: Unit) {
   if (unit === 'cup') {

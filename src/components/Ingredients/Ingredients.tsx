@@ -1,23 +1,30 @@
 
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
+import { IngredientParams } from '../../utils/types';
 import Button from '../Button/Button';
 import IngredientItem from './IngredientItem';
 import styles from './Ingredients.module.scss';
 
 const Ingredients = () => {
-  const { ingredients, setIngredients } = useContext(ScalingContext);
+  const { ingredients, setIngredients, setShowResults } = useContext(ScalingContext);
 
-  const [activeIngredient, setActiveIngredient] = useState('');
+  const handleIngredientChange = ({ id, value }: IngredientParams) => {
+    const currentItemIndex = ingredients.findIndex(item => item.id === id);
 
-  const editIngredient = (newIngredient: string) => {
-    console.log(newIngredient);
-    setIngredients([...ingredients, newIngredient])
+    console.log('handleOnChange', value, id, currentItemIndex);
+
+    if (currentItemIndex >= 0) {
+      ingredients[currentItemIndex].value = value;
+      setIngredients([...ingredients]);
+    } else {
+      setIngredients([...ingredients, { id, value }]);
+    }
   };
 
   const saveIngredients = () => {
-    setIngredients(ingredients)
+    setShowResults(true);
   };
 
   // const pasteIngredient = (event) => {
@@ -37,21 +44,20 @@ const Ingredients = () => {
   //   setIngredients(newIngredients);
   // };
 
-  const removeItem = (ingredient: string) => {
-    setIngredients(ingredients.filter(item => item !== ingredient));
+  const removeItem = (id: number) => {
+    setIngredients(ingredients.filter(item => item.id !== id));
   };
 
   return (
     <>
-      <ul className={styles.ingredients}>{ingredients.map((item) => {
+      <ul className={styles.ingredients}>{ingredients.map((item, id) => {
         return (
           <IngredientItem
-            key={item}
-            onChange={editIngredient}
-            // onPaste={pasteIngredient}
+            ingredient={item}
+            key={item.id}
+            onChange={handleIngredientChange}
             placeholder="1 oz bourbon"
-            removeItem={() => removeItem(item)}
-            value={item}
+            removeItem={() => removeItem(id)}
           />
         );
       })}</ul>
@@ -59,6 +65,6 @@ const Ingredients = () => {
     </>
   );
 
-}
+};
 
 export default Ingredients;
