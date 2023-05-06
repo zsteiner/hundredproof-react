@@ -1,24 +1,18 @@
 import { useState } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
+import { emptyIngredient } from '../../utils/constants';
 import { Ingredient } from '../../utils/types';
 import Errors from '../Errors/Errors';
 import Ingredients from '../Ingredients/Ingredients';
 import ScalingHeader from '../ScalingHeader/ScalingHeader';
 import ScalingResults from '../ScalingResults/ScalingResults';
 
-const emptyIngredient = {
-  id: 0,
-  value: ''
-};
-
 const ScalingTools = () => {
   const [error, setError] = useState<number>();
   const [ingredients, setIngredients] = useState<Ingredient[]>([emptyIngredient]);
   const [scalingFactor, setScalingFactor] = useState(2);
   const [showResults, setShowResults] = useState<boolean>(false);
-
-  console.log('ingredients', ingredients);
 
   return (
     <ScalingContext.Provider value={{
