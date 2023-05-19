@@ -9,9 +9,8 @@ import styles from './Ingredients.module.scss';
 const Ingredients = () => {
   const { ingredients, setShowResults, setError } = useContext(ScalingContext);
 
-
   const saveIngredients = () => {
-    if ((ingredients.filter(item => item.value !== '').length) === 0) {
+    if (ingredients.find(item => !item.ingredient)) {
       setError(7);
     } else {
       setShowResults(true);
@@ -20,7 +19,7 @@ const Ingredients = () => {
 
   return (
     <>
-      <ul className={styles.ingredients}>{ingredients.map((item, id) => {
+      <ul className={styles.ingredients}>{ingredients.map((item) => {
         return (
           <IngredientItem
             ingredient={item}

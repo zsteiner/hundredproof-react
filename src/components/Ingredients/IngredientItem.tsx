@@ -42,15 +42,11 @@ const IngredientItem: FC<IngredientItemProps> = ({
       newIngredients.push({ id: id + newIngredients.length, value: '' });
     }
 
-    const newItemId = stagedIngredients.filter(item => item.id === id)[0].value;
     const returnIngredients = stagedIngredients.map((item, index) => ({
       ...item,
       id: index,
     }));
 
-    console.log({ returnIngredients });
-
-    setActiveIngredient(newItemId);
     setIngredients(returnIngredients);
   };
 
@@ -75,6 +71,10 @@ const IngredientItem: FC<IngredientItemProps> = ({
       ]);
     }
   }, [activeIngredient]);
+
+  useEffect(() => {
+    setActiveIngredient(ingredient.value);
+  }, [ingredient]);
 
   return (
     <li className={styles.ingredientsItem}>
