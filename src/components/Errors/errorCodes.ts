@@ -5,4 +5,5 @@ export const errorCodes = {
   4: 'Your starting ABV needs to be higher than your desired ABV',
   5: 'That ABV is too high; it might cause blindness or death',
   6: 'That proof is too high; it might cause blindness or death',
+  7: 'You need to enter ingredients.',
 };

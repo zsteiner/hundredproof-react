@@ -7,29 +7,16 @@ import IngredientItem from './IngredientItem';
 import styles from './Ingredients.module.scss';
 
 const Ingredients = () => {
-  const { ingredients, setShowResults } = useContext(ScalingContext);
+  const { ingredients, setShowResults, setError } = useContext(ScalingContext);
 
 
   const saveIngredients = () => {
-    setShowResults(true);
+    if ((ingredients.filter(item => item.value !== '').length) === 0) {
+      setError(7);
+    } else {
+      setShowResults(true);
+    }
   };
-
-  // const pasteIngredient = (event) => {
-  //   event.preventDefault();
-
-  //   const last = ingredients.length - 1;
-  //   const activeIngredient = event.clipboardData.getData('Text');
-  //   const split = activeIngredient.split(/\r?\n/);
-
-  //   if (ingredients[last] === '') {
-  //     ingredients.splice(last, 1);
-  //   }
-
-  //   const newIngredients = ingredients.concat(split);
-  //   newIngredients.push('');
-
-  //   setIngredients(newIngredients);
-  // };
 
   return (
     <>
