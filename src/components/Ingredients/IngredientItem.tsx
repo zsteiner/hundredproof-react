@@ -30,12 +30,21 @@ const IngredientItem: FC<IngredientItemProps> = ({
     event.preventDefault();
 
     const { id } = ingredient;
+    const lastIndex = ingredients.length - 1;
+    const stagedIngredients = [...ingredients];
     const ingredientList = event.clipboardData.getData('Text');
     const newIngredients = ingredientList.split(/\r?\n/).map((value, index) => {
       return { id: id + index + 1, value };
     });
 
-    setIngredients([...ingredients, ...newIngredients]);
+    if (stagedIngredients[lastIndex].value === '') {
+      stagedIngredients.splice(lastIndex, 1);
+    }
+
+    newIngredients.push({ id: id + newIngredients.length, value: '' });
+    stagedIngredients.concat(newIngredients);
+
+    setIngredients([...stagedIngredients]);
   };
 
   useEffect(() => {

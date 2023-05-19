@@ -1,11 +1,11 @@
 .measureHeader {
   padding: var(--spacer-2) var(--spacer);
 
-  @include respond-to(large) {
-    display: grid;
-    grid-gap: var(--spacer-2);
-    grid-template-columns: 1fr 1fr;
-  }
+  // @include respond-to(large) {
+  //   display: grid;
+  //   grid-gap: var(--spacer-2);
+  //   grid-template-columns: 1fr 1fr;
+  // }
 
   &Item {
     margin-bottom: var(--spacer-2);

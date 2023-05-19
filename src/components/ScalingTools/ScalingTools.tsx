@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
 import { emptyIngredient } from '../../utils/constants';
+import { processIngredients } from '../../utils/processIngredients';
+import { scaleIngredients } from '../../utils/scaleIngredients';
 import { Ingredient } from '../../utils/types';
 import Errors from '../Errors/Errors';
 import Ingredients from '../Ingredients/Ingredients';
@@ -11,8 +13,18 @@ import ScalingResults from '../ScalingResults/ScalingResults';
 const ScalingTools = () => {
   const [error, setError] = useState<number>();
   const [ingredients, setIngredients] = useState<Ingredient[]>([emptyIngredient]);
-  const [scalingFactor, setScalingFactor] = useState(2);
+  const [processedIngredients, setProcessedIngredients] = useState<Ingredient[]>(ingredients);
+  const [scalingFactor, setScalingFactor] = useState<number | undefined>(2);
+  const [results, setResults] = useState<Ingredient[]>(ingredients);
   const [showResults, setShowResults] = useState<boolean>(false);
+
+  useEffect(() => {
+    setProcessedIngredients(processIngredients(ingredients));
+  }, [ingredients]);
+
+  useEffect(() => {
+    setResults(scaleIngredients({ ingredients: processedIngredients, scalingFactor }));
+  }, [processedIngredients, scalingFactor]);
 
   return (
     <ScalingContext.Provider value={{
@@ -35,7 +47,7 @@ const ScalingTools = () => {
         <div className="hp-app__col">
           <h3 className="hp-heading">Scaled Recipe</h3>
           {!error && showResults ? (
-            <ScalingResults results={ingredients} />
+            <ScalingResults results={results} />
           ) : null}
         </div>
       </section>
