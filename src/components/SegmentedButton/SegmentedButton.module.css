@@ -20,6 +20,7 @@
   height: inherit;
   overflow: hidden;
 }
+
 .segmentedButtonItem:last-child {
   border-bottom-right-radius: var(--border-radius);
   border-right: var(--border-match-color);

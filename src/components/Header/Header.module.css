@@ -1,9 +1,9 @@
 .header {
   background-color: var(--primary);
+  background-image: url('/images/hp-bottles.svg');
   background-position: bottom;
   background-repeat: repeat-x;
   background-size: auto var(--spacer-2);
-  background-image: url('/images/hp-bottles.svg');
   margin: 0;
   overflow: auto;
   padding: 1rem 0;
@@ -24,6 +24,7 @@
   text-align: center;
   text-transform: uppercase;
 }
+
 .headingLogo {
   color: var(--white);
   margin-bottom: var(--spacer-2);

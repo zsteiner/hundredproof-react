@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { ChangeEvent, FC } from 'react';
 
-import styles from './SegmentedButton.module.scss';
+import styles from './SegmentedButton.module.css';
 
 type Option = {
   value: string;

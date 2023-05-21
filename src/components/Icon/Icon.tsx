@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { FC } from 'react';
 
 import { IconType } from '../../utils/types';
-import styles from './Icon.module.scss';
+import styles from './Icon.module.css';
 
 type IconProps = {
   className?: string;

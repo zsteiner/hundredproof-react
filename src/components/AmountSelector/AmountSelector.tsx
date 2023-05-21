@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { DilutionContext } from '../../contexts/DilutionContext';
 import Input from '../Input/Input';
 import UnitSelect from '../UnitSelect/UnitSelect';
-import styles from './AmountSelector.module.scss';
+import styles from './AmountSelector.module.css';
 
 const AmountSelector = () => {
   const { amount, setAmount, setUnits, updateResults, volume } = useContext(DilutionContext);

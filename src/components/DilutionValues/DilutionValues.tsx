@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { DilutionContext } from '../../contexts/DilutionContext';
 import Button from '../Button/Button';
 import InputGroup from '../InputGroup/InputGroup';
-import styles from './DilutionValues.module.scss';
+import styles from './DilutionValues.module.css';
 
 const DilutionValues = () => {
   const { updateResults, measure, setStartingABV, desiredABV, startingABV, setDesiredABV, error } = useContext(DilutionContext);

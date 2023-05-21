@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
 import ResultsBlock from '../ResultsBlock/ResultsBlock';
-import styles from './DilutionResults.module.scss';
+import styles from './DilutionResults.module.css';
 
 const DiluteResults = () => {
   const {

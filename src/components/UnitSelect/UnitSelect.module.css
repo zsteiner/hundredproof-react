@@ -4,32 +4,32 @@
   font-size: 0.875rem;
   font-weight: 700;
   width: auto;
+}
 
-  label {
-    // color: transparentize(var(--info, 0.55);
-    cursor: pointer;
-    display: block;
-    flex: 0 1 auto;
-    padding: 0.5em;
-    text-align: center;
-  }
+.buttongroup label {
+  /* color: transparentize(var(--info, 0.55); */
+  cursor: pointer;
+  display: block;
+  flex: 0 1 auto;
+  padding: 0.5em;
+  text-align: center;
+}
 
-  input {
-    opacity: 0;
-    position: absolute;
-    visibility: hidden;
-    z-index: -1;
-  }
+.buttongroup input {
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+  z-index: -1;
+}
 
-  input:checked + label {
-    color: var(--black);
-  }
+.buttongroup input:checked + label {
+  color: var(--black);
+}
 
-  .icon {
-    display: block;
-    font-size: 1.75em;
-    margin: 0.5em auto;
-  }
+.buttongroup .icon {
+  display: block;
+  font-size: 1.75em;
+  margin: 0.5em auto;
 }
 
 .unit {

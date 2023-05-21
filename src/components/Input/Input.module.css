@@ -22,7 +22,7 @@
   width: auto;
 }
 
-// $--info--light: lighten(var(--info, 40%);
+/* $--info--light: lighten(var(--info, 40%); */
 
 .input::placeholder {
   color: var(--info-light);

@@ -5,7 +5,7 @@ import { ScalingContext } from '../../contexts/ScalingContext';
 import { Ingredient } from '../../utils/types';
 import Icon from '../Icon/Icon';
 import Input from '../Input/Input';
-import styles from './Ingredients.module.scss';
+import styles from './Ingredients.module.css';
 
 type IngredientItemProps = {
   disabled?: boolean,

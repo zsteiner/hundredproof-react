@@ -4,7 +4,7 @@ import { FC } from 'react';
 
 import { Ingredient } from '../../utils/types';
 import ResultsBlock from '../ResultsBlock/ResultsBlock';
-import styles from './ScalingResults.module.scss';
+import styles from './ScalingResults.module.css';
 
 type ScalingResultsProps = {
   results: Ingredient[]

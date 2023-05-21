@@ -4,7 +4,7 @@ import { useContext } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
 import SegmentedButton from '../SegmentedButton/SegmentedButton';
-import styles from './MeasureHeader.module.scss';
+import styles from './MeasureHeader.module.css';
 
 const MeasureHeader = () => {
   const measureOptions = [

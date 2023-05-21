@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { errorCodes } from './errorCodes';
-import styles from './Errors.module.scss';
+import styles from './Errors.module.css';
 
 type ErrorProps = {
   errorCode: number;

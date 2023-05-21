@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import round from '../../utils/round';
 import { Ingredient } from '../../utils/types';
-import styles from '../DilutionResults/DilutionResults.module.scss';
+import styles from '../DilutionResults/DilutionResults.module.css';
 
 type ResultsBlockProps = {
   result: Ingredient;

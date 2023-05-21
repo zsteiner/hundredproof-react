@@ -4,7 +4,7 @@ import { useContext } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
 import Input from '../Input/Input';
-import styles from './ScalingHeader.module.scss';
+import styles from './ScalingHeader.module.css';
 
 const ScalingHeader = () => {
   const { setScalingFactor, scalingFactor } = useContext(ScalingContext);

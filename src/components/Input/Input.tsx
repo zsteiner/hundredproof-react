@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { FC, HTMLAttributes } from 'react';
 import AutosizeInput from 'react-input-autosize';
 
-import styles from './Input.module.scss';
+import styles from './Input.module.css';
 
 type InputProps = HTMLAttributes<HTMLInputElement> & {
   autoFocus?: boolean;

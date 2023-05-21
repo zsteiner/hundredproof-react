@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import { IconType } from '../../utils/types';
 import Icon from '../Icon/Icon';
-import styles from './UnitSelect.module.scss';
+import styles from './UnitSelect.module.css';
 
 type UnitSelectProps = {
   amount: number;

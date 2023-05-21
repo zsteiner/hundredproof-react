@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
-import buttonStyles from '../components/Button/Button.module.scss';
+import buttonStyles from '../components/Button/Button.module.css';
 import Subheader from '../components/Header/Subheader';
-import styles from './indexPage.module.scss';
+import styles from './indexPage.module.css';
 
 const Picker = () => {
   return (

@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { ScalingContext } from '../../contexts/ScalingContext';
 import Button from '../Button/Button';
 import IngredientItem from './IngredientItem';
-import styles from './Ingredients.module.scss';
+import styles from './Ingredients.module.css';
 
 const Ingredients = () => {
   const { ingredients, setShowResults, setError } = useContext(ScalingContext);
