@@ -24,6 +24,7 @@ module.exports = {
     'semi': [2, 'always'],
     'react/jsx-sort-props': 'error',
     "react/no-unescaped-entities": "off",
-    'simple-import-sort/imports': 'error'
+    'simple-import-sort/imports': 'error',
+    'react-hooks/exhaustive-deps': 'off',
   }
 }
