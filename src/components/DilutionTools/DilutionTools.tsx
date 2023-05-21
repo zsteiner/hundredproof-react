@@ -66,7 +66,7 @@ const DilutionTools = () => {
   };
 
   const checkForError = (value: string, code: number) => {
-    if (value) {
+    if (value === '' || value === '0') {
       setDilutionParams({
         error: code,
         resultsOz: 0,
@@ -150,7 +150,7 @@ const DilutionTools = () => {
     abvValidation(startingABV, desiredABV);
 
     setDilutionParams({
-      startingABV: Number(startingABV),
+      startingABV: startingABV,
     });
   };
 
@@ -161,7 +161,7 @@ const DilutionTools = () => {
     abvValidation(startingABV, desiredABV);
 
     setDilutionParams({
-      desiredABV: Number(desiredABV),
+      desiredABV: desiredABV,
     });
   };
 
@@ -187,7 +187,7 @@ const DilutionTools = () => {
           {error ? <Errors errorCode={error} /> : null}
         </div>
         <div className="hp-app__col">
-          {!error && showResults ? <DiluteResults /> : null}
+          {showResults ? <DiluteResults /> : null}
         </div>
       </section>
     </DilutionContext.Provider>

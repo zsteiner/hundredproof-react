@@ -1,6 +1,6 @@
 
 
-import { ChangeEvent, useContext } from 'react';
+import { ChangeEvent, useContext, useState } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
 import Input from '../Input/Input';
@@ -8,24 +8,32 @@ import UnitSelect from '../UnitSelect/UnitSelect';
 import styles from './AmountSelector.module.css';
 
 const AmountSelector = () => {
-  const { amount, setAmount, setUnits, updateResults, volume } = useContext(DilutionContext);
+  const { amount, setAmount, setUnits, volume } = useContext(DilutionContext);
+
+  const [inputValue, setInputValue] = useState<string>(amount?.toString());
+
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setAmount(value);
+    setInputValue(value);
+  };
 
   return (
-    <form className={styles.amount} onSubmit={updateResults}>
+    <div className={styles.amount}>
       <label className={styles.amountLabel}>
         {volume === 'end' ? 'I want' : 'I have'}
       </label>
       <Input
         autoFocus
         autoSize
-        onChange={(event: ChangeEvent<HTMLInputElement>) => setAmount(event.target.value)}
-        value={amount}
+        onChange={handleOnChange}
+        value={inputValue}
       />
       <UnitSelect
         amount={amount || 0}
         setUnits={setUnits}
       />
-    </form>
+    </div>
   );
 };
 

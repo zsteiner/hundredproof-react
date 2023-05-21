@@ -8,7 +8,7 @@ type InputGroupProps = {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void,
   measure: Measure,
   text: string,
-  value: number,
+  value: string,
 }
 
 const InputGroup: FC<InputGroupProps> = ({ onChange, measure, text, value }) => {

@@ -13,7 +13,7 @@ const Button: FC<ButtonProps> = ({ className, children, disabled, ...rest }) => 
   });
 
   return (
-    <button {...rest} className={buttonClasses}>
+    <button {...rest} className={buttonClasses} type='button'>
       {children}
     </button>
   );
