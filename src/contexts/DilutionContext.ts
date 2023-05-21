@@ -1,33 +1,37 @@
 import { createContext } from 'react';
 
-import { Measure, Unit } from '../utils/types';
+import { Measure, Unit, VolumeDirection } from '../utils/types';
 
-type DilutionContextType = {
+export type DilutionParams = {
   amount?: number;
   dilution?: number;
   desiredABV?: number,
   displayUnits?: Unit,
   error?: number;
   displayResults?: string,
-  displayMeasure?: Unit,
-  displayMeasureUnit?: 'abv' | 'proof',
+  displayMeasure?: number,
+  displayMeasureUnit?: Measure,
   finalAmountSpirit?: number,
   finalAmountSpiritTranslated?: number,
-  resultsOz?: number,
   measure?: Measure,
-  resultsSpirit?: string,
+  resultsOz?: number,
+  resultsSpirit?: number,
   resultsTranslated?: number,
-  setStartingABV?: () => void,
   startingABV?: number,
-  setAmount?: () => void,
-  setDesiredABV?: () => void,
-  setMeasure?: () => void,
-  setUnits?: () => void;
-  setVolume?: () => void;
-  showResults?: boolean,
   translatedUnit?: Unit,
+  unit?: Unit,
+  volume?: VolumeDirection,
+}
+
+type DilutionContextType = DilutionParams & {
+  setStartingABV?: (value: string) => void,
+  setAmount?: (value: string) => void,
+  setDesiredABV?: (value: string) => void,
+  setMeasure?: (value: Measure) => void,
+  setUnits?: (value: Unit) => void;
+  setVolume?: (value: VolumeDirection) => void;
+  showResults?: boolean,
   updateResults?: () => void,
-  volume?: 'start' | 'end',
 }
 
 export const DilutionContext = createContext<DilutionContextType>({

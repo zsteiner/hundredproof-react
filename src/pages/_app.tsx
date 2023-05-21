@@ -17,6 +17,10 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
+        <meta
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          name="viewport"
+        />
         <title>Hundred Proof</title>
       </Head>
       <IconSet />

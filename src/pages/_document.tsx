@@ -5,10 +5,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-            name="viewport"
-          />
           <link href="%PUBLIC_URL%/favicon.ico" rel="shortcut icon" />
           <link
             href="%PUBLIC_URL%/apple-touch-icon.png"

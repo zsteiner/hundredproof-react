@@ -17,4 +17,6 @@ export type IngredientParams = {
 
 export type Measure = 'abv' | 'proof';
 
+export type VolumeDirection = 'start' | 'end';
+
 export type Unit = typeof units[number] | undefined;

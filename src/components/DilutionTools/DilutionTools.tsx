@@ -1,226 +1,188 @@
-import React, { Component } from 'react';
+import { useState } from 'react';
 
-import { DilutionContext } from '../../contexts/DilutionContext';
+import { DilutionContext, DilutionParams } from '../../contexts/DilutionContext';
 import convertABV from '../../utils/convertABV';
 import dilute from '../../utils/dilute';
+import { Measure, Unit, VolumeDirection } from '../../utils/types';
 import AmountSelector from '../AmountSelector/AmountSelector';
 import DiluteResults from '../DilutionResults/DiluteResults';
 import DilutionValues from '../DilutionValues/DilutionValues';
 import Errors from '../Errors/Errors';
 import MeasureHeader from '../MeasureHeader/MeasureHeader';
 
-class DilutionTools extends Component {
-  constructor(props) {
-    super(props);
+const DilutionTools = () => {
+  const defaultMeasure = 'proof';
+  const defaultUnit = 'teaspoon';
+  const desiredABV = convertABV(defaultMeasure, 25);
+  const [dilutionParams, setDilutionParams] = useState<DilutionParams>({
+    amount: 1,
+    desiredABV,
+    displayMeasure: desiredABV,
+    displayMeasureUnit: defaultMeasure,
+    displayUnits: 'ounce',
+    finalAmountSpiritTranslated: 1.5,
+    measure: defaultMeasure,
+    resultsOz: 0.25,
+    resultsSpirit: 0,
+    resultsTranslated: 1.5,
+    startingABV: convertABV(defaultMeasure, 50),
+    translatedUnit: defaultUnit,
+    unit: defaultUnit,
+    volume: 'start',
+  });
+  const [showResults, setShowResults] = useState(false);
 
-    const defaults = {
-      displayUnits: 'ounce',
-      measure: 'proof',
-      translatedUnit: 'teaspoon',
-      unit: 'shot',
-      volume: 'start',
-    };
+  // const updateResults = () => {
+  //   const dilutionResults = dilute(
+  //     amount,
+  //     desiredABV,
+  //     startingABV,
+  //     unit,
+  //     volume,
+  //   );
 
-    const startingABV = convertABV(defaults.measure, 50);
-    const desiredABV = convertABV(defaults.measure, 25);
+  //   setDilutionParams({
+  //     displayResults: dilutionResults.displayResults,
+  //     displayUnits: dilutionResults.displayUnits,
+  //     displayMeasure: desiredABV,
+  //     displayMeasureUnit: measure,
+  //     finalAmountSpirit: dilutionResults.finalAmountSpirit,
+  //     finalAmountSpiritTranslated: dilutionResults.finalAmountSpiritTranslated,
+  //     resultsOz: dilutionResults.resultsOz,
+  //     resultsSpirit: dilutionResults.resultsSpirit,
+  //     resultsTranslated: dilutionResults.resultsTranslated,
+  //     showResults: true,
+  //     translatedUnit: dilutionResults.translatedUnit,
+  //   });
+  // };
 
-    this.state = {
-      amount: 1,
-      desiredABV: desiredABV,
-      displayMeasure: desiredABV,
-      displayMeasureUnit: defaults.measure,
-      displayResults: 1,
-      displayUnits: defaults.displayUnits,
-      measure: defaults.measure,
-      resultsOz: 0.25,
-      resultsSpirit: 0,
-      resultsTranslated: 1.5,
-      setVolume: this.setVolume,
-      setMeasure: this.setMeasure,
-      setAmount: this.setAmount,
-      setUnits: this.setUnits,
-      setStartingABV: this.setStartingABV,
-      setDesiredABV: this.setDesiredABV,
-      startingABV: startingABV,
-      showResults: true,
-      translatedUnit: defaults.translatedUnit,
-      finalAmountSpiritTranslated: 1.5,
-      updateResults: this.updateResults,
-      unit: defaults.unit,
-      volume: defaults.volume,
-    };
-  }
-
-  componentDidMount() {
-    this.updateResults();
-  }
-
-  updateResults = (event) => {
-    if (event) {
-      event.preventDefault();
-    }
-
-    const {
-      amount,
-      desiredABV,
-      measure,
-      startingABV,
-      unit,
-      volume,
-    } = this.state;
-
-    const dilutionResults = dilute(
-      amount,
-      desiredABV,
-      startingABV,
-      unit,
-      volume,
-    );
-
-    this.setState({
-      displayResults: dilutionResults.displayResults,
-      displayUnits: dilutionResults.displayUnits,
-      displayMeasure: desiredABV,
-      displayMeasureUnit: measure,
-      finalAmountSpirit: dilutionResults.finalAmountSpirit,
-      finalAmountSpiritTranslated: dilutionResults.finalAmountSpiritTranslated,
-      resultsOz: dilutionResults.resultsOz,
-      resultsSpirit: dilutionResults.resultsSpirit,
-      resultsTranslated: dilutionResults.resultsTranslated,
-      showResults: true,
-      translatedUnit: dilutionResults.translatedUnit,
-    });
-  };
-
-  checkForError(value, code) {
-    if (isNaN(value) || value === '') {
-      this.setState({
+  const checkForError = (value: string, code: number) => {
+    if (value) {
+      setDilutionParams({
         error: code,
         resultsOz: 0,
         resultsTranslated: 0,
-        translatedUnit: 0,
-        displayResults: 0,
+        translatedUnit: undefined,
+        displayResults: undefined,
         displayMeasure: 0,
-        showResults: false,
       });
+      setShowResults(false);
       return '';
     } else {
-      this.setState({
+      setDilutionParams({
         error: null,
       });
-      return value.trim();
-    }
-  }
 
-  setVolume = (volume) => {
-    this.setState(
+      return value;
+    }
+  };
+
+  const setVolume = (volume: VolumeDirection) => {
+    setDilutionParams(
       {
-        volume: volume,
-      },
-      () => {
-        this.updateResults();
+        volume,
       },
     );
   };
 
-  setMeasure = (measure) => {
-    const { desiredABV, startingABV, displayMeasure } = this.state;
+  const setMeasure = (measure: Measure) => {
+    const { desiredABV, startingABV, displayMeasure } = dilutionParams;
 
-    this.setState(
+    setDilutionParams(
       {
-        measure: measure,
+        measure,
         desiredABV: convertABV(measure, desiredABV),
         startingABV: convertABV(measure, startingABV),
         displayMeasure: convertABV(measure, displayMeasure),
         displayMeasureUnit: measure,
       },
-      () => {
-        this.updateResults();
-      },
     );
   };
 
-  setAmount = (event) => {
-    const amount = this.checkForError(event.target.value, 1);
-
-    this.setState({
-      amount: amount,
+  const setAmount = (amount: string) => {
+    setDilutionParams({
+      amount: parseInt(checkForError(amount, 1)),
     });
   };
 
-  setUnits = (event) => {
-    const unit = event.target.value;
-
-    this.setState(
+  const setUnits = (unit: Unit) => {
+    setDilutionParams(
       {
-        unit: unit,
+        ...dilutionParams,
+        unit,
       },
-      this.updateResults,
     );
   };
 
-  abvValidation(startingABV, desiredABV) {
+  const abvValidation = (startingABV: number, desiredABV: number) => {
     const formattedStartingABV = Number(startingABV);
     const formattedDesiredABV = Number(desiredABV);
 
     if (formattedDesiredABV >= formattedStartingABV) {
-      this.setState({
+      setDilutionParams({
         error: 4,
       });
     }
-
-    const max = this.state.measure === 'abv' ? 100 : 200;
-    const code = this.state.measure === 'abv' ? 5 : 6;
+    const { measure } = dilutionParams;
+    const max = measure === 'abv' ? 100 : 200;
+    const code = measure === 'abv' ? 5 : 6;
 
     if (formattedDesiredABV > max || formattedStartingABV > max) {
-      this.setState({
+      setDilutionParams({
         error: code,
       });
     }
-  }
+  };
 
-  setStartingABV = (event) => {
-    const { desiredABV } = this.state;
-    const startingABV = this.checkForError(event.target.value, 2);
+  const setStartingABV = (value: string) => {
+    const startingABV = parseInt(checkForError(value, 2));
+    const { desiredABV } = dilutionParams;
 
-    this.abvValidation(startingABV, desiredABV);
+    abvValidation(startingABV, desiredABV);
 
-    this.setState({
+    setDilutionParams({
       startingABV: Number(startingABV),
     });
   };
 
-  setDesiredABV = (event) => {
-    const { startingABV } = this.state;
-    const desiredABV = this.checkForError(event.target.value, 2);
+  const setDesiredABV = (value: string) => {
+    const { startingABV } = dilutionParams;
+    const desiredABV = parseInt(checkForError(value, 2));
 
-    this.abvValidation(startingABV, desiredABV);
+    abvValidation(startingABV, desiredABV);
 
-    this.setState({
+    setDilutionParams({
       desiredABV: Number(desiredABV),
     });
   };
 
-  render() {
-    const { error, showResults } = this.state;
+  const { error } = dilutionParams;
 
-    return (
-      <DilutionContext.Provider value={this.state}>
-        <MeasureHeader />
-        <section className="hp-section hp-app__row">
-          <div className="hp-app__col">
-            <h3 className="hp-heading">Starting with</h3>
-            <AmountSelector />
-            <DilutionValues />
-            {error ? <Errors errorCode={error} /> : null}
-          </div>
-          <div className="hp-app__col">
-            {!error && showResults ? <DiluteResults /> : null}
-          </div>
-        </section>
-      </DilutionContext.Provider>
-    );
-  }
-}
+  return (
+    <DilutionContext.Provider value={{
+      ...dilutionParams,
+      setVolume,
+      setMeasure,
+      setAmount,
+      setUnits,
+      setStartingABV,
+      setDesiredABV,
+    }}>
+      <MeasureHeader />
+      <section className="hp-section hp-app__row">
+        <div className="hp-app__col">
+          <h3 className="hp-heading">Starting with</h3>
+          <AmountSelector />
+          <DilutionValues />
+          {error ? <Errors errorCode={error} /> : null}
+        </div>
+        <div className="hp-app__col">
+          {!error && showResults ? <DiluteResults /> : null}
+        </div>
+      </section>
+    </DilutionContext.Provider>
+  );
+
+};
 
 export default DilutionTools;
