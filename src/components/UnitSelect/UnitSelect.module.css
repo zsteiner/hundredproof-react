@@ -7,7 +7,7 @@
 }
 
 .buttongroup label {
-  /* color: transparentize(var(--info, 0.55); */
+  color: var(--info-light);
   cursor: pointer;
   display: block;
   flex: 0 1 auto;
