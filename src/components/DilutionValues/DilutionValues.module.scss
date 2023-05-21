@@ -1,18 +1,18 @@
-
-
 .inputgroup {
   align-items: center;
   display: flex;
   justify-content: center;
   margin-bottom: var(--spacer-2);
+}
 
-  &:first-of-type {
-    margin-bottom: var(--spacer);
+.inputgroup:first-of-type {
+  margin-bottom: var(--spacer);
+}
+
+@media (width >= 58rem) {
+  .inputgroup {
+    justify-content: flex-start;
   }
-
-  // @include respond-to(large) {
-  //   justify-content: flex-start;
-  // }
 }
 
 .input {

@@ -35,24 +35,24 @@
 .unit {
   display: block;
   margin-bottom: var(--spacer-0-5);
+}
 
-  .plural &::after {
-    content: 's';
-  }
+.plural .unit::after {
+  content: 's';
 }
 
 .conversion {
   display: block;
   font-size: 0.625rem;
   margin-top: 0.5em;
+}
 
-  &::before {
-    content: '{';
-    margin-right: 0.1em;
-  }
+.conversion::before {
+  content: '{';
+  margin-right: 0.1em;
+}
 
-  &::after {
-    content: '}';
-    margin-left: 0.1em;
-  }
+.conversion::after {
+  content: '}';
+  margin-left: 0.1em;
 }

@@ -37,10 +37,10 @@
 
 .headingSubheading {
   color: var(--white);
+}
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+.headingSubheading:last-child {
+  margin-bottom: 0;
 }
 
 .subheader {

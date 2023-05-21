@@ -16,40 +16,40 @@
   text-align: center;
   text-indent: 0.5em;
   width: 2rem;
+}
 
-  &Autosize {
-    width: auto;
-  }
+.inputAutosize {
+  width: auto;
+}
 
-  // $--info--light: lighten(var(--info, 40%);
+// $--info--light: lighten(var(--info, 40%);
 
-  &::placeholder {
-    color: var(--info-light);
-    opacity: 0.5;
-  }
+.input::placeholder {
+  color: var(--info-light);
+  opacity: 0.5;
+}
 
-  &:placeholder-shown {
-    border-color: var(--info-light);
-  }
+.input:placeholder-shown {
+  border-color: var(--info-light);
+}
 
-  &:focus,
-  &:focus-within {
-    border-bottom-color: var(--primary);
-    outline: none;
-  }
+.input:focus,
+.input:focus-within {
+  border-bottom-color: var(--primary);
+  outline: none;
+}
 
-  input {
-    background: none;
-    border: 0;
-    padding: 0 0.25em;
+.input input {
+  background: none;
+  border: 0;
+  padding: 0 0.25em;
+}
 
-    &:invalid {
-      box-shadow: none;
-      outline: none;
-    }
+.input input:invalid {
+  box-shadow: none;
+  outline: none;
+}
 
-    &:focus {
-      outline: none;
-    }
-  }
+.input input:focus {
+  outline: none;
 }

@@ -6,17 +6,17 @@
   height: var(--footer-size);
   padding: var(--spacer);
   padding: 0;
+}
 
-  &Section {
-    align-self: flex-end;
-    background-color: var(--black);
-    flex: 0 100%;
-    padding: var(--spacer-0-5) var(--spacer);
-    text-align: center;
+.footerSection {
+  align-self: flex-end;
+  background-color: var(--black);
+  flex: 0 100%;
+  padding: var(--spacer-0-5) var(--spacer);
+  text-align: center;
+}
 
-    a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-  }
+.footerSection a {
+  color: var(--primary);
+  text-decoration: none;
 }

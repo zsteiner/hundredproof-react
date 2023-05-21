@@ -1,18 +1,17 @@
-
 .amount {
   align-items: center;
   display: inline-flex;
   justify-content: center;
   margin-bottom: var(--spacer-2);
+}
 
-  &:first-of-type {
-    margin-bottom: var(--spacer);
-  }
+.amount:first-of-type {
+  margin-bottom: var(--spacer);
+}
 
-  &Label {
-    display: block;
-    flex: 0 0 auto;
-    margin: 0;
-    width: max-content;
-  }
+.amountLabel {
+  display: block;
+  flex: 0 0 auto;
+  margin: 0;
+  width: max-content;
 }
