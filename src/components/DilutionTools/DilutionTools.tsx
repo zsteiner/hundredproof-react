@@ -32,29 +32,38 @@ const DilutionTools = () => {
   });
   const [showResults, setShowResults] = useState(false);
 
-  // const updateResults = () => {
-  //   const dilutionResults = dilute(
-  //     amount,
-  //     desiredABV,
-  //     startingABV,
-  //     unit,
-  //     volume,
-  //   );
+  const updateResults = () => {
+    const {
+      amount,
+      desiredABV,
+      measure,
+      startingABV,
+      unit,
+      volume,
+    } = dilutionParams;
 
-  //   setDilutionParams({
-  //     displayResults: dilutionResults.displayResults,
-  //     displayUnits: dilutionResults.displayUnits,
-  //     displayMeasure: desiredABV,
-  //     displayMeasureUnit: measure,
-  //     finalAmountSpirit: dilutionResults.finalAmountSpirit,
-  //     finalAmountSpiritTranslated: dilutionResults.finalAmountSpiritTranslated,
-  //     resultsOz: dilutionResults.resultsOz,
-  //     resultsSpirit: dilutionResults.resultsSpirit,
-  //     resultsTranslated: dilutionResults.resultsTranslated,
-  //     showResults: true,
-  //     translatedUnit: dilutionResults.translatedUnit,
-  //   });
-  // };
+    const dilutionResults = dilute(
+      amount,
+      desiredABV,
+      startingABV,
+      unit,
+      volume,
+    );
+
+    setDilutionParams({
+      displayResults: dilutionResults.displayResults,
+      displayUnits: dilutionResults.displayUnits,
+      displayMeasure: desiredABV,
+      displayMeasureUnit: measure,
+      finalAmountSpirit: dilutionResults.finalAmountSpirit,
+      finalAmountSpiritTranslated: dilutionResults.finalAmountSpiritTranslated,
+      resultsOz: dilutionResults.resultsOz,
+      resultsTranslated: dilutionResults.resultsTranslated,
+      translatedUnit: dilutionResults.translatedUnit,
+    });
+
+    setShowResults(true);
+  };
 
   const checkForError = (value: string, code: number) => {
     if (value) {
@@ -105,11 +114,11 @@ const DilutionTools = () => {
     });
   };
 
-  const setUnits = (unit: Unit) => {
+  const setUnits = (unit: string) => {
     setDilutionParams(
       {
         ...dilutionParams,
-        unit,
+        unit: unit as Unit,
       },
     );
   };
@@ -167,6 +176,7 @@ const DilutionTools = () => {
       setUnits,
       setStartingABV,
       setDesiredABV,
+      updateResults,
     }}>
       <MeasureHeader />
       <section className="hp-section hp-app__row">

@@ -1,6 +1,6 @@
 
 
-import { useContext } from 'react';
+import { ChangeEvent, useContext } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
 import Button from '../Button/Button';
@@ -14,13 +14,13 @@ const DilutionValues = () => {
     <form onSubmit={updateResults}>
       <InputGroup
         measure={measure}
-        onChange={setStartingABV}
+        onChange={(event: ChangeEvent<HTMLInputElement>) => setStartingABV(event.target.value)}
         text="Starting at"
         value={startingABV}
       />
       <InputGroup
         measure={measure}
-        onChange={setDesiredABV}
+        onChange={(event: ChangeEvent<HTMLInputElement>) => setDesiredABV(event.target.value)}
         text="I want to end with"
         value={desiredABV}
       />

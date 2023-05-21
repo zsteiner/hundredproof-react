@@ -1,5 +1,5 @@
 import pluralize from 'pluralize';
-import { FC } from 'react';
+import { ChangeEvent, FC } from 'react';
 
 import { IconType } from '../../utils/types';
 import Icon from '../Icon/Icon';
@@ -7,7 +7,7 @@ import styles from './UnitSelect.module.css';
 
 type UnitSelectProps = {
   amount: number;
-  setUnits: () => void;
+  setUnits: (value: string) => void;
 }
 
 type UnitData = {
@@ -40,7 +40,7 @@ const UnitSelect: FC<UnitSelectProps> = ({ amount, setUnits }) => {
           defaultChecked={item.default}
           id={`bg2_${index}`}
           name="bg2"
-          onClick={setUnits}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => setUnits(event.target.value)}
           type="radio"
           value={item.value}
         />

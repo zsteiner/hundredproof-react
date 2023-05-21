@@ -30,8 +30,8 @@ export default function dilute(amount: number, desiredABV: number, startingABV: 
   const isCups = unit === 'cup';
   const isVolEnd = volume === 'end';
 
-  const translatedUnit = useCups ? 'cup' : 'teaspoon';
-  const displayUnits = isCups ? 'cup' : 'ounce';
+  const translatedUnit = useCups ? 'cup' : 'teaspoon' as Unit;
+  const displayUnits = isCups ? 'cup' : 'ounce' as Unit;
 
   const finalAmount = isVolEnd ? amount : amount + resultsOz;
   const finalAmountSpirit = amount - resultsOz;

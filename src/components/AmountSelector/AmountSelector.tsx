@@ -1,6 +1,6 @@
 
 
-import { useContext } from 'react';
+import { ChangeEvent, useContext } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
 import Input from '../Input/Input';
@@ -18,8 +18,7 @@ const AmountSelector = () => {
       <Input
         autoFocus
         autoSize
-        onChange={setAmount}
-        type="number"
+        onChange={(event: ChangeEvent<HTMLInputElement>) => setAmount(event.target.value)}
         value={amount}
       />
       <UnitSelect

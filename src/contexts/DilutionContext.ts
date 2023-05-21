@@ -8,7 +8,7 @@ export type DilutionParams = {
   desiredABV?: number,
   displayUnits?: Unit,
   error?: number;
-  displayResults?: string,
+  displayResults?: number,
   displayMeasure?: number,
   displayMeasureUnit?: Measure,
   finalAmountSpirit?: number,
@@ -28,7 +28,7 @@ type DilutionContextType = DilutionParams & {
   setAmount?: (value: string) => void,
   setDesiredABV?: (value: string) => void,
   setMeasure?: (value: Measure) => void,
-  setUnits?: (value: Unit) => void;
+  setUnits?: (value: string) => void;
   setVolume?: (value: VolumeDirection) => void;
   showResults?: boolean,
   updateResults?: () => void,

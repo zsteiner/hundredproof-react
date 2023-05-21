@@ -33,30 +33,42 @@ const DiluteResults = () => {
       <div className={styles.results}>
         <div className={styles.resultsGroup}>
           <ResultsBlock
-            amount={resultsOz}
-            ingredient="water"
-            unit="ounce"
+            result={{
+              id: 0,
+              amount: resultsOz,
+              ingredient: 'water',
+              unit: 'ounce',
+            }}
           />
           {isVolEnd ? (
             <ResultsBlock
-              amount={finalAmountSpirit}
-              ingredient="spirits"
+              result={{
+                id: 1,
+                amount: finalAmountSpirit,
+                ingredient: 'spirits',
+                unit: 'ounce',
+              }}
               showPlus
-              unit="ounce"
             />
           ) : null}
           <p className={styles.resultsDivider}>or about</p>
           <ResultsBlock
-            amount={resultsTranslated}
-            ingredient="water"
-            unit={translatedUnit}
+            result={{
+              id: 2,
+              amount: resultsTranslated,
+              ingredient: 'water',
+              unit: translatedUnit
+            }}
           />
           {isVolEnd ? (
             <ResultsBlock
-              amount={finalAmountSpiritTranslated}
-              ingredient="spirits"
+              result={{
+                id: 3,
+                amount: finalAmountSpiritTranslated,
+                ingredient: 'spirits',
+                unit: translatedUnit,
+              }}
               showPlus
-              unit={translatedUnit}
             />
           ) : null}
         </div>
@@ -67,7 +79,7 @@ const DiluteResults = () => {
           <p>
             <span className={styles.resultsNumber}>{displayResults}</span>{' '}
             <span className={styles.unit}>
-              {pluralize(displayUnits, parseInt(displayResults))}
+              {pluralize(displayUnits, displayResults)}
             </span>{' '}
             of {measurePrefix} {displayMeasure}
             {measure} spirit.
