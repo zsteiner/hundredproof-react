@@ -1,4 +1,5 @@
 .error {
-  color: #F00;
+  color: var(--red);
+  line-height: 1.5;
   margin: var(--spacer) 0;
 }

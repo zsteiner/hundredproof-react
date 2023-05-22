@@ -30,6 +30,7 @@ const ScalingTools = () => {
     <ScalingContext.Provider value={{
       error,
       ingredients,
+      processedIngredients,
       setIngredients,
       setError,
       scalingFactor,

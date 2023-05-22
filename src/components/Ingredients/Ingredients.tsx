@@ -7,10 +7,11 @@ import IngredientItem from './IngredientItem';
 import styles from './Ingredients.module.css';
 
 const Ingredients = () => {
-  const { ingredients, setShowResults, setError } = useContext(ScalingContext);
+  const { ingredients, processedIngredients, setShowResults, setError } = useContext(ScalingContext);
 
   const saveIngredients = () => {
-    if (ingredients.find(item => !item.ingredient)) {
+    console.log({ processedIngredients });
+    if (processedIngredients.find(item => !item.amount || !item.unit || !item.ingredient)) {
       setError(7);
     } else {
       setShowResults(true);

@@ -5,6 +5,7 @@ import { Ingredient } from '../utils/types';
 type ScalingContextType = {
   error?: number,
   ingredients: Ingredient[],
+  processedIngredients?: Ingredient[],
   scalingFactor: number,
   setError?: (newValue: number) => void,
   setIngredients?: (newValue: Ingredient[]) => void,
