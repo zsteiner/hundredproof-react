@@ -8,7 +8,7 @@ import InputGroup from '../InputGroup/InputGroup';
 import styles from './DilutionValues.module.css';
 
 const DilutionValues = () => {
-  const { updateResults, measure, setStartingABV, desiredABV, startingABV, setDesiredABV, error } = useContext(DilutionContext);
+  const { measure, setStartingABV, desiredABV, startingABV, setDesiredABV, error, setShowResults } = useContext(DilutionContext);
   const [startingABVInput, setStartingABVInput] = useState<string>(startingABV?.toString());
   const [desiredABVInput, setDesiredABVInput] = useState<string>(desiredABV?.toString());
 
@@ -25,7 +25,7 @@ const DilutionValues = () => {
   };
 
   return (
-    <form onSubmit={updateResults}>
+    <div>
       <InputGroup
         measure={measure}
         onChange={handleStartingABVChange}
@@ -41,11 +41,11 @@ const DilutionValues = () => {
       <Button
         className={styles.submitButton}
         disabled={error ? true : false}
-        onClick={updateResults}
+        onClick={() => setShowResults(true)}
       >
         calculate
       </Button>
-    </form>);
+    </div >);
 };
 
 export default DilutionValues;

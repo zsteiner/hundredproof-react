@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { use, useEffect, useState } from 'react';
 
 import { DilutionContext, DilutionParams } from '../../contexts/DilutionContext';
 import convertABV from '../../utils/convertABV';
@@ -30,51 +30,21 @@ const DilutionTools = () => {
     unit: defaultUnit,
     volume: 'start',
   });
+  const [error, setError] = useState<number | null>(null);
+  const [results, setResults] = useState<DilutionParams>();
   const [showResults, setShowResults] = useState(false);
-
-  const updateResults = () => {
-    const {
-      amount,
-      desiredABV,
-      measure,
-      startingABV,
-      unit,
-      volume,
-    } = dilutionParams;
-
-    const dilutionResults = dilute(
-      amount,
-      desiredABV,
-      startingABV,
-      unit,
-      volume,
-    );
-
-    setDilutionParams({
-      displayResults: dilutionResults.displayResults,
-      displayUnits: dilutionResults.displayUnits,
-      displayMeasure: desiredABV,
-      displayMeasureUnit: measure,
-      finalAmountSpirit: dilutionResults.finalAmountSpirit,
-      finalAmountSpiritTranslated: dilutionResults.finalAmountSpiritTranslated,
-      resultsOz: dilutionResults.resultsOz,
-      resultsTranslated: dilutionResults.resultsTranslated,
-      translatedUnit: dilutionResults.translatedUnit,
-    });
-
-    setShowResults(true);
-  };
 
   const checkForError = (value: string, code: number) => {
     if (value === '' || value === '0') {
       setDilutionParams({
-        error: code,
+        ...dilutionParams,
         resultsOz: 0,
         resultsTranslated: 0,
         translatedUnit: undefined,
         displayResults: undefined,
         displayMeasure: 0,
       });
+      setError(code);
       setShowResults(false);
       return '';
     } else {
@@ -89,6 +59,7 @@ const DilutionTools = () => {
   const setVolume = (volume: VolumeDirection) => {
     setDilutionParams(
       {
+        ...dilutionParams,
         volume,
       },
     );
@@ -99,6 +70,7 @@ const DilutionTools = () => {
 
     setDilutionParams(
       {
+        ...dilutionParams,
         measure,
         desiredABV: convertABV(measure, desiredABV),
         startingABV: convertABV(measure, startingABV),
@@ -110,6 +82,7 @@ const DilutionTools = () => {
 
   const setAmount = (amount: string) => {
     setDilutionParams({
+      ...dilutionParams,
       amount: parseInt(checkForError(amount, 1)),
     });
   };
@@ -128,18 +101,14 @@ const DilutionTools = () => {
     const formattedDesiredABV = Number(desiredABV);
 
     if (formattedDesiredABV >= formattedStartingABV) {
-      setDilutionParams({
-        error: 4,
-      });
+      setError(4);
     }
     const { measure } = dilutionParams;
     const max = measure === 'abv' ? 100 : 200;
     const code = measure === 'abv' ? 5 : 6;
 
     if (formattedDesiredABV > max || formattedStartingABV > max) {
-      setDilutionParams({
-        error: code,
-      });
+      setError(code);
     }
   };
 
@@ -150,6 +119,7 @@ const DilutionTools = () => {
     abvValidation(startingABV, desiredABV);
 
     setDilutionParams({
+      ...dilutionParams,
       startingABV: startingABV,
     });
   };
@@ -161,22 +131,57 @@ const DilutionTools = () => {
     abvValidation(startingABV, desiredABV);
 
     setDilutionParams({
+      ...dilutionParams,
       desiredABV: desiredABV,
     });
   };
 
-  const { error } = dilutionParams;
+  useEffect(() => {
+    const {
+      amount,
+      desiredABV,
+      measure,
+      startingABV,
+      unit,
+      volume,
+    } = dilutionParams;
+
+    const dilutionResults = dilute(
+      amount,
+      desiredABV,
+      startingABV,
+      unit,
+      volume,
+    );
+
+    setResults({
+      displayResults: dilutionResults.displayResults,
+      displayUnits: dilutionResults.displayUnits,
+      displayMeasure: desiredABV,
+      displayMeasureUnit: measure,
+      finalAmountSpirit: dilutionResults.finalAmountSpirit,
+      finalAmountSpiritTranslated: dilutionResults.finalAmountSpiritTranslated,
+      resultsOz: dilutionResults.resultsOz,
+      resultsTranslated: dilutionResults.resultsTranslated,
+      translatedUnit: dilutionResults.translatedUnit,
+    });
+
+    setResults(dilutionResults);
+    setError(null);
+  }, [dilutionParams]);
 
   return (
     <DilutionContext.Provider value={{
       ...dilutionParams,
+      error,
+      results,
       setVolume,
       setMeasure,
       setAmount,
       setUnits,
       setStartingABV,
       setDesiredABV,
-      updateResults,
+      setShowResults,
     }}>
       <MeasureHeader />
       <section className="hp-section hp-app__row">

@@ -6,6 +6,7 @@ import ResultsBlock from '../ResultsBlock/ResultsBlock';
 import styles from './DilutionResults.module.css';
 
 const DiluteResults = () => {
+  const { results } = useContext(DilutionContext);
   const {
     displayMeasure,
     displayMeasureUnit,
@@ -17,7 +18,7 @@ const DiluteResults = () => {
     resultsTranslated,
     translatedUnit,
     volume,
-  } = useContext(DilutionContext);
+  } = results;
 
   const isVolEnd = volume === 'end';
   const isABV = displayMeasureUnit === 'abv';

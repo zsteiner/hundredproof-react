@@ -24,14 +24,15 @@ export type DilutionParams = {
 }
 
 type DilutionContextType = DilutionParams & {
+  results?: DilutionParams,
   setStartingABV?: (value: string) => void,
   setAmount?: (value: string) => void,
   setDesiredABV?: (value: string) => void,
   setMeasure?: (value: Measure) => void,
+  setShowResults?: (value: boolean) => void;
   setUnits?: (value: string) => void;
   setVolume?: (value: VolumeDirection) => void;
   showResults?: boolean,
-  updateResults?: () => void,
 }
 
 export const DilutionContext = createContext<DilutionContextType>({
