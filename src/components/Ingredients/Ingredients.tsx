@@ -10,7 +10,6 @@ const Ingredients = () => {
   const { ingredients, processedIngredients, setShowResults, setError } = useContext(ScalingContext);
 
   const saveIngredients = () => {
-    console.log({ processedIngredients });
     if (processedIngredients.find(item => !item.amount || !item.unit || !item.ingredient)) {
       setError(7);
     } else {

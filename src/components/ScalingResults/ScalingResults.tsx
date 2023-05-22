@@ -11,7 +11,7 @@ type ScalingResultsProps = {
 }
 
 const ScalingResults: FC<ScalingResultsProps> = ({ results }) => {
-  return <ul className={`${styles.results} hp-clearlist`}>{results.map((result, index) => {
+  return <ul className={`${styles.results} hp-clearlist`}>{results.filter(result => result.amount && result.unit).map((result, index) => {
     return (
       <li className={styles.resultsItem} key={index}>
         <ResultsBlock
