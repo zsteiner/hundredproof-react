@@ -1,8 +1,9 @@
 
 
-import { useContext } from 'react';
+import { ChangeEvent, useContext } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
+import { Measure, VolumeDirection } from '../../utils/types';
 import SegmentedButton from '../SegmentedButton/SegmentedButton';
 import styles from './MeasureHeader.module.css';
 
@@ -40,7 +41,7 @@ const MeasureHeader = () => {
         <SegmentedButton
           className={styles.measureButtons}
           name="volume"
-          onChange={setVolume}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => setVolume(event.target.value as VolumeDirection)}
           options={volumeOptions}
         />
       </div>
@@ -49,7 +50,7 @@ const MeasureHeader = () => {
         <SegmentedButton
           className={styles.measureButtons}
           name="measure"
-          onChange={setMeasure}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => setMeasure(event.target.value as Measure)}
           options={measureOptions}
         />
       </div>
