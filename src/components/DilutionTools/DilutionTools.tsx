@@ -48,9 +48,7 @@ const DilutionTools = () => {
       setShowResults(false);
       return '';
     } else {
-      setDilutionParams({
-        error: null,
-      });
+      setError(null);
 
       return value;
     }
@@ -140,7 +138,6 @@ const DilutionTools = () => {
     const {
       amount,
       desiredABV,
-      measure,
       startingABV,
       unit,
       volume,
@@ -155,10 +152,9 @@ const DilutionTools = () => {
     );
 
     setResults({
+      ...dilutionParams,
       displayResults: dilutionResults.displayResults,
       displayUnits: dilutionResults.displayUnits,
-      displayMeasure: desiredABV,
-      displayMeasureUnit: measure,
       finalAmountSpirit: dilutionResults.finalAmountSpirit,
       finalAmountSpiritTranslated: dilutionResults.finalAmountSpiritTranslated,
       resultsOz: dilutionResults.resultsOz,
@@ -166,8 +162,7 @@ const DilutionTools = () => {
       translatedUnit: dilutionResults.translatedUnit,
     });
 
-    setResults(dilutionResults);
-    setError(null);
+
   }, [dilutionParams]);
 
   return (

@@ -22,7 +22,6 @@ const DiluteResults = () => {
 
   const isVolEnd = volume === 'end';
   const isABV = displayMeasureUnit === 'abv';
-
   const measure = isABV ? '%' : ` ${displayMeasureUnit}`;
   const measurePrefix = isABV ? 'ABV' : null;
 
@@ -78,7 +77,7 @@ const DiluteResults = () => {
       <div className={styles.results}>
         <div className={styles.resultsGroup}>
           <p>
-            <span className={styles.resultsNumber}>{displayResults}</span>{' '}
+            <span className={styles.resultsNumber}>{displayResults.toLocaleString('en-us')}</span>{' '}
             <span className={styles.unit}>
               {pluralize(displayUnits, displayResults)}
             </span>{' '}

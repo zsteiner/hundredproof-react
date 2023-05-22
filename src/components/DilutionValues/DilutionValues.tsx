@@ -1,6 +1,6 @@
 
 
-import { ChangeEvent, useContext, useState } from 'react';
+import { ChangeEvent, useContext, useEffect, useState } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
 import Button from '../Button/Button';
@@ -23,6 +23,11 @@ const DilutionValues = () => {
     setDesiredABVInput(value);
     setDesiredABV(value);
   };
+
+  useEffect(() => {
+    setStartingABVInput(startingABV?.toString());
+    setDesiredABVInput(desiredABV?.toString());
+  }, [startingABV, desiredABV]);
 
   return (
     <div>
