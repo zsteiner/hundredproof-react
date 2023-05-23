@@ -1,18 +1,18 @@
 
 
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
 import Input from '../Input/Input';
 import styles from './ScalingHeader.module.css';
 
 const ScalingHeader = () => {
-  const { setScalingFactor, scalingFactor } = useContext(ScalingContext);
-  const handleOnChange = (value: string) => {
-    const valueAsNumber = parseInt(value);
-    const returnValue: number | undefined = isNaN(valueAsNumber) ? undefined : valueAsNumber;
-    setScalingFactor(returnValue);
-  };
+  const { scalingFactor, setScalingFactor } = useContext(ScalingContext);
+  const [inputValue, setInputValue] = useState<string>(scalingFactor?.toString());
+
+  useEffect(() => {
+    setScalingFactor(parseInt(inputValue));
+  }, [inputValue]);
 
   return (
     <section className={`${styles.scalingHeader} hp-section`}>
@@ -20,8 +20,8 @@ const ScalingHeader = () => {
         <label>I'm serving</label>
         <Input
           autoSize
-          onChange={handleOnChange}
-          value={scalingFactor}
+          onChange={setInputValue}
+          value={inputValue}
         />
         <label>people.</label>
       </div>

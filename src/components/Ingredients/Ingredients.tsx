@@ -13,6 +13,7 @@ const Ingredients = () => {
     if (processedIngredients.find(item => !item.amount || !item.unit || !item.ingredient)) {
       setError(7);
     } else {
+      setError(null);
       setShowResults(true);
     }
   };
