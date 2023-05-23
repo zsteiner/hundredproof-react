@@ -35,6 +35,7 @@ const IngredientItem: FC<IngredientItemProps> = ({
     const newIngredients = ingredientList.split(/\r?\n/).map((value, index) => {
       return { id: id + index, value } as Ingredient;
     });
+
     stagedIngredients.splice(ingredients.findIndex(item => item.id === id), 0, ...newIngredients);
 
 
@@ -63,12 +64,6 @@ const IngredientItem: FC<IngredientItemProps> = ({
     else if (hasItems) {
       ingredients[currentItemIndex].value = value;
       setIngredients([...ingredients]);
-    } else {
-      setIngredients([
-        ...ingredients,
-        { id, value },
-        newItem
-      ]);
     }
   }, [activeIngredient]);
 

@@ -21,10 +21,11 @@ const ScalingTools = () => {
   useEffect(() => {
     setProcessedIngredients(processIngredients(ingredients));
 
+    const newItem = { id: ingredients.length, value: '' };
     const ingredientsLength = ingredients.length;
 
-    if (ingredients.length === 1 && ingredients[ingredientsLength - 1].value === '') {
-      setIngredients([...ingredients, { id: ingredients.length, value: '' }]);
+    if (ingredients.length === 1 && !!ingredients[ingredientsLength - 1].value) {
+      setIngredients([...ingredients, newItem]);
     }
   }, [ingredients]);
 
