@@ -8,8 +8,7 @@ import styles from './ScalingHeader.module.css';
 
 const ScalingHeader = () => {
   const { setScalingFactor, scalingFactor } = useContext(ScalingContext);
-  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
+  const handleOnChange = (value: string) => {
     const valueAsNumber = parseInt(value);
     const returnValue: number | undefined = isNaN(valueAsNumber) ? undefined : valueAsNumber;
     setScalingFactor(returnValue);

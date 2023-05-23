@@ -33,6 +33,8 @@ const UnitSelect: FC<UnitSelectProps> = ({ amount, setUnits }) => {
     }
   ];
 
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => setUnits(event.target.value);
+
   const units = unitData.map((item, index) => {
     return (
       <div key={index}>
@@ -40,7 +42,7 @@ const UnitSelect: FC<UnitSelectProps> = ({ amount, setUnits }) => {
           defaultChecked={item.default}
           id={`bg2_${index}`}
           name="bg2"
-          onChange={(event: ChangeEvent<HTMLInputElement>) => setUnits(event.target.value)}
+          onChange={handleOnChange}
           type="radio"
           value={item.value}
         />

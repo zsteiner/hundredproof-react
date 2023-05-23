@@ -1,6 +1,6 @@
 
 
-import { ChangeEvent, useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
 import Input from '../Input/Input';
@@ -12,8 +12,7 @@ const AmountSelector = () => {
 
   const [inputValue, setInputValue] = useState<string>(amount?.toString());
 
-  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
+  const handleOnChange = (value: string) => {
     setAmount(value);
     setInputValue(value);
   };

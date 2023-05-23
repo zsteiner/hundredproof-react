@@ -4,7 +4,8 @@ import AutosizeInput from 'react-input-autosize';
 
 import styles from './Input.module.css';
 
-type InputProps = HTMLAttributes<HTMLInputElement> & {
+type InputProps = Omit<HTMLAttributes<HTMLInputElement>, 'onChange'> & {
+  onChange: (value: string) => void;
   autoFocus?: boolean;
   autoSize?: boolean;
   type?: 'number' | 'text';
@@ -16,9 +17,6 @@ const Input: FC<InputProps> = ({
   autoSize,
   className,
   onChange,
-  onFocus,
-  onPaste,
-  placeholder,
   type,
   ...rest
 }) => {
@@ -28,15 +26,18 @@ const Input: FC<InputProps> = ({
     [className]: className,
   });
 
+  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    onChange(value);
+  };
+
   if (autoSize) {
     return (
       <AutosizeInput
         {...rest}
         autoFocus={autoFocus}
         className={inputClasses}
-        onChange={onChange}
-        onFocus={onFocus}
-        onPaste={onPaste}
+        onChange={handleOnChange}
         pattern={type === 'number' ? 'd*' : '.*'}
         type="text"
       />
@@ -48,11 +49,8 @@ const Input: FC<InputProps> = ({
       {...rest}
       autoFocus={autoFocus}
       className={inputClasses}
-      onChange={onChange}
-      onFocus={onFocus}
-      onPaste={onPaste}
+      onChange={handleOnChange}
       pattern={type === 'number' ? 'd*' : '.*'}
-      placeholder={placeholder}
       type="text"
     />
   );

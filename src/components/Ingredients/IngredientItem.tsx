@@ -1,5 +1,5 @@
 import { ClipboardEvent, useContext, useEffect, useState } from 'react';
-import { ChangeEvent, FC } from 'react';
+import { FC } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
 import { Ingredient } from '../../utils/types';
@@ -19,9 +19,6 @@ const IngredientItem: FC<IngredientItemProps> = ({
 }) => {
   const [activeIngredient, setActiveIngredient] = useState<string>(ingredient.value);
   const { ingredients, setIngredients } = useContext(ScalingContext);
-
-  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) =>
-    setActiveIngredient(event.target.value);
 
   const removeItem = () =>
     setIngredients(ingredients.filter(item => item.id !== ingredient.id));
@@ -75,7 +72,7 @@ const IngredientItem: FC<IngredientItemProps> = ({
     <li className={styles.ingredientsItem}>
       <Input
         className={styles.input}
-        onChange={handleOnChange}
+        onChange={setActiveIngredient}
         onPaste={handlePaste}
         placeholder={placeholder}
         type="text"

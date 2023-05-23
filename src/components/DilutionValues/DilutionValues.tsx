@@ -1,6 +1,6 @@
 
 
-import { ChangeEvent, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
 import Button from '../Button/Button';
@@ -12,18 +12,6 @@ const DilutionValues = () => {
   const [startingABVInput, setStartingABVInput] = useState<string>(startingABV?.toString());
   const [desiredABVInput, setDesiredABVInput] = useState<string>(desiredABV?.toString());
 
-  const handleStartingABVChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setStartingABVInput(value);
-    setStartingABV(value);
-  };
-
-  const handleDesiredABVChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setDesiredABVInput(value);
-    setDesiredABV(value);
-  };
-
   useEffect(() => {
     setStartingABVInput(startingABV?.toString());
     setDesiredABVInput(desiredABV?.toString());
@@ -33,13 +21,13 @@ const DilutionValues = () => {
     <div>
       <InputGroup
         measure={measure}
-        onChange={handleStartingABVChange}
+        onChange={setStartingABV}
         text="Starting at"
         value={startingABVInput}
       />
       <InputGroup
         measure={measure}
-        onChange={handleDesiredABVChange}
+        onChange={setDesiredABV}
         text="I want to end with"
         value={desiredABVInput}
       />

@@ -15,7 +15,7 @@ type SegmentedButtonProps = {
   className: string;
   name: string;
   options: Option[];
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (value: string) => void;
 }
 
 const SegmentedButton: FC<SegmentedButtonProps> = ({ className, name, options, onChange }) => {
@@ -24,6 +24,9 @@ const SegmentedButton: FC<SegmentedButtonProps> = ({ className, name, options, o
     [className]: className
   });
 
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) =>
+    onChange(event.target.value);
+
   return <ul className={segmentedButtonClasses}>{options.map((option, index) => (
     <li className={styles.segmentedButtonItem} key={index}>
       <input
@@ -31,7 +34,7 @@ const SegmentedButton: FC<SegmentedButtonProps> = ({ className, name, options, o
         disabled={!!option.disabled}
         id={`${name}${index}`}
         name={name}
-        onChange={onChange}
+        onChange={handleOnChange}
         type="radio"
         value={option.value}
       />
