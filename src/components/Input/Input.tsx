@@ -8,6 +8,7 @@ type InputProps = Omit<HTMLAttributes<HTMLInputElement>, 'onChange'> & {
   onChange: (value: string) => void;
   autoFocus?: boolean;
   autoSize?: boolean;
+  placeholder?: string;
   type?: 'number' | 'text';
   value?: string | number;
 }
@@ -16,6 +17,7 @@ const Input: FC<InputProps> = ({
   autoFocus,
   autoSize,
   className,
+  placeholder,
   onChange,
   type,
   ...rest
@@ -39,6 +41,7 @@ const Input: FC<InputProps> = ({
         className={inputClasses}
         onChange={handleOnChange}
         pattern={type === 'number' ? 'd*' : '.*'}
+        placeholder={placeholder}
         type="text"
       />
     );
@@ -51,6 +54,7 @@ const Input: FC<InputProps> = ({
       className={inputClasses}
       onChange={handleOnChange}
       pattern={type === 'number' ? 'd*' : '.*'}
+      placeholder={placeholder}
       type="text"
     />
   );

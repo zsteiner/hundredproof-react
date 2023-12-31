@@ -6,12 +6,12 @@
   },
   "private": true,
   "dependencies": {
-    "classnames": "^2.3.2",
+    "classnames": "^2.5.1",
     "pluralize": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-input-autosize": "^3.0.0",
-    "react-router-dom": "^6.11.2"
+    "react-router-dom": "^6.21.1"
   },
   "scripts": {
     "build": "next build",
@@ -29,24 +29,24 @@
     "last 2 versions"
   ],
   "devDependencies": {
-    "@types/node": "20.2.3",
-    "@types/pluralize": "^0.0.29",
-    "@types/react": "18.2.6",
-    "@typescript-eslint/eslint-plugin": "^5.59.7",
-    "@typescript-eslint/parser": "^5.59.7",
-    "eslint": "^8.41.0",
-    "eslint-config-next": "^13.4.3",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-config-standard-with-typescript": "^34.0.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.2",
+    "@types/node": "20.10.6",
+    "@types/pluralize": "^0.0.33",
+    "@types/react": "18.2.46",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard-with-typescript": "^43.0.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "next": "^13.4.3",
-    "prettier": "^2.8.8",
-    "prettier-eslint": "^15.0.1",
-    "stylelint": "^15.6.2",
-    "stylelint-config-standard": "^33.0.0",
-    "stylelint-order": "^6.0.3",
+    "next": "^14.0.4",
+    "prettier": "^3.1.1",
+    "prettier-eslint": "^16.2.0",
+    "stylelint": "^16.1.0",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-order": "^6.0.4",
     "typescript": "*"
   }
 }

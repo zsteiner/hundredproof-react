@@ -18,7 +18,7 @@ export const processIngredients = (ingredients: Ingredient[]) => {
 
     const amountString = match[1]; // amount from string
     let amount = 0;
-    unit = hasTwoStringsAfterAmount ? normalizeUnits(match[2]) : ''; // if two strings after amount, set unit
+    unit = hasTwoStringsAfterAmount ? normalizeUnits(match[2] as Unit) : ''; // if two strings after amount, set unit
     ingredient = hasTwoStringsAfterAmount ? match[3] : match[2]; // if two strings after amount, set ingredient
 
     // check unit exists, if not set all strings after amount to ingredient
