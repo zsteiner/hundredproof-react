@@ -1,0 +1,70 @@
+.results {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacer-2);
+}
+
+.resultsGroup,
+.resultsDivider {
+  margin-bottom: var(--spacer);
+}
+
+.resultsText {
+  margin: 0.5em 0;
+}
+
+.resultsGroup {
+  font-size: 1.25rem;
+}
+
+.results .inputgroup {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacer-2);
+}
+
+.results .inputgroup:first-of-type {
+  margin-bottom: var(--spacer);
+}
+
+@media (width >= 58rem) {
+  .results .inputgroup {
+    justify-content: flex-start;
+  }
+}
+
+.results .input {
+  font-size: 2em;
+  margin: 0 var(--spacer);
+}
+
+.resultsNumber {
+  font-weight: 700;
+}
+
+.resultsDivider {
+  font-size: 0.75em;
+  margin: var(--spacer-1-5) 0;
+  text-transform: uppercase;
+}
+
+.resultsDivider::before,
+.resultsDivider::after {
+  content: ' - ';
+}
+
+.plural::after {
+  content: 's';
+}
+
+.submitButton {
+  display: block;
+  font-size: 1.125em;
+  margin: var(--spacer-2) auto var(--spacer);
+  max-width: 15rem;
+  width: 100%;
+}
+
+.unit {
+  font-weight: 700;
+}

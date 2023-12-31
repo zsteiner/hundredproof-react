@@ -1,0 +1,81 @@
+.header {
+  background-color: var(--primary);
+  background-image: url('/images/hp-bottles.svg');
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: auto var(--spacer-2);
+  margin: 0;
+  overflow: auto;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.header a {
+  color: var(--white);
+  display: block;
+}
+
+.heading {
+  color: var(--default);
+  font-family: var(--font-family-sans);
+  font-size: 1rem;
+  font-style: normal;
+  letter-spacing: 0.075em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.headingLogo {
+  color: var(--white);
+  margin-bottom: var(--spacer-2);
+}
+
+.headingLogo svg {
+  fill: currentcolor;
+  height: 5rem;
+  width: auto;
+}
+
+.headingSubheading {
+  color: var(--white);
+}
+
+.headingSubheading:last-child {
+  margin-bottom: 0;
+}
+
+.subheader {
+  background: var(--black);
+  color: var(--white);
+  padding: var(--spacer-1-5) var(--spacer);
+  text-align: center;
+}
+
+.subheader p {
+  font-size: 1em;
+  line-height: 1.5;
+  margin: var(--spacer) auto;
+  max-width: 45ch;
+}
+
+.subheader:last-child {
+  margin-top: 1em;
+}
+
+@media (width >= 58rem) {
+  .header {
+    background-size: auto 4em;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .headingLogo {
+    margin-bottom: var(--spacer-4);
+  }
+
+  .headingLogo svg {
+    height: 8rem;
+  }
+}
