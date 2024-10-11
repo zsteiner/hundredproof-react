@@ -1,0 +1,11 @@
+.scalingHeader {
+  padding: var(--spacer-2) 0;
+  text-align: center;
+}
+
+.scale {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}

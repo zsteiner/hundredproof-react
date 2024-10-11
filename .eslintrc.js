@@ -1,21 +1,30 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true,
+    es2021: true
   },
-  extends: 'react-app',
+  extends: [
+    'next/core-web-vitals',
+    'prettier',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking'
+  ],
+  overrides: [
+  ],
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 2018,
-    sourceType: 'module',
+    ecmaVersion: 'latest',
+    tsconfigRootDir: './',
+    project: ['tsconfig.json'],
+    sourceType: 'module'
   },
-  plugins: ['react'],
+  plugins: ['simple-import-sort', '@typescript-eslint'],
   rules: {
-    indent: ['error', 2],
-    'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
-  },
-};
+    'quotes': ['error', 'single'],
+    'semi': [2, 'always'],
+    'react/jsx-sort-props': 'error',
+    "react/no-unescaped-entities": "off",
+    'simple-import-sort/imports': 'error',
+    'react-hooks/exhaustive-deps': 'off',
+  }
+}

@@ -1,0 +1,58 @@
+.buttongroup {
+  display: flex;
+  flex: 0 1 auto;
+  font-size: 0.875rem;
+  font-weight: 700;
+  width: auto;
+}
+
+.buttongroup label {
+  color: var(--info-light);
+  cursor: pointer;
+  display: block;
+  flex: 0 1 auto;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.buttongroup input {
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.buttongroup input:checked + label {
+  color: var(--black);
+}
+
+.buttongroup .icon {
+  display: block;
+  font-size: 1.75em;
+  margin: 0.5em auto;
+}
+
+.unit {
+  display: block;
+  margin-bottom: var(--spacer-0-5);
+}
+
+.plural .unit::after {
+  content: 's';
+}
+
+.conversion {
+  display: block;
+  font-size: 0.625rem;
+  margin-top: 0.5em;
+}
+
+.conversion::before {
+  content: '{';
+  margin-right: 0.1em;
+}
+
+.conversion::after {
+  content: '}';
+  margin-left: 0.1em;
+}
