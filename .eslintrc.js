@@ -17,8 +17,6 @@ module.exports = {
   },
   plugins: ['simple-import-sort'],
   rules: {
-    'quotes': ['error', 'single'],
-    'semi': [2, 'always'],
     'react/jsx-sort-props': 'error',
     'react/no-unescaped-entities': 'off',
     'simple-import-sort/imports': 'error',
