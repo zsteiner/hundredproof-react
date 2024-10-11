@@ -15,13 +15,13 @@ module.exports = {
     project: ['tsconfig.json'],
     sourceType: 'module'
   },
-  plugins: ['simple-import-sort', '@typescript-eslint'],
+  plugins: ['simple-import-sort'],
   rules: {
     'quotes': ['error', 'single'],
     'semi': [2, 'always'],
     'react/jsx-sort-props': 'error',
-    "react/no-unescaped-entities": "off",
+    'react/no-unescaped-entities': 'off',
     'simple-import-sort/imports': 'error',
     'react-hooks/exhaustive-deps': 'off',
   }
-}
+};
