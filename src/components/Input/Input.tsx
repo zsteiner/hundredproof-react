@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { ChangeEvent, FC, HTMLAttributes } from 'react';
-import { AutoSizeInput } from './AutoSizeInput';
 
+import { AutoSizeInput } from './AutoSizeInput';
 import styles from './Input.module.css';
 
 type InputProps = Omit<HTMLAttributes<HTMLInputElement>, 'onChange'> & {
