@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { FC, HTMLAttributes } from 'react';
-import AutosizeInput from 'react-input-autosize';
+import { ChangeEvent, FC, HTMLAttributes } from 'react';
+import { AutoSizeInput } from './AutoSizeInput';
 
 import styles from './Input.module.css';
 
@@ -28,14 +28,14 @@ const Input: FC<InputProps> = ({
     [className]: className,
   });
 
-  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     onChange(value);
   };
 
   if (autoSize) {
     return (
-      <AutosizeInput
+      <AutoSizeInput
         {...rest}
         autoFocus={autoFocus}
         className={inputClasses}
