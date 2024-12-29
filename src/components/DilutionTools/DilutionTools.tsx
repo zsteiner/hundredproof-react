@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import { DilutionContext, DilutionParams } from '../../contexts/DilutionContext';
+import {
+  DilutionContext,
+  DilutionParams,
+} from '../../contexts/DilutionContext';
 import convertABV from '../../utils/convertABV';
 import dilute from '../../utils/dilute';
 import { Measure, Unit, VolumeDirection } from '../../utils/types';
@@ -55,27 +58,23 @@ const DilutionTools = () => {
   };
 
   const setVolume = (volume: VolumeDirection) => {
-    setDilutionParams(
-      {
-        ...dilutionParams,
-        volume,
-      },
-    );
+    setDilutionParams({
+      ...dilutionParams,
+      volume,
+    });
   };
 
   const setMeasure = (measure: Measure) => {
     const { desiredABV, startingABV, displayMeasure } = dilutionParams;
 
-    setDilutionParams(
-      {
-        ...dilutionParams,
-        measure,
-        desiredABV: convertABV(measure, desiredABV),
-        startingABV: convertABV(measure, startingABV),
-        displayMeasure: convertABV(measure, displayMeasure),
-        displayMeasureUnit: measure,
-      },
-    );
+    setDilutionParams({
+      ...dilutionParams,
+      measure,
+      desiredABV: convertABV(measure, desiredABV),
+      startingABV: convertABV(measure, startingABV),
+      displayMeasure: convertABV(measure, displayMeasure),
+      displayMeasureUnit: measure,
+    });
   };
 
   const setAmount = (amount: string) => {
@@ -86,12 +85,10 @@ const DilutionTools = () => {
   };
 
   const setUnits = (unit: string) => {
-    setDilutionParams(
-      {
-        ...dilutionParams,
-        unit: unit as Unit,
-      },
-    );
+    setDilutionParams({
+      ...dilutionParams,
+      unit: unit as Unit,
+    });
   };
 
   const abvValidation = (startingABV: number, desiredABV: number) => {
@@ -135,13 +132,7 @@ const DilutionTools = () => {
   };
 
   useEffect(() => {
-    const {
-      amount,
-      desiredABV,
-      startingABV,
-      unit,
-      volume,
-    } = dilutionParams;
+    const { amount, desiredABV, startingABV, unit, volume } = dilutionParams;
 
     const dilutionResults = dilute(
       amount,
@@ -161,23 +152,23 @@ const DilutionTools = () => {
       resultsTranslated: dilutionResults.resultsTranslated,
       translatedUnit: dilutionResults.translatedUnit,
     });
-
-
   }, [dilutionParams]);
 
   return (
-    <DilutionContext.Provider value={{
-      ...dilutionParams,
-      error,
-      results,
-      setVolume,
-      setMeasure,
-      setAmount,
-      setUnits,
-      setStartingABV,
-      setDesiredABV,
-      setShowResults,
-    }}>
+    <DilutionContext.Provider
+      value={{
+        ...dilutionParams,
+        error,
+        results,
+        setVolume,
+        setMeasure,
+        setAmount,
+        setUnits,
+        setStartingABV,
+        setDesiredABV,
+        setShowResults,
+      }}
+    >
       <MeasureHeader />
       <section className="hp-section hp-app__row">
         <div className="hp-app__col">
@@ -192,7 +183,6 @@ const DilutionTools = () => {
       </section>
     </DilutionContext.Provider>
   );
-
 };
 
 export default DilutionTools;

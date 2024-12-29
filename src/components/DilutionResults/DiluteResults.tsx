@@ -27,9 +27,7 @@ const DiluteResults = () => {
 
   return (
     <>
-      <h3 className="hp-heading">
-        You Should {isVolEnd ? 'Combine' : 'Add'}
-      </h3>
+      <h3 className="hp-heading">You Should {isVolEnd ? 'Combine' : 'Add'}</h3>
       <div className={styles.results}>
         <div className={styles.resultsGroup}>
           <ResultsBlock
@@ -57,7 +55,7 @@ const DiluteResults = () => {
               id: 2,
               amount: resultsTranslated,
               ingredient: 'water',
-              unit: translatedUnit
+              unit: translatedUnit,
             }}
           />
           {isVolEnd ? (
@@ -77,7 +75,9 @@ const DiluteResults = () => {
       <div className={styles.results}>
         <div className={styles.resultsGroup}>
           <p>
-            <span className={styles.resultsNumber}>{displayResults.toLocaleString('en-us')}</span>{' '}
+            <span className={styles.resultsNumber}>
+              {displayResults.toLocaleString('en-us')}
+            </span>{' '}
             <span className={styles.unit}>
               {pluralize(displayUnits, displayResults)}
             </span>{' '}

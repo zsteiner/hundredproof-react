@@ -11,7 +11,7 @@ type InputProps = Omit<HTMLAttributes<HTMLInputElement>, 'onChange'> & {
   placeholder?: string;
   type?: 'number' | 'text';
   value?: string | number;
-}
+};
 
 const Input: FC<InputProps> = ({
   autoFocus,

@@ -7,7 +7,13 @@ import startDilute from './startDilute';
 import translateResults from './translateResults';
 import { Unit } from './types';
 
-export default function dilute(amount: number, desiredABV: number, startingABV: number, unit: Unit, volume: string) {
+export default function dilute(
+  amount: number,
+  desiredABV: number,
+  startingABV: number,
+  unit: Unit,
+  volume: string,
+) {
   amount = setZero(Number(amount));
   desiredABV = setZero(Number(desiredABV));
   startingABV = setZero(Number(startingABV));
@@ -30,14 +36,14 @@ export default function dilute(amount: number, desiredABV: number, startingABV: 
   const isCups = unit === 'cup';
   const isVolEnd = volume === 'end';
 
-  const translatedUnit = useCups ? 'cup' : 'teaspoon' as Unit;
-  const displayUnits = isCups ? 'cup' : 'ounce' as Unit;
+  const translatedUnit = useCups ? 'cup' : ('teaspoon' as Unit);
+  const displayUnits = isCups ? 'cup' : ('ounce' as Unit);
 
   const finalAmount = isVolEnd ? amount : amount + resultsOz;
   const finalAmountSpirit = amount - resultsOz;
   const finalAmountSpiritTranslated = translateResults(
     useCups,
-    finalAmountSpirit
+    finalAmountSpirit,
   );
   const displayResults = isCups ? convertCups(finalAmount) : finalAmount;
 
@@ -48,7 +54,7 @@ export default function dilute(amount: number, desiredABV: number, startingABV: 
     displayUnits,
     displayResults,
     resultsTranslated,
-    translatedUnit
+    translatedUnit,
   };
 
   return results;

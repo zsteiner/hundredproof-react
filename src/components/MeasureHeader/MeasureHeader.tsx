@@ -1,5 +1,3 @@
-
-
 import { useContext } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
@@ -10,28 +8,28 @@ const MeasureHeader = () => {
   const measureOptions = [
     {
       label: 'ABV',
-      value: 'abv'
+      value: 'abv',
     },
     {
       label: 'Proof',
       value: 'proof',
-      default: true
-    }
+      default: true,
+    },
   ];
 
   const volumeOptions = [
     {
       label: 'End Amount',
-      value: 'end'
+      value: 'end',
     },
     {
       label: 'Start Amount',
       value: 'start',
-      default: true
-    }
+      default: true,
+    },
   ];
 
-  const { setMeasure, setVolume, } = useContext(DilutionContext);
+  const { setMeasure, setVolume } = useContext(DilutionContext);
 
   return (
     <section className={`${styles.measureHeader} hp-section`}>

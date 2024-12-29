@@ -8,32 +8,33 @@ import styles from './UnitSelect.module.css';
 type UnitSelectProps = {
   amount: number;
   setUnits: (value: string) => void;
-}
+};
 
 type UnitData = {
   value: IconType;
   label: string;
   default?: boolean;
-}
+};
 
 const UnitSelect: FC<UnitSelectProps> = ({ amount, setUnits }) => {
   const unitData: UnitData[] = [
     {
       value: 'shot',
       label: '1 fluid oz',
-      default: true
+      default: true,
     },
     {
       value: 'jigger',
-      label: '1.5 fluid oz'
+      label: '1.5 fluid oz',
     },
     {
       value: 'cup',
-      label: '8 fluid oz'
-    }
+      label: '8 fluid oz',
+    },
   ];
 
-  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => setUnits(event.target.value);
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) =>
+    setUnits(event.target.value);
 
   const units = unitData.map((item, index) => {
     return (
@@ -48,7 +49,10 @@ const UnitSelect: FC<UnitSelectProps> = ({ amount, setUnits }) => {
         />
         <label htmlFor={`bg2_${index}`}>
           <span className={styles.unit}>{pluralize(item.value, amount)}</span>
-          <Icon className={styles.icon} icon={item.value} />
+          <Icon
+            className={styles.icon}
+            icon={item.value}
+          />
           <span className={styles.conversion}>{item.label}</span>
         </label>
       </div>
@@ -57,12 +61,14 @@ const UnitSelect: FC<UnitSelectProps> = ({ amount, setUnits }) => {
 
   return (
     <div className={styles.unit}>
-      <div className={styles.buttongroup} id="amount-units">
+      <div
+        className={styles.buttongroup}
+        id="amount-units"
+      >
         {units}
       </div>
     </div>
   );
 };
-
 
 export default UnitSelect;

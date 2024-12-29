@@ -2,16 +2,16 @@ export const defaultRecipe = [
   {
     amount: 1,
     unit: 'oz',
-    ingredient: 'gin'
+    ingredient: 'gin',
   },
   {
     amount: 1,
     unit: 'oz',
-    ingredient: 'Campari'
+    ingredient: 'Campari',
   },
   {
     amount: 1,
     unit: 'oz',
-    ingredient: 'sweet vermouth'
-  }
+    ingredient: 'sweet vermouth',
+  },
 ];

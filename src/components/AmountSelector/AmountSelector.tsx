@@ -1,5 +1,3 @@
-
-
 import { useContext, useState } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';

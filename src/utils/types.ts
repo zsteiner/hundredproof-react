@@ -8,15 +8,15 @@ export type Ingredient = {
   ingredient?: string;
   unit?: Unit;
   value?: string;
-}
+};
 
 export type IngredientParams = {
-  id: number,
-  value: string,
-}
+  id: number;
+  value: string;
+};
 
 export type Measure = 'abv' | 'proof';
 
 export type VolumeDirection = 'start' | 'end';
 
-export type Unit = typeof units[number] | undefined;
+export type Unit = (typeof units)[number] | undefined;

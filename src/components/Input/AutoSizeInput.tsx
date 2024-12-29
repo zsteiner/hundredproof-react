@@ -8,8 +8,8 @@ import {
 } from 'react';
 
 export type AutoSizeInputProps = HTMLProps<HTMLInputElement> & {
-  minWidth?: number
-}
+  minWidth?: number;
+};
 
 const baseStyles: CSSProperties = {
   position: 'absolute',
@@ -55,8 +55,14 @@ export const AutoSizeInput: React.FC<AutoSizeInputProps> = ({
 
   return (
     <>
-      <input ref={setRef} {...props} />
-      <span ref={measureRef} style={{ ...baseStyles, ...styles }}>
+      <input
+        {...props}
+        ref={setRef}
+      />
+      <span
+        ref={measureRef}
+        style={{ ...baseStyles, ...styles }}
+      >
         {props.value}
       </span>
     </>

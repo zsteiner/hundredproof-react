@@ -16,7 +16,10 @@ const Picker = () => {
             Got a bottle of uncut whiskey and unsure how much water to add for
             sipping?
           </p>
-          <Link className={buttonStyles.button} href="/dilute">
+          <Link
+            className={buttonStyles.button}
+            href="/dilute"
+          >
             get started
           </Link>
         </div>
@@ -26,7 +29,10 @@ const Picker = () => {
           <p>
             Want to make a batch of your favorite drink to share at a party?
           </p>
-          <Link className={buttonStyles.button} href="/scale">
+          <Link
+            className={buttonStyles.button}
+            href="/scale"
+          >
             get started
           </Link>
         </div>

@@ -8,7 +8,7 @@ import styles from '../DilutionResults/DilutionResults.module.css';
 type ResultsBlockProps = {
   result: Ingredient;
   showPlus?: boolean;
-}
+};
 
 const ResultsBlock: FC<ResultsBlockProps> = ({ result, showPlus }) => {
   const { amount, unit, ingredient } = result;

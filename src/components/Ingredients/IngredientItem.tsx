@@ -8,20 +8,22 @@ import Input from '../Input/Input';
 import styles from './Ingredients.module.css';
 
 type IngredientItemProps = {
-  disabled?: boolean,
-  ingredient: Ingredient,
-  placeholder?: string,
+  disabled?: boolean;
+  ingredient: Ingredient;
+  placeholder?: string;
 };
 
 const IngredientItem: FC<IngredientItemProps> = ({
   ingredient,
   placeholder,
 }) => {
-  const [activeIngredient, setActiveIngredient] = useState<string>(ingredient.value);
+  const [activeIngredient, setActiveIngredient] = useState<string>(
+    ingredient.value,
+  );
   const { ingredients, setIngredients } = useContext(ScalingContext);
 
   const removeItem = () =>
-    setIngredients(ingredients.filter(item => item.id !== ingredient.id));
+    setIngredients(ingredients.filter((item) => item.id !== ingredient.id));
 
   const handlePaste = (event: ClipboardEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -33,8 +35,11 @@ const IngredientItem: FC<IngredientItemProps> = ({
       return { id: id + index, value } as Ingredient;
     });
 
-    stagedIngredients.splice(ingredients.findIndex(item => item.id === id), 0, ...newIngredients);
-
+    stagedIngredients.splice(
+      ingredients.findIndex((item) => item.id === id),
+      0,
+      ...newIngredients,
+    );
 
     if (ingredients[ingredients.length - 1].value !== '') {
       newIngredients.push({ id: id + newIngredients.length, value: '' });
@@ -51,17 +56,17 @@ const IngredientItem: FC<IngredientItemProps> = ({
   useEffect(() => {
     const { id } = ingredient;
     const value = activeIngredient;
-    const currentItemIndex = ingredients.findIndex(item => item.id === id);
+    const currentItemIndex = ingredients.findIndex((item) => item.id === id);
     const hasItems = ingredients.length >= 0;
     const newItem = { id: ingredients.length, value: '' };
 
     if (id === ingredients.length - 1 && value !== '') {
       setIngredients([...ingredients, newItem]);
-    }
-    else if (hasItems) {
+    } else if (hasItems) {
       ingredients[currentItemIndex].value = value;
       setIngredients([...ingredients]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIngredient]);
 
   useEffect(() => {

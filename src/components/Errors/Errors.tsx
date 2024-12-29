@@ -5,7 +5,7 @@ import styles from './Errors.module.css';
 
 type ErrorProps = {
   errorCode: number;
-}
+};
 
 const Errors: FC<ErrorProps> = ({ errorCode }) => {
   let errorDisplay;

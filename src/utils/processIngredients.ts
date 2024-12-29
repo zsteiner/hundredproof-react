@@ -5,9 +5,9 @@ import { units } from './units';
 export const processIngredients = (ingredients: Ingredient[]) => {
   const regex = /([0-9]*\.?\/?[0-9]*)\s?(\S*)?\s?(.*)/;
   const fractionRegex = /([0-9]*)\/([0-9]*)/;
-  const cleanedIngredients = ingredients.filter(item => item.value !== '');
+  const cleanedIngredients = ingredients.filter((item) => item.value !== '');
 
-  return cleanedIngredients.map(item => {
+  return cleanedIngredients.map((item) => {
     const { id, value } = item;
     let unit: string;
     let ingredient: string;
@@ -24,7 +24,9 @@ export const processIngredients = (ingredients: Ingredient[]) => {
     // check unit exists, if not set all strings after amount to ingredient
     if (units.indexOf(unit as Unit) < 0) {
       unit = null;
-      ingredient = hasTwoStringsAfterAmount ? `${match[2]} ${match[3]}` : match[2];
+      ingredient = hasTwoStringsAfterAmount
+        ? `${match[2]} ${match[3]}`
+        : match[2];
     }
 
     if (fractionRegex.test(amountString)) {
