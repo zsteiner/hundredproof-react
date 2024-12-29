@@ -3,8 +3,8 @@ import { FC, ReactNode } from 'react';
 import styles from './Header.module.css';
 
 type SubheaderProps = {
-  children?: ReactNode,
-  heading: string,
+  children?: ReactNode;
+  heading: string;
 };
 
 const Subheader: FC<SubheaderProps> = ({ children, heading }) => {

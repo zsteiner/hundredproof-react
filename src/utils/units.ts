@@ -34,5 +34,5 @@ export const units = [
   'gallon',
   'gallons',
   'part',
-  'parts'
+  'parts',
 ] as const;

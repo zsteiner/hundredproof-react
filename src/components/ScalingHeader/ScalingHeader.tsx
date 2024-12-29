@@ -1,5 +1,3 @@
-
-
 import { useContext, useEffect, useState } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
@@ -8,11 +6,13 @@ import styles from './ScalingHeader.module.css';
 
 const ScalingHeader = () => {
   const { scalingFactor, setScalingFactor } = useContext(ScalingContext);
-  const [inputValue, setInputValue] = useState<string>(scalingFactor?.toString());
+  const [inputValue, setInputValue] = useState<string>(
+    scalingFactor?.toString(),
+  );
 
   useEffect(() => {
     setScalingFactor(parseInt(inputValue));
-  }, [inputValue]);
+  }, [inputValue, setScalingFactor]);
 
   return (
     <section className={`${styles.scalingHeader} hp-section`}>

@@ -12,8 +12,11 @@ import ScalingResults from '../ScalingResults/ScalingResults';
 
 const ScalingTools = () => {
   const [error, setError] = useState<number>();
-  const [ingredients, setIngredients] = useState<Ingredient[]>([emptyIngredient]);
-  const [processedIngredients, setProcessedIngredients] = useState<Ingredient[]>(ingredients);
+  const [ingredients, setIngredients] = useState<Ingredient[]>([
+    emptyIngredient,
+  ]);
+  const [processedIngredients, setProcessedIngredients] =
+    useState<Ingredient[]>(ingredients);
   const [scalingFactor, setScalingFactor] = useState<number | undefined>(2);
   const [results, setResults] = useState<Ingredient[]>(ingredients);
   const [showResults, setShowResults] = useState<boolean>(false);
@@ -24,27 +27,34 @@ const ScalingTools = () => {
     const newItem = { id: ingredients.length, value: '' };
     const ingredientsLength = ingredients.length;
 
-    if (ingredients.length === 1 && !!ingredients[ingredientsLength - 1].value) {
+    if (
+      ingredients.length === 1 &&
+      !!ingredients[ingredientsLength - 1].value
+    ) {
       setIngredients([...ingredients, newItem]);
     }
   }, [ingredients]);
 
   useEffect(() => {
-    setResults(scaleIngredients({ ingredients: processedIngredients, scalingFactor }));
+    setResults(
+      scaleIngredients({ ingredients: processedIngredients, scalingFactor }),
+    );
   }, [processedIngredients, scalingFactor]);
 
   return (
-    <ScalingContext.Provider value={{
-      error,
-      ingredients,
-      processedIngredients,
-      setIngredients,
-      setError,
-      scalingFactor,
-      setScalingFactor,
-      showResults,
-      setShowResults,
-    }}>
+    <ScalingContext.Provider
+      value={{
+        error,
+        ingredients,
+        processedIngredients,
+        setIngredients,
+        setError,
+        scalingFactor,
+        setScalingFactor,
+        showResults,
+        setShowResults,
+      }}
+    >
       <ScalingHeader />
       <section className="hp-section hp-app__row">
         <div className="hp-app__col">
@@ -54,9 +64,7 @@ const ScalingTools = () => {
         </div>
         <div className="hp-app__col">
           <h3 className="hp-heading">Scaled Recipe</h3>
-          {!error && showResults ? (
-            <ScalingResults results={results} />
-          ) : null}
+          {!error && showResults ? <ScalingResults results={results} /> : null}
         </div>
       </section>
     </ScalingContext.Provider>

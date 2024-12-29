@@ -1,5 +1,3 @@
-
-
 import { useContext, useEffect, useState } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
@@ -8,9 +6,21 @@ import InputGroup from '../InputGroup/InputGroup';
 import styles from './DilutionValues.module.css';
 
 const DilutionValues = () => {
-  const { measure, setStartingABV, desiredABV, startingABV, setDesiredABV, error, setShowResults } = useContext(DilutionContext);
-  const [startingABVInput, setStartingABVInput] = useState<string>(startingABV?.toString());
-  const [desiredABVInput, setDesiredABVInput] = useState<string>(desiredABV?.toString());
+  const {
+    measure,
+    setStartingABV,
+    desiredABV,
+    startingABV,
+    setDesiredABV,
+    error,
+    setShowResults,
+  } = useContext(DilutionContext);
+  const [startingABVInput, setStartingABVInput] = useState<string>(
+    startingABV?.toString(),
+  );
+  const [desiredABVInput, setDesiredABVInput] = useState<string>(
+    desiredABV?.toString(),
+  );
 
   useEffect(() => {
     setStartingABVInput(startingABV?.toString());
@@ -38,7 +48,8 @@ const DilutionValues = () => {
       >
         calculate
       </Button>
-    </div >);
+    </div>
+  );
 };
 
 export default DilutionValues;

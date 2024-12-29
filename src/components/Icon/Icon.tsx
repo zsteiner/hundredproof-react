@@ -12,7 +12,7 @@ type IconProps = {
 const Icon: FC<IconProps> = ({ className, icon }) => {
   const iconClasses = classNames({
     [styles.icon]: true,
-    [className]: className
+    [className]: className,
   });
 
   return (
@@ -21,6 +21,5 @@ const Icon: FC<IconProps> = ({ className, icon }) => {
     </svg>
   );
 };
-
 
 export default Icon;
