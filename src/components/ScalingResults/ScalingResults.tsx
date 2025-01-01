@@ -8,7 +8,7 @@ type ScalingResultsProps = {
 
 export const ScalingResults = ({ results }: ScalingResultsProps) => {
   return (
-    <ul className={`${styles.results} hp-clearlist`}>
+    <ul className={styles.results}>
       {results
         .filter((result) => result.amount && result.unit)
         .map((result, index) => {

@@ -12,6 +12,8 @@ import { AmountSelector } from '../AmountSelector/AmountSelector';
 import { DiluteResults } from '../DilutionResults/DiluteResults';
 import { DilutionValues } from '../DilutionValues/DilutionValues';
 import { Errors } from '../Errors/Errors';
+import { Heading } from '../Heading/Heading';
+import { Layout } from '../Layout/Layout';
 import { MeasureHeader } from '../MeasureHeader/MeasureHeader';
 
 export const DilutionTools = () => {
@@ -171,17 +173,15 @@ export const DilutionTools = () => {
       }}
     >
       <MeasureHeader />
-      <section className="hp-section hp-app__row">
-        <div className="hp-app__col">
-          <h3 className="hp-heading">Starting with</h3>
+      <Layout>
+        <Layout.Column>
+          <Heading as="h3">Starting with</Heading>
           <AmountSelector />
           <DilutionValues />
           {error ? <Errors errorCode={error} /> : null}
-        </div>
-        <div className="hp-app__col">
-          {showResults ? <DiluteResults /> : null}
-        </div>
-      </section>
+        </Layout.Column>
+        <Layout.Column>{showResults ? <DiluteResults /> : null}</Layout.Column>
+      </Layout>
     </DilutionContext.Provider>
   );
 };

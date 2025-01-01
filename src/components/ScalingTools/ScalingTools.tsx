@@ -7,7 +7,9 @@ import { processIngredients } from '../../utils/processIngredients';
 import { scaleIngredients } from '../../utils/scaleIngredients';
 import { Ingredient } from '../../utils/types';
 import { Errors } from '../Errors/Errors';
+import { Heading } from '../Heading/Heading';
 import { Ingredients } from '../Ingredients/Ingredients';
+import { Layout } from '../Layout/Layout';
 import { ScalingHeader } from '../ScalingHeader/ScalingHeader';
 import { ScalingResults } from '../ScalingResults/ScalingResults';
 
@@ -57,17 +59,17 @@ export const ScalingTools = () => {
       }}
     >
       <ScalingHeader />
-      <section className="hp-section hp-app__row">
-        <div className="hp-app__col">
-          <h3 className="hp-heading">Original Recipe</h3>
+      <Layout>
+        <Layout.Column>
+          <Heading as="h3">Original Recipe</Heading>
           <Ingredients />
           {error ? <Errors errorCode={error} /> : null}
-        </div>
-        <div className="hp-app__col">
-          <h3 className="hp-heading">Scaled Recipe</h3>
+        </Layout.Column>
+        <Layout.Column>
+          <Heading as="h3">Scaled Recipe</Heading>
           {!error && showResults ? <ScalingResults results={results} /> : null}
-        </div>
-      </section>
+        </Layout.Column>
+      </Layout>
     </ScalingContext.Provider>
   );
 };

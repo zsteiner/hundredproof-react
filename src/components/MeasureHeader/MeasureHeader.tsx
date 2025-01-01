@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
+import { Heading } from '../Heading/Heading';
+import { Section } from '../Layout/Section';
 import { SegmentedButton } from '../SegmentedButton/SegmentedButton';
 import styles from './MeasureHeader.module.css';
 
@@ -32,9 +34,9 @@ export const MeasureHeader = () => {
   const { setMeasure, setVolume } = useContext(DilutionContext);
 
   return (
-    <section className={`${styles.measureHeader} hp-section`}>
+    <Section className={styles.measureHeader}>
       <div className={styles.measureHeaderItem}>
-        <h4 className="hp-heading">I want to set my:</h4>
+        <Heading as="h4">I want to set my:</Heading>
         <SegmentedButton
           className={styles.measureButtons}
           name="volume"
@@ -43,7 +45,7 @@ export const MeasureHeader = () => {
         />
       </div>
       <div className={styles.measureHeaderItem}>
-        <h4 className="hp-heading">Working with:</h4>
+        <Heading as="h4">Working with:</Heading>
         <SegmentedButton
           className={styles.measureButtons}
           name="measure"
@@ -51,6 +53,6 @@ export const MeasureHeader = () => {
           options={measureOptions}
         />
       </div>
-    </section>
+    </Section>
   );
 };

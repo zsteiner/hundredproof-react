@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
 import { Input } from '../Input/Input';
+import { Section } from '../Layout/Section';
 import styles from './ScalingHeader.module.css';
 
 export const ScalingHeader = () => {
@@ -16,7 +17,7 @@ export const ScalingHeader = () => {
   }, [inputValue, setScalingFactor]);
 
   return (
-    <section className={`${styles.scalingHeader} hp-section`}>
+    <Section className={styles.scalingHeader}>
       <div className={styles.scale}>
         <label>I'm serving</label>
         <Input
@@ -26,6 +27,6 @@ export const ScalingHeader = () => {
         />
         <label>people.</label>
       </div>
-    </section>
+    </Section>
   );
 };
