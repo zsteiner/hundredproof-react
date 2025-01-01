@@ -1,3 +1,4 @@
+'use client';
 import {
   type CSSProperties,
   type HTMLProps,
@@ -21,10 +22,10 @@ const baseStyles: CSSProperties = {
   whiteSpace: 'pre',
 };
 
-export const AutoSizeInput: React.FC<AutoSizeInputProps> = ({
+export const AutoSizeInput = ({
   minWidth = 40,
   ...props
-}) => {
+}: AutoSizeInputProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const measureRef = useRef<HTMLSpanElement | null>(null);
   const [styles, setStyles] = useState<CSSProperties>({});

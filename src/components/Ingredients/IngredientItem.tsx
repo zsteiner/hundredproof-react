@@ -1,10 +1,10 @@
+'use client';
 import { ClipboardEvent, useContext, useEffect, useState } from 'react';
-import { FC } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
 import { Ingredient } from '../../utils/types';
-import Icon from '../Icon/Icon';
-import Input from '../Input/Input';
+import { Icon } from '../Icon/Icon';
+import { Input } from '../Input/Input';
 import styles from './Ingredients.module.css';
 
 type IngredientItemProps = {
@@ -13,10 +13,10 @@ type IngredientItemProps = {
   placeholder?: string;
 };
 
-const IngredientItem: FC<IngredientItemProps> = ({
+export const IngredientItem = ({
   ingredient,
   placeholder,
-}) => {
+}: IngredientItemProps) => {
   const [activeIngredient, setActiveIngredient] = useState<string>(
     ingredient.value,
   );
@@ -94,5 +94,3 @@ const IngredientItem: FC<IngredientItemProps> = ({
     </li>
   );
 };
-
-export default IngredientItem;

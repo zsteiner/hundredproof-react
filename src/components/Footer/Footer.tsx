@@ -1,6 +1,6 @@
 import styles from './Footer.module.css';
 
-const Footer = () => {
+export const Footer = () => {
   const year = new Date().getFullYear();
   const background = '/images/hp-bottles.svg';
   const backgroundStyles = { backgroundImage: `url(${background})` };
@@ -17,5 +17,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

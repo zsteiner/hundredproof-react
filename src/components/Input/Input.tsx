@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { ChangeEvent, FC, HTMLAttributes } from 'react';
+import { ChangeEvent, HTMLAttributes } from 'react';
 
 import { AutoSizeInput } from './AutoSizeInput';
 import styles from './Input.module.css';
@@ -13,7 +13,7 @@ type InputProps = Omit<HTMLAttributes<HTMLInputElement>, 'onChange'> & {
   value?: string | number;
 };
 
-const Input: FC<InputProps> = ({
+export const Input = ({
   autoFocus,
   autoSize,
   className,
@@ -21,7 +21,7 @@ const Input: FC<InputProps> = ({
   onChange,
   type,
   ...rest
-}) => {
+}: InputProps) => {
   const inputClasses = classNames({
     [styles.input]: true,
     [styles.inputAutosize]: autoSize,
@@ -32,6 +32,12 @@ const Input: FC<InputProps> = ({
     const { value } = event.target;
     onChange(value);
   };
+
+  /**
+   * @todo deprecate this if in favor of field-sizing via CSS
+   * when browser support is better
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing
+   */
 
   if (autoSize) {
     return (
@@ -59,4 +65,3 @@ const Input: FC<InputProps> = ({
     />
   );
 };
-export default Input;

@@ -1,8 +1,8 @@
 import pluralize from 'pluralize';
-import { ChangeEvent, FC } from 'react';
+import { ChangeEvent } from 'react';
 
 import { IconType } from '../../utils/types';
-import Icon from '../Icon/Icon';
+import { Icon } from '../Icon/Icon';
 import styles from './UnitSelect.module.css';
 
 type UnitSelectProps = {
@@ -16,7 +16,7 @@ type UnitData = {
   default?: boolean;
 };
 
-const UnitSelect: FC<UnitSelectProps> = ({ amount, setUnits }) => {
+export const UnitSelect = ({ amount, setUnits }: UnitSelectProps) => {
   const unitData: UnitData[] = [
     {
       value: 'shot',
@@ -70,5 +70,3 @@ const UnitSelect: FC<UnitSelectProps> = ({ amount, setUnits }) => {
     </div>
   );
 };
-
-export default UnitSelect;

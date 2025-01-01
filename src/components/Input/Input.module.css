@@ -19,6 +19,7 @@
 }
 
 .inputAutosize {
+  field-sizing: content;
   width: auto;
 }
 

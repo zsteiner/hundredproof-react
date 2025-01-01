@@ -2,10 +2,10 @@ import pluralize from 'pluralize';
 import { useContext } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
-import ResultsBlock from '../ResultsBlock/ResultsBlock';
+import { ResultsBlock } from '../ResultsBlock/ResultsBlock';
 import styles from './DilutionResults.module.css';
 
-const DiluteResults = () => {
+export const DiluteResults = () => {
   const { results } = useContext(DilutionContext);
   const {
     displayMeasure,
@@ -89,5 +89,3 @@ const DiluteResults = () => {
     </>
   );
 };
-
-export default DiluteResults;

@@ -1,5 +1,4 @@
 import pluralize from 'pluralize';
-import { FC } from 'react';
 
 import round from '../../utils/round';
 import { Ingredient } from '../../utils/types';
@@ -10,7 +9,7 @@ type ResultsBlockProps = {
   showPlus?: boolean;
 };
 
-const ResultsBlock: FC<ResultsBlockProps> = ({ result, showPlus }) => {
+export const ResultsBlock = ({ result, showPlus }: ResultsBlockProps) => {
   const { amount, unit, ingredient } = result;
   const formattedUnit: string = pluralize(unit, amount);
   const formattedAmount = amount ? round(amount, 2) : amount;
@@ -28,5 +27,3 @@ const ResultsBlock: FC<ResultsBlockProps> = ({ result, showPlus }) => {
     </>
   );
 };
-
-export default ResultsBlock;

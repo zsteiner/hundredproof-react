@@ -1,4 +1,4 @@
-const IconSet = () => {
+export const IconSet = () => {
   return (
     <svg
       height="0"
@@ -41,5 +41,3 @@ const IconSet = () => {
     </svg>
   );
 };
-
-export default IconSet;

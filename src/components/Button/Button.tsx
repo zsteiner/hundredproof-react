@@ -1,16 +1,16 @@
 import classNames from 'classnames';
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 
 import styles from './Button.module.css';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button: FC<ButtonProps> = ({
+export const Button = ({
   className,
   children,
   disabled,
   ...rest
-}) => {
+}: ButtonProps) => {
   const buttonClasses = classNames({
     [styles.button]: true,
     [className]: className,
@@ -27,5 +27,3 @@ const Button: FC<ButtonProps> = ({
     </button>
   );
 };
-
-export default Button;

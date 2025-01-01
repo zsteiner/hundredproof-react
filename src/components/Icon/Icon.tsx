@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { FC } from 'react';
 
 import { IconType } from '../../utils/types';
 import styles from './Icon.module.css';
@@ -9,7 +8,7 @@ type IconProps = {
   icon: IconType;
 };
 
-const Icon: FC<IconProps> = ({ className, icon }) => {
+export const Icon = ({ className, icon }: IconProps) => {
   const iconClasses = classNames({
     [styles.icon]: true,
     [className]: className,
@@ -21,5 +20,3 @@ const Icon: FC<IconProps> = ({ className, icon }) => {
     </svg>
   );
 };
-
-export default Icon;

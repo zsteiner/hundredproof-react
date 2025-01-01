@@ -1,14 +1,12 @@
-import { FC } from 'react';
-
 import { Ingredient } from '../../utils/types';
-import ResultsBlock from '../ResultsBlock/ResultsBlock';
+import { ResultsBlock } from '../ResultsBlock/ResultsBlock';
 import styles from './ScalingResults.module.css';
 
 type ScalingResultsProps = {
   results: Ingredient[];
 };
 
-const ScalingResults: FC<ScalingResultsProps> = ({ results }) => {
+export const ScalingResults = ({ results }: ScalingResultsProps) => {
   return (
     <ul className={`${styles.results} hp-clearlist`}>
       {results
@@ -26,5 +24,3 @@ const ScalingResults: FC<ScalingResultsProps> = ({ results }) => {
     </ul>
   );
 };
-
-export default ScalingResults;

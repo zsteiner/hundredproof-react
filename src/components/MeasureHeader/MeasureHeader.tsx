@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
-import SegmentedButton from '../SegmentedButton/SegmentedButton';
+import { SegmentedButton } from '../SegmentedButton/SegmentedButton';
 import styles from './MeasureHeader.module.css';
 
-const MeasureHeader = () => {
+export const MeasureHeader = () => {
   const measureOptions = [
     {
       label: 'ABV',
@@ -54,5 +54,3 @@ const MeasureHeader = () => {
     </section>
   );
 };
-
-export default MeasureHeader;
