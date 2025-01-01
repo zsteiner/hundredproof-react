@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { ChangeEvent, FC } from 'react';
+import { ChangeEvent } from 'react';
 
 import styles from './SegmentedButton.module.css';
 
@@ -18,12 +18,12 @@ type SegmentedButtonProps = {
   onChange: (value: string) => void;
 };
 
-const SegmentedButton: FC<SegmentedButtonProps> = ({
+export const SegmentedButton = ({
   className,
   name,
   options,
   onChange,
-}) => {
+}: SegmentedButtonProps) => {
   const segmentedButtonClasses = classNames({
     [styles.segmentedButton]: true,
     [className]: className,
@@ -56,5 +56,3 @@ const SegmentedButton: FC<SegmentedButtonProps> = ({
     </ul>
   );
 };
-
-export default SegmentedButton;

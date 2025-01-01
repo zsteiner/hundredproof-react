@@ -1,7 +1,5 @@
-import { FC } from 'react';
-
 import { Measure } from '../../utils/types';
-import Input from '../Input/Input';
+import { Input } from '../Input/Input';
 import styles from './InputGroup.module.css';
 
 type InputGroupProps = {
@@ -11,12 +9,12 @@ type InputGroupProps = {
   value: string;
 };
 
-const InputGroup: FC<InputGroupProps> = ({
+export const InputGroup = ({
   onChange,
   measure,
   text,
   value,
-}) => {
+}: InputGroupProps) => {
   return (
     <div className={styles.inputgroup}>
       <label>
@@ -32,5 +30,3 @@ const InputGroup: FC<InputGroupProps> = ({
     </div>
   );
 };
-
-export default InputGroup;

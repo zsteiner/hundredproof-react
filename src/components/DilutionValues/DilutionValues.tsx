@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
-import Button from '../Button/Button';
-import InputGroup from '../InputGroup/InputGroup';
+import { Button } from '../Button/Button';
+import { InputGroup } from '../InputGroup/InputGroup';
 import styles from './DilutionValues.module.css';
 
-const DilutionValues = () => {
+export const DilutionValues = () => {
   const {
     measure,
     setStartingABV,
@@ -51,5 +51,3 @@ const DilutionValues = () => {
     </div>
   );
 };
-
-export default DilutionValues;

@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 import { errorCodes } from './errorCodes';
 import styles from './Errors.module.css';
 
@@ -7,7 +5,7 @@ type ErrorProps = {
   errorCode: number;
 };
 
-const Errors: FC<ErrorProps> = ({ errorCode }) => {
+export const Errors = ({ errorCode }: ErrorProps) => {
   let errorDisplay;
 
   if (errorCode) {
@@ -16,5 +14,3 @@ const Errors: FC<ErrorProps> = ({ errorCode }) => {
 
   return <p className={styles.error}>{errorDisplay}</p>;
 };
-
-export default Errors;

@@ -3,16 +3,16 @@ import './normalize.css';
 
 import Head from 'next/head';
 
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
-import IconSet from '../components/IconSet/IconSet';
+import { Footer } from '../components/Footer/Footer';
+import { Header } from '../components/Header/Header';
+import { IconSet } from '../components/IconSet/IconSet';
 
 type AppProps = {
   Component: React.ElementType;
   pageProps: object;
 };
 
-const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>

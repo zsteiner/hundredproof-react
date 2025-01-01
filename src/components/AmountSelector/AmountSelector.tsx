@@ -1,11 +1,11 @@
 import { useContext, useState } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
-import Input from '../Input/Input';
-import UnitSelect from '../UnitSelect/UnitSelect';
+import { Input } from '../Input/Input';
+import { UnitSelect } from '../UnitSelect/UnitSelect';
 import styles from './AmountSelector.module.css';
 
-const AmountSelector = () => {
+export const AmountSelector = () => {
   const { amount, setAmount, setUnits, volume } = useContext(DilutionContext);
 
   const [inputValue, setInputValue] = useState<string>(amount?.toString());
@@ -33,5 +33,3 @@ const AmountSelector = () => {
     </div>
   );
 };
-
-export default AmountSelector;

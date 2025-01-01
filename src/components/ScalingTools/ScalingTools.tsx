@@ -5,12 +5,12 @@ import { emptyIngredient } from '../../utils/constants';
 import { processIngredients } from '../../utils/processIngredients';
 import { scaleIngredients } from '../../utils/scaleIngredients';
 import { Ingredient } from '../../utils/types';
-import Errors from '../Errors/Errors';
-import Ingredients from '../Ingredients/Ingredients';
-import ScalingHeader from '../ScalingHeader/ScalingHeader';
-import ScalingResults from '../ScalingResults/ScalingResults';
+import { Errors } from '../Errors/Errors';
+import { Ingredients } from '../Ingredients/Ingredients';
+import { ScalingHeader } from '../ScalingHeader/ScalingHeader';
+import { ScalingResults } from '../ScalingResults/ScalingResults';
 
-const ScalingTools = () => {
+export const ScalingTools = () => {
   const [error, setError] = useState<number>();
   const [ingredients, setIngredients] = useState<Ingredient[]>([
     emptyIngredient,
@@ -70,5 +70,3 @@ const ScalingTools = () => {
     </ScalingContext.Provider>
   );
 };
-
-export default ScalingTools;

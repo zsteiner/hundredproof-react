@@ -7,13 +7,13 @@ import {
 import convertABV from '../../utils/convertABV';
 import dilute from '../../utils/dilute';
 import { Measure, Unit, VolumeDirection } from '../../utils/types';
-import AmountSelector from '../AmountSelector/AmountSelector';
-import DiluteResults from '../DilutionResults/DiluteResults';
-import DilutionValues from '../DilutionValues/DilutionValues';
-import Errors from '../Errors/Errors';
-import MeasureHeader from '../MeasureHeader/MeasureHeader';
+import { AmountSelector } from '../AmountSelector/AmountSelector';
+import { DiluteResults } from '../DilutionResults/DiluteResults';
+import { DilutionValues } from '../DilutionValues/DilutionValues';
+import { Errors } from '../Errors/Errors';
+import { MeasureHeader } from '../MeasureHeader/MeasureHeader';
 
-const DilutionTools = () => {
+export const DilutionTools = () => {
   const defaultMeasure = 'proof';
   const defaultUnit = 'teaspoon';
   const desiredABV = convertABV(defaultMeasure, 25);
@@ -184,5 +184,3 @@ const DilutionTools = () => {
     </DilutionContext.Provider>
   );
 };
-
-export default DilutionTools;

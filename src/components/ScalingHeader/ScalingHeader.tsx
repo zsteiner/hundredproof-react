@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
-import Input from '../Input/Input';
+import { Input } from '../Input/Input';
 import styles from './ScalingHeader.module.css';
 
-const ScalingHeader = () => {
+export const ScalingHeader = () => {
   const { scalingFactor, setScalingFactor } = useContext(ScalingContext);
   const [inputValue, setInputValue] = useState<string>(
     scalingFactor?.toString(),
@@ -28,5 +28,3 @@ const ScalingHeader = () => {
     </section>
   );
 };
-
-export default ScalingHeader;
