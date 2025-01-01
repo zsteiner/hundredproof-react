@@ -21,6 +21,12 @@ const baseStyles: CSSProperties = {
   whiteSpace: 'pre',
 };
 
+/**
+ * @todo deprecate this component in favor of field-sizing via CSS
+ * when browser support is better
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing
+ */
+
 export const AutoSizeInput: React.FC<AutoSizeInputProps> = ({
   minWidth = 40,
   ...props
