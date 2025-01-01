@@ -1,5 +1,4 @@
 import './index.css';
-import './normalize.css';
 
 import classNames from 'classnames';
 import type { Metadata } from 'next';
