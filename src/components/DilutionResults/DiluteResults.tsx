@@ -2,6 +2,7 @@ import pluralize from 'pluralize';
 import { useContext } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
+import { Heading } from '../Heading/Heading';
 import { ResultsBlock } from '../ResultsBlock/ResultsBlock';
 import styles from './DilutionResults.module.css';
 
@@ -27,7 +28,7 @@ export const DiluteResults = () => {
 
   return (
     <>
-      <h3 className="hp-heading">You Should {isVolEnd ? 'Combine' : 'Add'}</h3>
+      <Heading as="h3">You Should {isVolEnd ? 'Combine' : 'Add'}</Heading>
       <div className={styles.results}>
         <div className={styles.resultsGroup}>
           <ResultsBlock
@@ -71,7 +72,7 @@ export const DiluteResults = () => {
           ) : null}
         </div>
       </div>
-      <h3 className="hp-heading">To Make</h3>
+      <Heading as="h3">To Make</Heading>
       <div className={styles.results}>
         <div className={styles.resultsGroup}>
           <p>

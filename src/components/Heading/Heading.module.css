@@ -1,0 +1,30 @@
+.h1 {
+  font-size: 2rem;
+}
+
+.h2 {
+  font-size: 1.75rem;
+}
+
+.h3 {
+  font-size: 1.5rem;
+}
+
+.h4 {
+  font-size: 1.25rem;
+}
+
+.heading {
+  color: var(--default);
+  font-family: var(--font-family-sans);
+  font-style: normal;
+  letter-spacing: 0.075em;
+  line-height: 1.2;
+  margin-bottom: var(--spacer);
+  margin-top: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+
