@@ -1,5 +1,5 @@
-import { DilutionTools } from '../components/DilutionTools/DilutionTools';
-import { Subheader } from '../components/Header/Subheader';
+import { DilutionTools } from '../../components/DilutionTools/DilutionTools';
+import { Subheader } from '../../components/Header/Subheader';
 
 const Dilute = () => (
   <>

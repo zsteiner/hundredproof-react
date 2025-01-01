@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 import buttonStyles from '../components/Button/Button.module.css';
 import { Subheader } from '../components/Header/Subheader';
-import styles from './indexPage.module.css';
+import styles from './page.module.css';
 
-const Home = () => {
+export default function Home() {
   return (
     <>
       <Subheader heading="Math for the modern mixologist." />
@@ -39,6 +39,4 @@ const Home = () => {
       </section>
     </>
   );
-};
-
-export default Home;
+}

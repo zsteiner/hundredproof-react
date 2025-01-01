@@ -1,5 +1,5 @@
-import { Subheader } from '../components/Header/Subheader';
-import { ScalingTools } from '../components/ScalingTools/ScalingTools';
+import { Subheader } from '../../components/Header/Subheader';
+import { ScalingTools } from '../../components/ScalingTools/ScalingTools';
 
 const Scale = () => (
   <>

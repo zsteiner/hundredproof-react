@@ -1,3 +1,4 @@
+'use client';
 import { ClipboardEvent, useContext, useEffect, useState } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
