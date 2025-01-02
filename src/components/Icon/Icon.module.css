@@ -1,7 +1,7 @@
 .icon {
+  block-size: 1em;
   display: inline-block;
   fill: currentcolor;
-  height: 1em;
+  inline-size: 1em;
   stroke: currentcolor;
-  width: 1em;
 }

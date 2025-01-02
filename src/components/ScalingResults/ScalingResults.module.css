@@ -2,6 +2,6 @@
   font-size: 1.25rem;
     list-style: none;
     margin: 0;
-    margin-bottom: var(--spacer);
+    margin-block-end: var(--spacer);
   padding: 0;
 }

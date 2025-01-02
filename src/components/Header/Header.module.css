@@ -27,13 +27,13 @@
 
 .headingLogo {
   color: var(--white);
-  margin-bottom: var(--spacer-2);
+  margin-block-end: var(--spacer-2);
 }
 
 .headingLogo svg {
+  block-size: 5rem;
   fill: currentcolor;
-  height: 5rem;
-  width: auto;
+  inline-size: auto;
 }
 
 .headingSubheading {
@@ -41,7 +41,7 @@
 }
 
 .headingSubheading:last-child {
-  margin-bottom: 0;
+  margin-block-end: 0;
 }
 
 .subheader {
@@ -55,11 +55,11 @@
   font-size: 1em;
   line-height: 1.5;
   margin: var(--spacer) auto;
-  max-width: 45ch;
+  max-inline-size: 45ch;
 }
 
 .subheader:last-child {
-  margin-top: 1em;
+  margin-block-start: 1em;
 }
 
 @media (width >= 58rem) {
@@ -72,10 +72,10 @@
   }
 
   .headingLogo {
-    margin-bottom: var(--spacer-4);
+    margin-block-end: var(--spacer-4);
   }
 
   .headingLogo svg {
-    height: 8rem;
+    block-size: 8rem;
   }
 }

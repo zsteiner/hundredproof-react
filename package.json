@@ -15,12 +15,11 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "yarn run lint:js && yarn run lint:style",
-    "lint:fix": "yarn lint:js:fix && yarn lint:style:fix",
+    "lint": "npm run lint:js && yarn run lint:style",
+    "lint:fix": "npm run lint:js:fix && yarn lint:style",
     "lint:js": "next lint",
     "lint:js:fix": "next lint --fix",
-    "lint:style": "stylelint 'src/**/*.{css,scss}'",
-    "lint:style:fix": "yarn lint:style --fix",
+    "lint:style": "stylelint 'src/**/*.css' --fix",
     "start": "next start"
   },
   "browserslist": [
@@ -46,6 +45,7 @@
     "stylelint": "^16.12.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-order": "^6.0.4",
+    "stylelint-use-logical": "^2.1.2",
     "typescript": "*"
   },
   "resolutions": {
