@@ -1,18 +1,24 @@
 {
-  "extends": [
-    "stylelint-config-standard"
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-order",
+    "stylelint-use-logical"
   ],
-  "plugins": ["stylelint-order"],
   "rules": {
-    "at-rule-no-unknown": null,
-    "function-no-unknown": null,
-    "no-invalid-position-at-import-rule": null,
-    "order/order": ["custom-properties", "declarations", "rules"],
-    "order/properties-alphabetical-order": [true],
-    "property-no-vendor-prefix": [true, { "ignoreProperties": ["appearance"] }],
-    "selector-id-pattern": null,
+    "alpha-value-notation": "number",
+    "csstools/use-logical": "always",
+    "custom-property-pattern": null,
+    "import-notation": "string",
+    "no-descending-specificity": null,
+    "order/order": [
+      "at-rules",
+      "custom-properties",
+      "declarations",
+      "rules"
+    ],
+    "order/properties-alphabetical-order": true,
     "selector-class-pattern": null,
-    "max-nesting-depth": 2,
+    "selector-id-pattern": null,
     "unit-allowed-list": [
       "ch",
       "em",

@@ -1,26 +1,26 @@
 .input {
   align-self: center;
   background: none;
+  block-size: 1.875em;
   border: 0;
-  border-bottom: 0.15rem dashed var(--info);
+  border-block-end: 0.15rem dashed var(--info);
   box-sizing: content-box;
   color: var(--default);
   display: flex;
   font-family: var(--font-family-script);
   font-size: 1.25rem;
-  height: 1.875em;
+  inline-size: 2rem;
   line-height: 1;
   margin: 0 var(--spacer);
-  min-width: 2ch;
+  min-inline-size: 2ch;
   position: relative;
   text-align: center;
   text-indent: 0.5em;
-  width: 2rem;
 }
 
 .inputAutosize {
   field-sizing: content;
-  width: auto;
+  inline-size: auto;
 }
 
 /* $--info--light: lighten(var(--info, 40%); */
@@ -36,7 +36,7 @@
 
 .input:focus,
 .input:focus-within {
-  border-bottom-color: var(--primary);
+  border-block-end-color: var(--primary);
   outline: none;
 }
 

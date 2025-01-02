@@ -1,9 +1,9 @@
 .footer {
   background-repeat: repeat-x;
   background-size: auto 4em;
+  block-size: var(--footer-size);
   color: var(--white);
   display: flex;
-  height: var(--footer-size);
   padding: var(--spacer);
   padding: 0;
 }

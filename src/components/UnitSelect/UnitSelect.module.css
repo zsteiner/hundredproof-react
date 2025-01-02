@@ -3,7 +3,7 @@
   flex: 0 1 auto;
   font-size: 0.875rem;
   font-weight: 700;
-  width: auto;
+  inline-size: auto;
 }
 
 .buttongroup label {
@@ -34,7 +34,7 @@
 
 .unit {
   display: block;
-  margin-bottom: var(--spacer-0-5);
+  margin-block-end: var(--spacer-0-5);
 }
 
 .plural .unit::after {
@@ -44,15 +44,15 @@
 .conversion {
   display: block;
   font-size: 0.625rem;
-  margin-top: 0.5em;
+  margin-block-start: 0.5em;
 }
 
 .conversion::before {
   content: '{';
-  margin-right: 0.1em;
+  margin-inline-end: 0.1em;
 }
 
 .conversion::after {
   content: '}';
-  margin-left: 0.1em;
+  margin-inline-start: 0.1em;
 }

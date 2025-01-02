@@ -1,11 +1,11 @@
 .results {
   font-size: 1.25rem;
-  margin-bottom: var(--spacer-2);
+  margin-block-end: var(--spacer-2);
 }
 
 .resultsGroup,
 .resultsDivider {
-  margin-bottom: var(--spacer);
+  margin-block-end: var(--spacer);
 }
 
 .resultsText {
@@ -20,11 +20,11 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-bottom: var(--spacer-2);
+  margin-block-end: var(--spacer-2);
 }
 
 .results .inputgroup:first-of-type {
-  margin-bottom: var(--spacer);
+  margin-block-end: var(--spacer);
 }
 
 @media (width >= 58rem) {
@@ -60,9 +60,9 @@
 .submitButton {
   display: block;
   font-size: 1.125em;
+  inline-size: 100%;
   margin: var(--spacer-2) auto var(--spacer);
-  max-width: 15rem;
-  width: 100%;
+  max-inline-size: 15rem;
 }
 
 .unit {
