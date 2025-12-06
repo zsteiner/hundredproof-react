@@ -1,3 +1,5 @@
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
+import nextTypescript from "eslint-config-next/typescript";
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -14,31 +16,28 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
-const eslintConfig = [
-  ...compat.extends('next/core-web-vitals', 'next/typescript', 'prettier'),
-  {
-    plugins: {
-      'simple-import-sort': simpleImportSort,
-    },
+const eslintConfig = [...nextCoreWebVitals, ...nextTypescript, ...compat.extends("prettier"), {
+  plugins: {
+    'simple-import-sort': simpleImportSort,
+  },
 
-    rules: {
-      'react/jsx-sort-props': 'error',
-      'react/no-unescaped-entities': 'off',
-      'simple-import-sort/imports': 'error',
-    },
+  rules: {
+    'react/jsx-sort-props': 'error',
+    'react/no-unescaped-entities': 'off',
+    'simple-import-sort/imports': 'error',
   },
-  eslintPluginPrettierRecommended,
-  {
-    rules: {
-      'prettier/prettier': [
-        'error',
-        {},
-        {
-          usePrettierrc: true,
-        },
-      ],
-    },
+}, eslintPluginPrettierRecommended, {
+  rules: {
+    'prettier/prettier': [
+      'error',
+      {},
+      {
+        usePrettierrc: true,
+      },
+    ],
   },
-];
+}, {
+  ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "next-env.d.ts"]
+}];
 
 export default eslintConfig;
