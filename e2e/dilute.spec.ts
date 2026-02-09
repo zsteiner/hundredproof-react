@@ -76,7 +76,9 @@ test.describe('Dilute Page', () => {
 
   test.describe('Unit Selection', () => {
     test('can select jigger unit', async ({ page }) => {
-      const jiggerRadio = page.locator('input[name="amount-units"][value="jigger"]');
+      const jiggerRadio = page.locator(
+        'input[name="amount-units"][value="jigger"]',
+      );
       await jiggerRadio.check({ force: true });
       await expect(jiggerRadio).toBeChecked();
     });
