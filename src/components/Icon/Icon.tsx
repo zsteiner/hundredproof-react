@@ -16,7 +16,7 @@ export const Icon = ({ className, icon }: IconProps) => {
 
   return (
     <svg className={iconClasses}>
-      <use xlinkHref={`#icon-${icon}`} />
+      <use href={`#icon-${icon}`} />
     </svg>
   );
 };

@@ -44,17 +44,7 @@ const computeResults = (
   unit: Unit,
   volume: VolumeDirection,
 ): DilutionResults => {
-  const dilutionResults = dilute(amount, desiredABV, startingABV, unit, volume);
-
-  return {
-    displayResults: dilutionResults.displayResults,
-    displayUnits: dilutionResults.displayUnits,
-    finalAmountSpirit: dilutionResults.finalAmountSpirit,
-    finalAmountSpiritTranslated: dilutionResults.finalAmountSpiritTranslated,
-    resultsOz: dilutionResults.resultsOz,
-    resultsTranslated: dilutionResults.resultsTranslated,
-    translatedUnit: dilutionResults.translatedUnit,
-  };
+  return dilute(amount, desiredABV, startingABV, unit, volume);
 };
 
 const validateABV = (

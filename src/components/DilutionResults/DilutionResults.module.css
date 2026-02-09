@@ -8,10 +8,6 @@
   margin-block-end: var(--spacer);
 }
 
-.resultsText {
-  margin: 0.5em 0;
-}
-
 .resultsGroup {
   font-size: 1.25rem;
 }
@@ -51,10 +47,6 @@
 .resultsDivider::before,
 .resultsDivider::after {
   content: ' - ';
-}
-
-.plural::after {
-  content: 's';
 }
 
 .submitButton {

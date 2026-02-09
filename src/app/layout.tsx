@@ -1,7 +1,7 @@
 import './index.css';
 
 import classNames from 'classnames';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Homemade_Apple, Lora, Raleway } from 'next/font/google';
 import { ReactNode } from 'react';
 
@@ -25,7 +25,12 @@ const fontFamilyLora = Lora({
   style: ['normal', 'italic'],
 });
 
+export const viewport: Viewport = {
+  themeColor: '#f6921e',
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://hundredproof.zachsteiner.com'),
   title: 'Hundred Proof',
   description: 'Math for the modern mixologist.',
   icons: [
@@ -55,7 +60,6 @@ export const metadata: Metadata = {
     },
   ],
   manifest: '/site.webmanifest',
-  themeColor: '#f6921e',
   openGraph: {
     images: '/images/splash.png',
     title: 'Hundred Proof',

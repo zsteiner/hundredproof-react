@@ -8,7 +8,6 @@ import { useScaling } from '../ScalingTools/useScaling';
 import styles from './Ingredients.module.css';
 
 type IngredientItemProps = {
-  disabled?: boolean;
   ingredient: Ingredient;
   placeholder?: string;
 };
@@ -57,14 +56,15 @@ export const IngredientItem = ({
     const { id } = ingredient;
     const value = activeIngredient;
     const currentItemIndex = ingredients.findIndex((item) => item.id === id);
-    const hasItems = ingredients.length >= 0;
     const newItem = { id: ingredients.length, value: '' };
 
     if (id === ingredients.length - 1 && value !== '') {
       setIngredients([...ingredients, newItem]);
-    } else if (hasItems) {
-      ingredients[currentItemIndex].value = value;
-      setIngredients([...ingredients]);
+    } else if (currentItemIndex >= 0) {
+      const updated = ingredients.map((item, i) =>
+        i === currentItemIndex ? { ...item, value } : item,
+      );
+      setIngredients(updated);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIngredient]);
@@ -83,14 +83,12 @@ export const IngredientItem = ({
         type="text"
         value={activeIngredient}
       />
-      {removeItem ? (
-        <button
-          className={styles.button}
-          onClick={removeItem}
-        >
-          <Icon icon="close" />
-        </button>
-      ) : null}
+      <button
+        className={styles.button}
+        onClick={removeItem}
+      >
+        <Icon icon="close" />
+      </button>
     </li>
   );
 };

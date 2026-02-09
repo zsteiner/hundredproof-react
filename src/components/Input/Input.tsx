@@ -46,7 +46,7 @@ export const Input = ({
         autoFocus={autoFocus}
         className={inputClasses}
         onChange={handleOnChange}
-        pattern={type === 'number' ? 'd*' : '.*'}
+        pattern={type === 'number' ? '\\d*' : '.*'}
         placeholder={placeholder}
         type="text"
       />
@@ -59,7 +59,7 @@ export const Input = ({
       autoFocus={autoFocus}
       className={inputClasses}
       onChange={handleOnChange}
-      pattern={type === 'number' ? 'd*' : '.*'}
+      pattern={type === 'number' ? '\\d*' : '.*'}
       placeholder={placeholder}
       type="text"
     />

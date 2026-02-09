@@ -34,7 +34,7 @@ export const DilutionValues = () => {
       />
       <Button
         className={styles.submitButton}
-        disabled={error ? true : false}
+        disabled={!!error}
         onClick={() => setShowResults(true)}
       >
         calculate
