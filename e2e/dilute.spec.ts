@@ -76,13 +76,13 @@ test.describe('Dilute Page', () => {
 
   test.describe('Unit Selection', () => {
     test('can select jigger unit', async ({ page }) => {
-      const jiggerRadio = page.locator('input[name="bg2"][value="jigger"]');
+      const jiggerRadio = page.locator('input[name="amount-units"][value="jigger"]');
       await jiggerRadio.check({ force: true });
       await expect(jiggerRadio).toBeChecked();
     });
 
     test('can select cup unit', async ({ page }) => {
-      const cupRadio = page.locator('input[name="bg2"][value="cup"]');
+      const cupRadio = page.locator('input[name="amount-units"][value="cup"]');
       await cupRadio.check({ force: true });
       await expect(cupRadio).toBeChecked();
     });
