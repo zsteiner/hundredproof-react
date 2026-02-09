@@ -9,9 +9,7 @@ test.describe('Scale Page', () => {
     await expect(
       page.getByRole('heading', { name: 'Scale', exact: true }),
     ).toBeVisible();
-    await expect(
-      page.getByText('Enter each ingredient like'),
-    ).toBeVisible();
+    await expect(page.getByText('Enter each ingredient like')).toBeVisible();
   });
 
   test('shows default serving count input', async ({ page }) => {
@@ -19,9 +17,7 @@ test.describe('Scale Page', () => {
     await expect(page.getByText('people.')).toBeVisible();
   });
 
-  test('shows Original Recipe and Scaled Recipe headings', async ({
-    page,
-  }) => {
+  test('shows Original Recipe and Scaled Recipe headings', async ({ page }) => {
     await expect(
       page.getByRole('heading', { name: 'Original Recipe' }),
     ).toBeVisible();
@@ -59,9 +55,7 @@ test.describe('Scale Page', () => {
     test('adds a new empty row when user types in the last row', async ({
       page,
     }) => {
-      const initialInputs = await page
-        .locator('ul input[type="text"]')
-        .count();
+      const initialInputs = await page.locator('ul input[type="text"]').count();
 
       await page
         .locator('ul input[type="text"]')
@@ -69,34 +63,26 @@ test.describe('Scale Page', () => {
         .pressSequentially('1 oz gin', { delay: 30 });
       await page.waitForTimeout(500);
 
-      const updatedInputs = await page
-        .locator('ul input[type="text"]')
-        .count();
+      const updatedInputs = await page.locator('ul input[type="text"]').count();
       expect(updatedInputs).toBeGreaterThan(initialInputs);
     });
   });
 
   test.describe('Remove ingredient', () => {
-    test('removes an ingredient when X button is clicked', async ({
-      page,
-    }) => {
+    test('removes an ingredient when X button is clicked', async ({ page }) => {
       await page
         .locator('ul input[type="text"]')
         .first()
         .pressSequentially('1 oz gin', { delay: 30 });
       await page.waitForTimeout(500);
 
-      const inputsBefore = await page
-        .locator('ul input[type="text"]')
-        .count();
+      const inputsBefore = await page.locator('ul input[type="text"]').count();
 
       // Click the first remove button (close icon)
       await page.locator('ul li button').first().click();
       await page.waitForTimeout(300);
 
-      const inputsAfter = await page
-        .locator('ul input[type="text"]')
-        .count();
+      const inputsAfter = await page.locator('ul input[type="text"]').count();
       expect(inputsAfter).toBeLessThan(inputsBefore);
     });
   });

@@ -1,4 +1,5 @@
 import normalizeUnits from './normalizeUnits';
+import { Unit } from './types';
 
 describe('normalizeUnits', () => {
   it('normalizes plural ounces to ounce', () => {
@@ -40,7 +41,7 @@ describe('normalizeUnits', () => {
   });
 
   it('returns undefined for unknown units', () => {
-    expect(normalizeUnits('ml' as any)).toBeUndefined();
-    expect(normalizeUnits('liter' as any)).toBeUndefined();
+    expect(normalizeUnits('ml' as Unit)).toBeUndefined();
+    expect(normalizeUnits('liter' as Unit)).toBeUndefined();
   });
 });

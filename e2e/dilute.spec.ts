@@ -29,14 +29,10 @@ test.describe('Dilute Page', () => {
       const amountInput = page.locator('input[type="text"]').first();
       await amountInput.fill('10');
 
-      const startingInput = page
-        .locator('input[type="text"]')
-        .nth(1);
+      const startingInput = page.locator('input[type="text"]').nth(1);
       await startingInput.fill('100');
 
-      const desiredInput = page
-        .locator('input[type="text"]')
-        .nth(2);
+      const desiredInput = page.locator('input[type="text"]').nth(2);
       await desiredInput.fill('50');
 
       await page.getByRole('button', { name: 'calculate' }).click();
@@ -116,9 +112,7 @@ test.describe('Dilute Page', () => {
       const startingInput = page.locator('input[type="text"]').nth(1);
       await startingInput.fill('250');
 
-      await expect(
-        page.getByText('That proof is too high'),
-      ).toBeVisible();
+      await expect(page.getByText('That proof is too high')).toBeVisible();
     });
 
     test('calculate button has disabled styling when there is an error', async ({

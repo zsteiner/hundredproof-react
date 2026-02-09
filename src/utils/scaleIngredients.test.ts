@@ -4,8 +4,20 @@ describe('scaleIngredients', () => {
   it('scales ingredient amounts by the scaling factor', () => {
     const result = scaleIngredients({
       ingredients: [
-        { id: 0, amount: 1, unit: 'ounce', ingredient: 'gin', value: '1 oz gin' },
-        { id: 1, amount: 1, unit: 'ounce', ingredient: 'Campari', value: '1 oz Campari' },
+        {
+          id: 0,
+          amount: 1,
+          unit: 'ounce',
+          ingredient: 'gin',
+          value: '1 oz gin',
+        },
+        {
+          id: 1,
+          amount: 1,
+          unit: 'ounce',
+          ingredient: 'Campari',
+          value: '1 oz Campari',
+        },
       ],
       scalingFactor: 4,
     });
@@ -16,7 +28,13 @@ describe('scaleIngredients', () => {
   it('filters out items without a value', () => {
     const result = scaleIngredients({
       ingredients: [
-        { id: 0, amount: 1, unit: 'ounce', ingredient: 'gin', value: '1 oz gin' },
+        {
+          id: 0,
+          amount: 1,
+          unit: 'ounce',
+          ingredient: 'gin',
+          value: '1 oz gin',
+        },
         { id: 1, value: '' },
       ],
       scalingFactor: 2,
@@ -27,7 +45,13 @@ describe('scaleIngredients', () => {
   it('defaults NaN scaling factor to 1', () => {
     const result = scaleIngredients({
       ingredients: [
-        { id: 0, amount: 2, unit: 'ounce', ingredient: 'gin', value: '2 oz gin' },
+        {
+          id: 0,
+          amount: 2,
+          unit: 'ounce',
+          ingredient: 'gin',
+          value: '2 oz gin',
+        },
       ],
       scalingFactor: NaN,
     });
@@ -37,7 +61,13 @@ describe('scaleIngredients', () => {
   it('handles scaling factor of 0', () => {
     const result = scaleIngredients({
       ingredients: [
-        { id: 0, amount: 2, unit: 'ounce', ingredient: 'gin', value: '2 oz gin' },
+        {
+          id: 0,
+          amount: 2,
+          unit: 'ounce',
+          ingredient: 'gin',
+          value: '2 oz gin',
+        },
       ],
       scalingFactor: 0,
     });
@@ -47,7 +77,13 @@ describe('scaleIngredients', () => {
   it('handles fractional scaling factor', () => {
     const result = scaleIngredients({
       ingredients: [
-        { id: 0, amount: 4, unit: 'ounce', ingredient: 'gin', value: '4 oz gin' },
+        {
+          id: 0,
+          amount: 4,
+          unit: 'ounce',
+          ingredient: 'gin',
+          value: '4 oz gin',
+        },
       ],
       scalingFactor: 0.5,
     });
@@ -57,7 +93,13 @@ describe('scaleIngredients', () => {
   it('preserves other ingredient properties', () => {
     const result = scaleIngredients({
       ingredients: [
-        { id: 0, amount: 1, unit: 'ounce', ingredient: 'gin', value: '1 oz gin' },
+        {
+          id: 0,
+          amount: 1,
+          unit: 'ounce',
+          ingredient: 'gin',
+          value: '1 oz gin',
+        },
       ],
       scalingFactor: 3,
     });

@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import {
   DilutionContext,
@@ -37,7 +37,28 @@ export const DilutionTools = () => {
     volume: 'start',
   });
   const [error, setError] = useState<number | null>(null);
-  const [results, setResults] = useState<DilutionParams>();
+  const results = useMemo<DilutionParams>(() => {
+    const { amount, desiredABV, startingABV, unit, volume } = dilutionParams;
+
+    const dilutionResults = dilute(
+      amount,
+      desiredABV,
+      startingABV,
+      unit,
+      volume,
+    );
+
+    return {
+      ...dilutionParams,
+      displayResults: dilutionResults.displayResults,
+      displayUnits: dilutionResults.displayUnits,
+      finalAmountSpirit: dilutionResults.finalAmountSpirit,
+      finalAmountSpiritTranslated: dilutionResults.finalAmountSpiritTranslated,
+      resultsOz: dilutionResults.resultsOz,
+      resultsTranslated: dilutionResults.resultsTranslated,
+      translatedUnit: dilutionResults.translatedUnit,
+    };
+  }, [dilutionParams]);
   const [showResults, setShowResults] = useState(false);
 
   const checkForError = (value: string, code: number) => {
@@ -133,29 +154,6 @@ export const DilutionTools = () => {
       desiredABV: desiredABV,
     });
   };
-
-  useEffect(() => {
-    const { amount, desiredABV, startingABV, unit, volume } = dilutionParams;
-
-    const dilutionResults = dilute(
-      amount,
-      desiredABV,
-      startingABV,
-      unit,
-      volume,
-    );
-
-    setResults({
-      ...dilutionParams,
-      displayResults: dilutionResults.displayResults,
-      displayUnits: dilutionResults.displayUnits,
-      finalAmountSpirit: dilutionResults.finalAmountSpirit,
-      finalAmountSpiritTranslated: dilutionResults.finalAmountSpiritTranslated,
-      resultsOz: dilutionResults.resultsOz,
-      resultsTranslated: dilutionResults.resultsTranslated,
-      translatedUnit: dilutionResults.translatedUnit,
-    });
-  }, [dilutionParams]);
 
   return (
     <DilutionContext.Provider

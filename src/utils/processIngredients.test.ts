@@ -22,9 +22,7 @@ describe('processIngredients', () => {
   });
 
   it('parses fractions', () => {
-    const result = processIngredients([
-      { id: 0, value: '1/2 oz lime juice' },
-    ]);
+    const result = processIngredients([{ id: 0, value: '1/2 oz lime juice' }]);
     expect(result[0].amount).toBe(0.5);
     expect(result[0].unit).toBe('ounce');
     expect(result[0].ingredient).toBe('lime juice');

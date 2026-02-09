@@ -1,5 +1,5 @@
 'use client';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 
 import { DilutionContext } from '../../contexts/DilutionContext';
 import { Button } from '../Button/Button';
@@ -16,17 +16,8 @@ export const DilutionValues = () => {
     error,
     setShowResults,
   } = useContext(DilutionContext);
-  const [startingABVInput, setStartingABVInput] = useState<string>(
-    startingABV?.toString(),
-  );
-  const [desiredABVInput, setDesiredABVInput] = useState<string>(
-    desiredABV?.toString(),
-  );
-
-  useEffect(() => {
-    setStartingABVInput(startingABV?.toString());
-    setDesiredABVInput(desiredABV?.toString());
-  }, [startingABV, desiredABV]);
+  const startingABVInput = startingABV?.toString();
+  const desiredABVInput = desiredABV?.toString();
 
   return (
     <div>
