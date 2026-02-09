@@ -1,5 +1,5 @@
 export const conversions = {
-  ozToTeaspoons: 0.1666666666666667,
-  ozToCups: 8,
-  ozToJigger: 1.5,
+  ozToTeaspoons: 1 / 6, // 1 oz = 6 teaspoons
+  ozToCups: 8, // 1 cup = 8 oz
+  ozToJigger: 1.5, // 1 jigger = 1.5 oz
 };

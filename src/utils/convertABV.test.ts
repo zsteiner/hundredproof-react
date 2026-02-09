@@ -1,4 +1,4 @@
-import convertABV from './convertABV';
+import { convertABV } from './convertABV';
 
 describe('convertABV', () => {
   it('converts to proof by multiplying by 2', () => {

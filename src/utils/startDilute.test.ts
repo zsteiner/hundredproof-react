@@ -1,4 +1,4 @@
-import startDilute from './startDilute';
+import { startDilute } from './startDilute';
 
 describe('startDilute', () => {
   it('calculates water needed for standard dilution', () => {

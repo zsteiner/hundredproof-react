@@ -1,4 +1,4 @@
-import translateResults from './translateResults';
+import { translateResults } from './translateResults';
 
 describe('translateResults', () => {
   it('converts to cups when useCups is true', () => {

@@ -17,7 +17,7 @@ export const IngredientItem = ({
   placeholder,
 }: IngredientItemProps) => {
   const [activeIngredient, setActiveIngredient] = useState<string>(
-    ingredient.value,
+    ingredient.value ?? '',
   );
   const { ingredients, setIngredients } = useScaling();
 
@@ -70,7 +70,7 @@ export const IngredientItem = ({
   }, [activeIngredient]);
 
   useEffect(() => {
-    setActiveIngredient(ingredient.value);
+    setActiveIngredient(ingredient.value ?? '');
   }, [ingredient]);
 
   return (

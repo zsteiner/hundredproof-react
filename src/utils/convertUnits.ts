@@ -6,7 +6,7 @@ type ConvertUnitsParams = {
   unit: Unit;
 };
 
-export default function convertUnits({ amount, unit }: ConvertUnitsParams) {
+export function convertUnits({ amount, unit }: ConvertUnitsParams) {
   if (unit === 'cup') {
     return amount * conversions.ozToCups;
   } else if (unit === 'jigger') {

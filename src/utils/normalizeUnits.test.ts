@@ -1,4 +1,4 @@
-import normalizeUnits from './normalizeUnits';
+import { normalizeUnits } from './normalizeUnits';
 import { Unit } from './types';
 
 describe('normalizeUnits', () => {

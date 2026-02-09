@@ -20,6 +20,6 @@ const unitMap = {
   dash: 'dash',
 };
 
-export default function normalizeUnits(unit: Unit): string {
+export function normalizeUnits(unit: Unit): string {
   return unitMap[unit as keyof typeof unitMap];
 }

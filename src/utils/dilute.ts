@@ -1,10 +1,10 @@
-import convertCups from './convertCups';
-import convertUnits from './convertUnits';
-import endDilute from './endDilute';
-import round from './round';
-import setZero from './setZero';
-import startDilute from './startDilute';
-import translateResults from './translateResults';
+import { convertCups } from './convertCups';
+import { convertUnits } from './convertUnits';
+import { endDilute } from './endDilute';
+import { round } from './round';
+import { setZero } from './setZero';
+import { startDilute } from './startDilute';
+import { translateResults } from './translateResults';
 import { Unit, VolumeDirection } from './types';
 
 type DiluteParams = {
@@ -15,7 +15,7 @@ type DiluteParams = {
   volume: VolumeDirection;
 };
 
-export default function dilute({
+export function dilute({
   amount,
   desiredABV,
   startingABV,

@@ -1,4 +1,4 @@
-import setZero from './setZero';
+import { setZero } from './setZero';
 
 describe('setZero', () => {
   it('returns 0 for NaN', () => {

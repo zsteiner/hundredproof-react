@@ -4,7 +4,7 @@ type DiluteParams = {
   startingABV: number;
 };
 
-export default function endDilute({
+export function endDilute({
   amount,
   desiredABV,
   startingABV,

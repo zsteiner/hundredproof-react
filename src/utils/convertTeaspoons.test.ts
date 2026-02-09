@@ -1,4 +1,4 @@
-import convertTeaspoons from './convertTeaspoons';
+import { convertTeaspoons } from './convertTeaspoons';
 
 describe('convertTeaspoons', () => {
   it('converts ounces to teaspoons', () => {

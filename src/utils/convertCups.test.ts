@@ -1,4 +1,4 @@
-import convertCups from './convertCups';
+import { convertCups } from './convertCups';
 
 describe('convertCups', () => {
   it('converts ounces to cups (divides by 8)', () => {

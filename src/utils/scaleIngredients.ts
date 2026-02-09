@@ -2,7 +2,7 @@ import { Ingredient } from './types';
 
 type ScaleIngredientsParams = {
   ingredients: Ingredient[];
-  scalingFactor: number;
+  scalingFactor: number | undefined;
 };
 
 export const scaleIngredients = ({
@@ -13,11 +13,12 @@ export const scaleIngredients = ({
     .filter((item) => item.value)
     .map((item) => {
       const { amount, ...rest } = item;
-      const normalizeScalingFactor = isNaN(scalingFactor) ? 1 : scalingFactor;
+      const normalizeScalingFactor =
+        scalingFactor === undefined || isNaN(scalingFactor) ? 1 : scalingFactor;
 
       return {
         ...rest,
-        amount: amount * normalizeScalingFactor,
+        amount: (amount ?? 0) * normalizeScalingFactor,
       };
     });
 };

@@ -9,13 +9,13 @@ type IconProps = {
 };
 
 export const Icon = ({ className, icon }: IconProps) => {
-  const iconClasses = classNames({
-    [styles.icon]: true,
-    [className]: className,
-  });
+  const iconClasses = classNames(styles.icon, className);
 
   return (
-    <svg className={iconClasses}>
+    <svg
+      aria-hidden="true"
+      className={iconClasses}
+    >
       <use href={`#icon-${icon}`} />
     </svg>
   );

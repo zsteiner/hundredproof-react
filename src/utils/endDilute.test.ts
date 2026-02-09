@@ -1,4 +1,4 @@
-import endDilute from './endDilute';
+import { endDilute } from './endDilute';
 
 describe('endDilute', () => {
   it('calculates water needed for end volume dilution', () => {

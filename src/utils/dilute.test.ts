@@ -1,4 +1,4 @@
-import dilute from './dilute';
+import { dilute } from './dilute';
 
 describe('dilute', () => {
   it('returns correct result shape', () => {

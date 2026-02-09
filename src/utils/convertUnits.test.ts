@@ -1,4 +1,4 @@
-import convertUnits from './convertUnits';
+import { convertUnits } from './convertUnits';
 
 describe('convertUnits', () => {
   it('multiplies cups by 8', () => {

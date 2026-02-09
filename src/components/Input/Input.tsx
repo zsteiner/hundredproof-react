@@ -22,22 +22,14 @@ export const Input = ({
   type,
   ...rest
 }: InputProps) => {
-  const inputClasses = classNames({
-    [styles.input]: true,
+  const inputClasses = classNames(styles.input, className, {
     [styles.inputAutosize]: autoSize,
-    [className]: className,
   });
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     onChange(value);
   };
-
-  /**
-   * @todo deprecate this if in favor of field-sizing via CSS
-   * when browser support is better
-   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing
-   */
 
   if (autoSize) {
     return (

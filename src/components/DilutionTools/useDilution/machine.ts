@@ -1,7 +1,7 @@
 import { assign, setup } from 'xstate';
 
-import convertABV from '../../../utils/convertABV';
-import dilute from '../../../utils/dilute';
+import { convertABV } from '../../../utils/convertABV';
+import { dilute } from '../../../utils/dilute';
 import { Measure, Unit, VolumeDirection } from '../../../utils/types';
 
 export type DilutionResults = {
@@ -99,7 +99,7 @@ const checkForError = ({
   if (value === '' || value === '0') {
     return { parsedValue: 0, error: code, isError: true };
   }
-  return { parsedValue: parseInt(value), error: null, isError: false };
+  return { parsedValue: parseInt(value, 10), error: null, isError: false };
 };
 
 const DEFAULT_MEASURE: Measure = 'proof';

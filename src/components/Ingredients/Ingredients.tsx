@@ -15,7 +15,7 @@ export const Ingredients = () => {
     ) {
       setError(7);
     } else {
-      setError(null);
+      setError(undefined);
       setShowResults(true);
     }
   };
