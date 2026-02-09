@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(lsof:*)",
+      "Bash(xargs kill:*)",
+      "Bash(source:*)",
+      "Bash(nvm use:*)",
+      "Bash(npx playwright test)",
+      "Bash(gh api:*)"
+    ]
+  }
+}

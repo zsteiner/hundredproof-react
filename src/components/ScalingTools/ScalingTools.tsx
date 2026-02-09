@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { ScalingContext } from '../../contexts/ScalingContext';
 import { emptyIngredient } from '../../utils/constants';
@@ -15,34 +15,33 @@ import { ScalingResults } from '../ScalingResults/ScalingResults';
 
 export const ScalingTools = () => {
   const [error, setError] = useState<number>();
-  const [ingredients, setIngredients] = useState<Ingredient[]>([
+  const [ingredients, setIngredientsRaw] = useState<Ingredient[]>([
     emptyIngredient,
   ]);
-  const [processedIngredients, setProcessedIngredients] =
-    useState<Ingredient[]>(ingredients);
   const [scalingFactor, setScalingFactor] = useState<number | undefined>(2);
-  const [results, setResults] = useState<Ingredient[]>(ingredients);
   const [showResults, setShowResults] = useState<boolean>(false);
 
-  useEffect(() => {
-    setProcessedIngredients(processIngredients(ingredients));
+  const setIngredients = (newIngredients: Ingredient[]) => {
+    const lastItem = newIngredients[newIngredients.length - 1];
 
-    const newItem = { id: ingredients.length, value: '' };
-    const ingredientsLength = ingredients.length;
-
-    if (
-      ingredients.length === 1 &&
-      !!ingredients[ingredientsLength - 1].value
-    ) {
-      setIngredients([...ingredients, newItem]);
+    if (newIngredients.length === 1 && !!lastItem.value) {
+      const newItem = { id: newIngredients.length, value: '' };
+      setIngredientsRaw([...newIngredients, newItem]);
+    } else {
+      setIngredientsRaw(newIngredients);
     }
-  }, [ingredients]);
+  };
 
-  useEffect(() => {
-    setResults(
+  const processedIngredients = useMemo(
+    () => processIngredients(ingredients),
+    [ingredients],
+  );
+
+  const results = useMemo(
+    () =>
       scaleIngredients({ ingredients: processedIngredients, scalingFactor }),
-    );
-  }, [processedIngredients, scalingFactor]);
+    [processedIngredients, scalingFactor],
+  );
 
   return (
     <ScalingContext.Provider

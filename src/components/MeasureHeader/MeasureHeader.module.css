@@ -15,7 +15,7 @@
 @media (width >= 58rem) {
   .measureHeader {
     display: grid;
-    grid-gap: var(--spacer-2);
+    gap: var(--spacer-2);
     grid-template-columns: 1fr 1fr;
   }
 
