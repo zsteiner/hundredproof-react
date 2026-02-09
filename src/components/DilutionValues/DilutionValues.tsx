@@ -1,8 +1,7 @@
 'use client';
-import { useContext } from 'react';
 
-import { DilutionContext } from '../../contexts/DilutionContext';
 import { Button } from '../Button/Button';
+import { useDilution } from '../DilutionTools/useDilution';
 import { InputGroup } from '../InputGroup/InputGroup';
 import styles from './DilutionValues.module.css';
 
@@ -15,7 +14,7 @@ export const DilutionValues = () => {
     setDesiredABV,
     error,
     setShowResults,
-  } = useContext(DilutionContext);
+  } = useDilution();
   const startingABVInput = startingABV?.toString();
   const desiredABVInput = desiredABV?.toString();
 

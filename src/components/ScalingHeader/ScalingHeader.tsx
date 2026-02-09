@@ -1,13 +1,13 @@
 'use client';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { ScalingContext } from '../../contexts/ScalingContext';
 import { Input } from '../Input/Input';
 import { Section } from '../Layout/Section';
+import { useScaling } from '../ScalingTools/useScaling';
 import styles from './ScalingHeader.module.css';
 
 export const ScalingHeader = () => {
-  const { scalingFactor, setScalingFactor } = useContext(ScalingContext);
+  const { scalingFactor, setScalingFactor } = useScaling();
   const [inputValue, setInputValue] = useState<string>(
     scalingFactor?.toString(),
   );

@@ -6,11 +6,13 @@
   },
   "private": true,
   "dependencies": {
+    "@xstate/react": "^6.0.0",
     "classnames": "^2.5.1",
     "pluralize": "^8.0.0",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
-    "react-router-dom": "^7.10.1"
+    "react-router-dom": "^7.10.1",
+    "xstate": "^5.26.0"
   },
   "scripts": {
     "build": "next build",
