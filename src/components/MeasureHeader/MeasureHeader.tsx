@@ -1,6 +1,4 @@
-import { useContext } from 'react';
-
-import { DilutionContext } from '../../contexts/DilutionContext';
+import { useDilution } from '../DilutionTools/useDilution';
 import { Heading } from '../Heading/Heading';
 import { Section } from '../Layout/Section';
 import { SegmentedButton } from '../SegmentedButton/SegmentedButton';
@@ -31,7 +29,7 @@ export const MeasureHeader = () => {
     },
   ];
 
-  const { setMeasure, setVolume } = useContext(DilutionContext);
+  const { setMeasure, setVolume } = useDilution();
 
   return (
     <Section className={styles.measureHeader}>

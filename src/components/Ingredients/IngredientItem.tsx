@@ -1,10 +1,10 @@
 'use client';
-import { ClipboardEvent, useContext, useEffect, useState } from 'react';
+import { ClipboardEvent, useEffect, useState } from 'react';
 
-import { ScalingContext } from '../../contexts/ScalingContext';
 import { Ingredient } from '../../utils/types';
 import { Icon } from '../Icon/Icon';
 import { Input } from '../Input/Input';
+import { useScaling } from '../ScalingTools/useScaling';
 import styles from './Ingredients.module.css';
 
 type IngredientItemProps = {
@@ -20,7 +20,7 @@ export const IngredientItem = ({
   const [activeIngredient, setActiveIngredient] = useState<string>(
     ingredient.value,
   );
-  const { ingredients, setIngredients } = useContext(ScalingContext);
+  const { ingredients, setIngredients } = useScaling();
 
   const removeItem = () =>
     setIngredients(ingredients.filter((item) => item.id !== ingredient.id));

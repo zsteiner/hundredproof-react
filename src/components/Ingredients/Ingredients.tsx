@@ -1,13 +1,11 @@
-import { useContext } from 'react';
-
-import { ScalingContext } from '../../contexts/ScalingContext';
 import { Button } from '../Button/Button';
+import { useScaling } from '../ScalingTools/useScaling';
 import { IngredientItem } from './IngredientItem';
 import styles from './Ingredients.module.css';
 
 export const Ingredients = () => {
   const { ingredients, processedIngredients, setShowResults, setError } =
-    useContext(ScalingContext);
+    useScaling();
 
   const saveIngredients = () => {
     if (

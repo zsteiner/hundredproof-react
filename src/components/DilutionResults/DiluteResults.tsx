@@ -1,16 +1,13 @@
 import pluralize from 'pluralize';
-import { useContext } from 'react';
 
-import { DilutionContext } from '../../contexts/DilutionContext';
+import { useDilution } from '../DilutionTools/useDilution';
 import { Heading } from '../Heading/Heading';
 import { ResultsBlock } from '../ResultsBlock/ResultsBlock';
 import styles from './DilutionResults.module.css';
 
 export const DiluteResults = () => {
-  const { results } = useContext(DilutionContext);
+  const { results, volume, displayMeasure, displayMeasureUnit } = useDilution();
   const {
-    displayMeasure,
-    displayMeasureUnit,
     displayResults,
     displayUnits,
     finalAmountSpirit,
@@ -18,7 +15,6 @@ export const DiluteResults = () => {
     resultsOz,
     resultsTranslated,
     translatedUnit,
-    volume,
   } = results;
 
   const isVolEnd = volume === 'end';
