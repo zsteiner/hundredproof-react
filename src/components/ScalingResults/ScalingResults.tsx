@@ -11,11 +11,11 @@ export const ScalingResults = ({ results }: ScalingResultsProps) => {
     <ul className={styles.results}>
       {results
         .filter((result) => result.amount && result.unit)
-        .map((result, index) => {
+        .map((result) => {
           return (
             <li
               className={styles.resultsItem}
-              key={index}
+              key={result.id}
             >
               <ResultsBlock result={result} />
             </li>

@@ -12,5 +12,12 @@ export const Errors = ({ errorCode }: ErrorProps) => {
     errorDisplay = errorCodes[errorCode as keyof typeof errorCodes];
   }
 
-  return <p className={styles.error}>{errorDisplay}</p>;
+  return (
+    <p
+      className={styles.error}
+      role="alert"
+    >
+      {errorDisplay}
+    </p>
+  );
 };

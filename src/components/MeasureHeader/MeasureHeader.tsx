@@ -1,3 +1,4 @@
+import { Measure, VolumeDirection } from '../../utils/types';
 import { useDilution } from '../DilutionTools/useDilution';
 import { Heading } from '../Heading/Heading';
 import { Section } from '../Layout/Section';
@@ -38,7 +39,7 @@ export const MeasureHeader = () => {
         <SegmentedButton
           className={styles.measureButtons}
           name="volume"
-          onChange={setVolume}
+          onChange={(value) => setVolume(value as VolumeDirection)}
           options={volumeOptions}
         />
       </div>
@@ -47,7 +48,7 @@ export const MeasureHeader = () => {
         <SegmentedButton
           className={styles.measureButtons}
           name="measure"
-          onChange={setMeasure}
+          onChange={(value) => setMeasure(value as Measure)}
           options={measureOptions}
         />
       </div>

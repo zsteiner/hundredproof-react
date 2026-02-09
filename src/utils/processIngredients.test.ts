@@ -40,7 +40,7 @@ describe('processIngredients', () => {
   it('handles ingredients without a recognized unit', () => {
     const result = processIngredients([{ id: 0, value: '2 lemon wedges' }]);
     expect(result[0].amount).toBe(2);
-    expect(result[0].unit).toBeNull();
+    expect(result[0].unit).toBeUndefined();
     expect(result[0].ingredient).toBe('lemon wedges');
   });
 

@@ -9,7 +9,7 @@ import styles from './ScalingHeader.module.css';
 export const ScalingHeader = () => {
   const { scalingFactor, setScalingFactor } = useScaling();
   const [inputValue, setInputValue] = useState<string>(
-    scalingFactor?.toString(),
+    scalingFactor?.toString() ?? '',
   );
 
   useEffect(() => {

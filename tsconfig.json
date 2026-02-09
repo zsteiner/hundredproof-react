@@ -15,7 +15,7 @@
       }
     ],
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
@@ -25,7 +25,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "target": "ES2017"
+    "target": "ES2022"
   },
   "include": [
     "**/*.ts",

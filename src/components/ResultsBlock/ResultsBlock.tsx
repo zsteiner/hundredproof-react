@@ -1,6 +1,6 @@
 import pluralize from 'pluralize';
 
-import round from '../../utils/round';
+import { round } from '../../utils/round';
 import { Ingredient } from '../../utils/types';
 import styles from '../DilutionResults/DilutionResults.module.css';
 
@@ -11,12 +11,14 @@ type ResultsBlockProps = {
 
 export const ResultsBlock = ({ result, showPlus }: ResultsBlockProps) => {
   const { amount, unit, ingredient } = result;
-  const formattedUnit: string = pluralize(unit, amount);
-  const formattedAmount = amount ? round(amount, 2) : amount;
+  const formattedUnit = unit ? pluralize(unit, amount) : '';
+  const formattedAmount = amount
+    ? round({ value: amount, decimals: 2 })
+    : amount;
 
-  const pluralIngredient: string = pluralize(ingredient);
-  const formattedIngredient: string =
-    !unit && amount > 1 ? pluralIngredient : ingredient;
+  const pluralIngredient = ingredient ? pluralize(ingredient) : '';
+  const formattedIngredient =
+    !unit && (amount ?? 0) > 1 ? pluralIngredient : (ingredient ?? '');
 
   return (
     <>

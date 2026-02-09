@@ -11,9 +11,7 @@ export const Button = ({
   disabled,
   ...rest
 }: ButtonProps) => {
-  const buttonClasses = classNames({
-    [styles.button]: true,
-    [className]: className,
+  const buttonClasses = classNames(styles.button, className, {
     [styles.disabled]: !!disabled,
   });
 

@@ -73,10 +73,10 @@ export const DiluteResults = () => {
         <div className={styles.resultsGroup}>
           <p>
             <span className={styles.resultsNumber}>
-              {displayResults.toLocaleString('en-us')}
+              {(displayResults ?? 0).toLocaleString('en-us')}
             </span>{' '}
             <span className={styles.unit}>
-              {pluralize(displayUnits, displayResults)}
+              {pluralize(displayUnits ?? '', displayResults)}
             </span>{' '}
             of {measurePrefix} {displayMeasure}
             {measure} spirit.

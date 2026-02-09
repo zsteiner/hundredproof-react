@@ -11,8 +11,8 @@ export const Footer = () => {
       style={backgroundStyles}
     >
       <section className={styles.footerSection}>
-        &copy; {year} <a href="http://zachsteiner.com">Zach Steiner</a> &amp;{' '}
-        <a href="http://jackieglimp.com">Jackie Glimp</a>
+        &copy; {year} <a href="https://zachsteiner.com">Zach Steiner</a> &amp;{' '}
+        <a href="https://jackieglimp.com">Jackie Glimp</a>
       </section>
     </footer>
   );

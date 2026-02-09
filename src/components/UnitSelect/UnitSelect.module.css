@@ -37,10 +37,6 @@
   margin-block-end: var(--spacer-0-5);
 }
 
-.plural .unit::after {
-  content: 's';
-}
-
 .conversion {
   display: block;
   font-size: 0.625rem;

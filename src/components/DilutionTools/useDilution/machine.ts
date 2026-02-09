@@ -1,7 +1,7 @@
 import { assign, setup } from 'xstate';
 
-import convertABV from '../../../utils/convertABV';
-import dilute from '../../../utils/dilute';
+import { convertABV } from '../../../utils/convertABV';
+import { dilute } from '../../../utils/dilute';
 import { Measure, Unit, VolumeDirection } from '../../../utils/types';
 
 export type DilutionResults = {
@@ -37,31 +37,35 @@ export type DilutionMachineEvents =
   | { type: 'SET_DESIRED_ABV'; value: string }
   | { type: 'SET_SHOW_RESULTS'; show: boolean };
 
-const computeResults = (
-  amount: number,
-  desiredABV: number,
-  startingABV: number,
-  unit: Unit,
-  volume: VolumeDirection,
-): DilutionResults => {
-  const dilutionResults = dilute(amount, desiredABV, startingABV, unit, volume);
-
-  return {
-    displayResults: dilutionResults.displayResults,
-    displayUnits: dilutionResults.displayUnits,
-    finalAmountSpirit: dilutionResults.finalAmountSpirit,
-    finalAmountSpiritTranslated: dilutionResults.finalAmountSpiritTranslated,
-    resultsOz: dilutionResults.resultsOz,
-    resultsTranslated: dilutionResults.resultsTranslated,
-    translatedUnit: dilutionResults.translatedUnit,
-  };
+type ComputeResultsParams = {
+  amount: number;
+  desiredABV: number;
+  startingABV: number;
+  unit: Unit;
+  volume: VolumeDirection;
 };
 
-const validateABV = (
-  startingABV: number,
-  desiredABV: number,
-  measure: Measure,
-): number | null => {
+const computeResults = ({
+  amount,
+  desiredABV,
+  startingABV,
+  unit,
+  volume,
+}: ComputeResultsParams): DilutionResults => {
+  return dilute({ amount, desiredABV, startingABV, unit, volume });
+};
+
+type ValidateABVParams = {
+  startingABV: number;
+  desiredABV: number;
+  measure: Measure;
+};
+
+const validateABV = ({
+  startingABV,
+  desiredABV,
+  measure,
+}: ValidateABVParams): number | null => {
   const formattedStartingABV = Number(startingABV);
   const formattedDesiredABV = Number(desiredABV);
 
@@ -79,14 +83,23 @@ const validateABV = (
   return null;
 };
 
-const checkForError = (
-  value: string,
-  code: number,
-): { parsedValue: number; error: number | null; isError: boolean } => {
+type CheckForErrorParams = {
+  value: string;
+  code: number;
+};
+
+const checkForError = ({
+  value,
+  code,
+}: CheckForErrorParams): {
+  parsedValue: number;
+  error: number | null;
+  isError: boolean;
+} => {
   if (value === '' || value === '0') {
     return { parsedValue: 0, error: code, isError: true };
   }
-  return { parsedValue: parseInt(value), error: null, isError: false };
+  return { parsedValue: parseInt(value, 10), error: null, isError: false };
 };
 
 const DEFAULT_MEASURE: Measure = 'proof';
@@ -100,8 +113,14 @@ export const dilutionMachine = setup({
 }).createMachine({
   id: 'dilution',
   context: () => {
-    const defaultDesiredABV = convertABV(DEFAULT_MEASURE, 25);
-    const defaultStartingABV = convertABV(DEFAULT_MEASURE, 50);
+    const defaultDesiredABV = convertABV({
+      measure: DEFAULT_MEASURE,
+      value: 25,
+    });
+    const defaultStartingABV = convertABV({
+      measure: DEFAULT_MEASURE,
+      value: 50,
+    });
     const amount = 1;
     const volume: VolumeDirection = 'start';
 
@@ -116,43 +135,49 @@ export const dilutionMachine = setup({
       volume,
       error: null,
       showResults: false,
-      results: computeResults(
+      results: computeResults({
         amount,
-        defaultDesiredABV,
-        defaultStartingABV,
-        DEFAULT_UNIT,
+        desiredABV: defaultDesiredABV,
+        startingABV: defaultStartingABV,
+        unit: DEFAULT_UNIT,
         volume,
-      ),
+      }),
     };
   },
   on: {
     SET_VOLUME: {
       actions: assign(({ context, event }) => {
-        const results = computeResults(
-          context.amount,
-          context.desiredABV,
-          context.startingABV,
-          context.unit,
-          event.volume,
-        );
+        const results = computeResults({
+          amount: context.amount,
+          desiredABV: context.desiredABV,
+          startingABV: context.startingABV,
+          unit: context.unit,
+          volume: event.volume,
+        });
         return { volume: event.volume, results };
       }),
     },
     SET_MEASURE: {
       actions: assign(({ context, event }) => {
-        const desiredABV = convertABV(event.measure, context.desiredABV);
-        const startingABV = convertABV(event.measure, context.startingABV);
-        const displayMeasure = convertABV(
-          event.measure,
-          context.displayMeasure,
-        );
-        const results = computeResults(
-          context.amount,
+        const desiredABV = convertABV({
+          measure: event.measure,
+          value: context.desiredABV,
+        });
+        const startingABV = convertABV({
+          measure: event.measure,
+          value: context.startingABV,
+        });
+        const displayMeasure = convertABV({
+          measure: event.measure,
+          value: context.displayMeasure,
+        });
+        const results = computeResults({
+          amount: context.amount,
           desiredABV,
           startingABV,
-          context.unit,
-          context.volume,
-        );
+          unit: context.unit,
+          volume: context.volume,
+        });
         return {
           measure: event.measure,
           desiredABV,
@@ -165,7 +190,10 @@ export const dilutionMachine = setup({
     },
     SET_AMOUNT: {
       actions: assign(({ context, event }) => {
-        const { parsedValue, error, isError } = checkForError(event.amount, 1);
+        const { parsedValue, error, isError } = checkForError({
+          value: event.amount,
+          code: 1,
+        });
 
         if (isError) {
           return {
@@ -182,32 +210,35 @@ export const dilutionMachine = setup({
           };
         }
 
-        const results = computeResults(
-          parsedValue,
-          context.desiredABV,
-          context.startingABV,
-          context.unit,
-          context.volume,
-        );
+        const results = computeResults({
+          amount: parsedValue,
+          desiredABV: context.desiredABV,
+          startingABV: context.startingABV,
+          unit: context.unit,
+          volume: context.volume,
+        });
         return { amount: parsedValue, error: null, results };
       }),
     },
     SET_UNITS: {
       actions: assign(({ context, event }) => {
         const unit = event.unit as Unit;
-        const results = computeResults(
-          context.amount,
-          context.desiredABV,
-          context.startingABV,
+        const results = computeResults({
+          amount: context.amount,
+          desiredABV: context.desiredABV,
+          startingABV: context.startingABV,
           unit,
-          context.volume,
-        );
+          volume: context.volume,
+        });
         return { unit, results };
       }),
     },
     SET_STARTING_ABV: {
       actions: assign(({ context, event }) => {
-        const { parsedValue, error, isError } = checkForError(event.value, 2);
+        const { parsedValue, error, isError } = checkForError({
+          value: event.value,
+          code: 2,
+        });
 
         if (isError) {
           return {
@@ -224,18 +255,18 @@ export const dilutionMachine = setup({
           };
         }
 
-        const abvError = validateABV(
-          parsedValue,
-          context.desiredABV,
-          context.measure,
-        );
-        const results = computeResults(
-          context.amount,
-          context.desiredABV,
-          parsedValue,
-          context.unit,
-          context.volume,
-        );
+        const abvError = validateABV({
+          startingABV: parsedValue,
+          desiredABV: context.desiredABV,
+          measure: context.measure,
+        });
+        const results = computeResults({
+          amount: context.amount,
+          desiredABV: context.desiredABV,
+          startingABV: parsedValue,
+          unit: context.unit,
+          volume: context.volume,
+        });
         return {
           startingABV: parsedValue,
           error: abvError,
@@ -245,7 +276,10 @@ export const dilutionMachine = setup({
     },
     SET_DESIRED_ABV: {
       actions: assign(({ context, event }) => {
-        const { parsedValue, error, isError } = checkForError(event.value, 2);
+        const { parsedValue, error, isError } = checkForError({
+          value: event.value,
+          code: 2,
+        });
 
         if (isError) {
           return {
@@ -262,18 +296,18 @@ export const dilutionMachine = setup({
           };
         }
 
-        const abvError = validateABV(
-          context.startingABV,
-          parsedValue,
-          context.measure,
-        );
-        const results = computeResults(
-          context.amount,
-          parsedValue,
-          context.startingABV,
-          context.unit,
-          context.volume,
-        );
+        const abvError = validateABV({
+          startingABV: context.startingABV,
+          desiredABV: parsedValue,
+          measure: context.measure,
+        });
+        const results = computeResults({
+          amount: context.amount,
+          desiredABV: parsedValue,
+          startingABV: context.startingABV,
+          unit: context.unit,
+          volume: context.volume,
+        });
         return {
           desiredABV: parsedValue,
           error: abvError,

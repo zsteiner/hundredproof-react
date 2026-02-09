@@ -24,31 +24,28 @@ export const SegmentedButton = ({
   options,
   onChange,
 }: SegmentedButtonProps) => {
-  const segmentedButtonClasses = classNames({
-    [styles.segmentedButton]: true,
-    [className]: className,
-  });
+  const segmentedButtonClasses = classNames(styles.segmentedButton, className);
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) =>
     onChange(event.target.value);
 
   return (
     <ul className={segmentedButtonClasses}>
-      {options.map((option, index) => (
+      {options.map((option) => (
         <li
           className={styles.segmentedButtonItem}
-          key={index}
+          key={option.value}
         >
           <input
             defaultChecked={!!option.default}
             disabled={!!option.disabled}
-            id={`${name}${index}`}
+            id={`${name}-${option.value}`}
             name={name}
             onChange={handleOnChange}
             type="radio"
             value={option.value}
           />
-          <label htmlFor={`${name}${index}`}>
+          <label htmlFor={`${name}-${option.value}`}>
             <span>{option.label}</span>
           </label>
         </li>
