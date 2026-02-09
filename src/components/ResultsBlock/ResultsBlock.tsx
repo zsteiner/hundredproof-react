@@ -12,7 +12,9 @@ type ResultsBlockProps = {
 export const ResultsBlock = ({ result, showPlus }: ResultsBlockProps) => {
   const { amount, unit, ingredient } = result;
   const formattedUnit: string = pluralize(unit, amount);
-  const formattedAmount = amount ? round(amount, 2) : amount;
+  const formattedAmount = amount
+    ? round({ value: amount, decimals: 2 })
+    : amount;
 
   const pluralIngredient: string = pluralize(ingredient);
   const formattedIngredient: string =

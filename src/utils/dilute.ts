@@ -5,33 +5,44 @@ import round from './round';
 import setZero from './setZero';
 import startDilute from './startDilute';
 import translateResults from './translateResults';
-import { Unit } from './types';
+import { Unit, VolumeDirection } from './types';
 
-export default function dilute(
-  amount: number,
-  desiredABV: number,
-  startingABV: number,
-  unit: Unit,
-  volume: string,
-) {
+type DiluteParams = {
+  amount: number;
+  desiredABV: number;
+  startingABV: number;
+  unit: Unit;
+  volume: VolumeDirection;
+};
+
+export default function dilute({
+  amount,
+  desiredABV,
+  startingABV,
+  unit,
+  volume,
+}: DiluteParams) {
   amount = setZero(Number(amount));
   desiredABV = setZero(Number(desiredABV));
   startingABV = setZero(Number(startingABV));
 
-  amount = convertUnits(amount, unit);
+  amount = convertUnits({ amount, unit });
 
   let amountWaterOz: number;
 
   if (volume === 'end') {
-    amountWaterOz = endDilute(amount, desiredABV, startingABV);
+    amountWaterOz = endDilute({ amount, desiredABV, startingABV });
   } else {
-    amountWaterOz = startDilute(amount, desiredABV, startingABV);
+    amountWaterOz = startDilute({ amount, desiredABV, startingABV });
   }
 
   const useCups = amountWaterOz >= 2;
 
-  const resultsOz = round(amountWaterOz, 2);
-  const resultsTranslated = translateResults(useCups, amountWaterOz);
+  const resultsOz = round({ value: amountWaterOz, decimals: 2 });
+  const resultsTranslated = translateResults({
+    useCups,
+    amount: amountWaterOz,
+  });
 
   const isCups = unit === 'cup';
   const isVolEnd = volume === 'end';
@@ -41,13 +52,13 @@ export default function dilute(
 
   const finalAmount = isVolEnd ? amount : amount + resultsOz;
   const finalAmountSpirit = amount - resultsOz;
-  const finalAmountSpiritTranslated = translateResults(
+  const finalAmountSpiritTranslated = translateResults({
     useCups,
-    finalAmountSpirit,
-  );
+    amount: finalAmountSpirit,
+  });
   const displayResults = isCups ? convertCups(finalAmount) : finalAmount;
 
-  const results = {
+  return {
     finalAmountSpirit,
     finalAmountSpiritTranslated,
     resultsOz,
@@ -56,6 +67,4 @@ export default function dilute(
     resultsTranslated,
     translatedUnit,
   };
-
-  return results;
 }

@@ -1,11 +1,16 @@
 import { conversions } from './conversions';
 import { Unit } from './types';
 
-export default function convertUnits(amount: number, unit: Unit) {
+type ConvertUnitsParams = {
+  amount: number;
+  unit: Unit;
+};
+
+export default function convertUnits({ amount, unit }: ConvertUnitsParams) {
   if (unit === 'cup') {
-    amount = amount * conversions.ozToCups;
+    return amount * conversions.ozToCups;
   } else if (unit === 'jigger') {
-    amount = amount * conversions.ozToJigger;
+    return amount * conversions.ozToJigger;
   }
 
   return amount;
