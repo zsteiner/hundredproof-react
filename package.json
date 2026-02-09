@@ -23,7 +23,9 @@
     "lint:style": "stylelint 'src/**/*.css' --fix",
     "start": "next start",
     "test": "jest",
-    "test:e2e": "playwright test"
+    "test:e2e": "npx playwright test",
+    "test:e2e:ui": "npx playwright test --ui",
+    "test:e2e:headed": "npx playwright test --headed"
   },
   "browserslist": [
     "> 1%",
