@@ -15,7 +15,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "npm run lint:js && npm run run lint:style",
+    "lint": "npm run lint:js && npm run lint:style",
     "lint:fix": "npm run lint:js:fix && npm run lint:style",
     "lint:js": "eslint .",
     "lint:js:fix": "eslint --fix .",
